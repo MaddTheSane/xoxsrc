@@ -5,18 +5,18 @@
 
 @interface ActorMgr: NSObject
 {
-    id	employedList;
-    id	retireList;
+    NSMutableArray	*employedList;
+    NSArray	*retireList;
 	int requestedLevel;
-	id	goodList, badList, destroyAllList;
+	NSArray	*goodList, *badList, *destroyAllList;
 	id collider;
 	GAME_STATUS gameStatus;
 }
 
 - createCollisionLists;
-- makeActorsPerform:(SEL)action;
-- oneStep;
-- requestLevel:(int)lev;
+- (void)makeActorsPerform:(SEL)action;
+- (void)oneStep;
+- (void)requestLevel:(int)lev;
 - _createLevel:(int)lev;
 - (Actor *) newActor:(int)actorType for:sender tag:(int)tag;
 - destroyActor:theActor;

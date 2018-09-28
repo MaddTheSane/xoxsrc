@@ -21,12 +21,13 @@
 {	return [self initWithScenario:nil name:NULL path:NULL];
 }
 
-- initWithScenario:aScenario name:(const char *)aName path:(const char *)aPath
+- initWithScenario:aScenario name:(NSString *)aName path:(NSString *)aPath
 {
-	[super init];
+	if (self = [super init]) {
 	scenario = aScenario;
-	scenarioName = str_copy(aName);
-	path = str_copy(aPath);
+	scenarioName = [aName copy];
+	path = [aPath copy];
+	}
 	return self;
 }
 
@@ -65,20 +66,9 @@
 	return gameStatus;
 }
 
-- (const char *) scenarioName
-{	return scenarioName;
-}
+@synthesize scenarioName;
 
-- (const char *) path
-{	return path;
-}
-
-- setPath: (const char *)p
-{
-	str_free(path);
-	path = str_copy(p);
-	return self;
-}
+@synthesize path;
 
 - appendPath: (const char *)p
 {
@@ -126,15 +116,6 @@
 	str_free(altPaths);
 	altPaths = NULL;
 	return self;
-}
-
-- free
-{
-	[scenario free];
-	str_free(scenarioName);
-	str_free(path);
-	str_free(altPaths);
-	return [super free];
 }
 
 @end

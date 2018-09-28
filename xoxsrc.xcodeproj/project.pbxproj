@@ -212,7 +212,7 @@
 		55EDCF8F215EC2000054C4F3 /* XXShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXShip.m; sourceTree = "<group>"; };
 		55EDCF91215EC2000054C4F3 /* xoxext.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = xoxext.tiff; sourceTree = "<group>"; };
 		55EDCF92215EC2000054C4F3 /* xoxicon.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = xoxicon.tiff; sourceTree = "<group>"; };
-		55EDD02A215EC62C0054C4F3 /* Boink.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Boink.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		55EDD02A215EC62C0054C4F3 /* Boink.XoX */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Boink.XoX; sourceTree = BUILT_PRODUCTS_DIR; };
 		55EDD034215EC65C0054C4F3 /* BOBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOBall.h; sourceTree = "<group>"; };
 		55EDD035215EC65C0054C4F3 /* BOBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOBall.m; sourceTree = "<group>"; };
 		55EDD036215EC65C0054C4F3 /* BOballs.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = BOballs.tiff; sourceTree = "<group>"; };
@@ -266,7 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				55682854215EBA9A0099E344 /* xoxsrc.app */,
-				55EDD02A215EC62C0054C4F3 /* Boink.bundle */,
+				55EDD02A215EC62C0054C4F3 /* Boink.XoX */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -587,7 +587,7 @@
 			);
 			name = Boink;
 			productName = Boink;
-			productReference = 55EDD02A215EC62C0054C4F3 /* Boink.bundle */;
+			productReference = 55EDD02A215EC62C0054C4F3 /* Boink.XoX */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -899,7 +899,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.maddthesane.Boink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
+				WRAPPER_EXTENSION = XoX;
 			};
 			name = Debug;
 		};
@@ -913,7 +913,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.maddthesane.Boink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
+				WRAPPER_EXTENSION = XoX;
 			};
 			name = Release;
 		};

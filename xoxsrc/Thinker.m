@@ -414,15 +414,3 @@ float randBetween(float a, float b)
     return self;
 }
 @end
-
-@implementation List (XoxAdditions)
-
-- performInOrder:(SEL)aSelector
-{
-    int i, count = numElements;
-    for (i=0; i<count; i++)
-		[dataPtr[i] perform: aSelector];
-    return self;
-}
-
-@end

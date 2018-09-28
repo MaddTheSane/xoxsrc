@@ -13,7 +13,7 @@ int level;
 id keyTimerList;
 extern BOOL pauseState;
 
-@implementation Object (actorMgrAdditions)
+@implementation NSObject (actorMgrAdditions)
 - (BOOL) addToEmployedList:dude
 {	return YES;
 }
@@ -24,17 +24,18 @@ extern BOOL pauseState;
 
 - init
 {
-	[super init];
+	if (self = [super init]) {
 
-	employedList = [[List allocFromZone:[self zone]] init];
-	retireList = [[List allocFromZone:[self zone]] init];
+	employedList = [[NSMutableArray alloc] init];
+	retireList = [[NSMutableArray alloc] init];
 
-	goodList = [[List allocFromZone:[self zone]] init];
-	badList = [[List allocFromZone:[self zone]] init];
-	destroyAllList = [[List allocFromZone:[self zone]] init];
-	keyTimerList = [[List allocFromZone:[self zone]] init];
+	goodList = [[NSMutableArray alloc] init];
+	badList = [[NSMutableArray alloc] init];
+	destroyAllList = [[NSMutableArray alloc] init];
+	keyTimerList = [[NSMutableArray alloc] init];
 
 	requestedLevel = -1;
+	}
 
 	return self;
 }
@@ -42,10 +43,10 @@ extern BOOL pauseState;
 - createCollisionLists
 {
 	Actor *act;
-	int i, count = [employedList count];
+	NSInteger i, count = [employedList count];
 	for (i=0; i<count; i++)
 	{
-		act = (Actor *)[employedList objectAt:i];
+		act = (Actor *)[employedList objectAtIndex:i];
 		if ((act->x > gx + collisionDistance*xOffset) || 
 			(act->x < gx - collisionDistance*xOffset) || 
 			(act->y > gy + collisionDistance*yOffset) || 
@@ -78,7 +79,7 @@ extern BOOL pauseState;
 {
 	int i, j, count, count2;
 	Actor *actor1, *actor2;
-	id list1=nil, list2=nil;
+	NSArray *list1=nil, *list2=nil;
 	COLLISION_PARADIGM how2collide;
 
 	how2collide = [scenario collisionParadigm];
@@ -109,8 +110,8 @@ extern BOOL pauseState;
 			for (i=0; i<count; i++)
 			for (j=0; j<count2; j++)
 			{
-				actor1 = (Actor *)[list1 objectAt:i];
-				actor2 = (Actor *)[list2 objectAt:j];
+				actor1 = (Actor *)[list1 objectAtIndex:i];
+				actor2 = (Actor *)[list2 objectAtIndex:j];
 				if (actorsCollide(actor1,actor2))
 //				if ([actor1 collideWith:actor2])
 				{
@@ -129,8 +130,8 @@ extern BOOL pauseState;
 		for (i=0; i<count-1; i++)
 		for (j=i+1; j<count; j++)
 		{
-			actor1 = (Actor *)[employedList objectAt:i];
-			actor2 = (Actor *)[employedList objectAt:j];
+			actor1 = (Actor *)[employedList objectAtIndex:i];
+			actor2 = (Actor *)[employedList objectAtIndex:j];
 
 			if (actorsCollide(actor1,actor2))
 //			if ([actor1 collideWith:actor2])
@@ -150,13 +151,12 @@ extern BOOL pauseState;
 	return self;
 }
 
-- makeActorsPerform:(SEL)action
+- (void)makeActorsPerform:(SEL)action
 {
-	[employedList performInOrder:action];
-	return self;
+	[employedList makeObjectsPerformSelector:action];
 }
 
-- oneStep
+- (void)oneStep
 {
 	int i, count;
 	Actor *actor1;
@@ -164,13 +164,13 @@ extern BOOL pauseState;
 	if (requestedLevel >= 0)
 	{
 		[self _createLevel:requestedLevel];
-		[[gameList objectAt: gameIndex] setLevel:requestedLevel];
+		[[gameList objectAtIndex: gameIndex] setLevel:requestedLevel];
 		requestedLevel = -1;
 	}
 
-	[keyTimerList performInOrder:@selector(preOneStep)];
+	[keyTimerList makeObjectsPerformSelector:@selector(preOneStep)];
 
-	[employedList performInOrder:@selector(oneStep)];
+	[employedList makeObjectsPerformSelector:@selector(oneStep)];
 
 	if (gameStatus == GAME_RUNNING)
 		[collider doCollisions];
@@ -179,7 +179,7 @@ extern BOOL pauseState;
 	count = [retireList count];
 	for (i=0; i<count; i++)
 	{
-		actor1 = (Actor *)[retireList objectAt:i];
+		actor1 = (Actor *)[retireList objectAtIndex:i];
 		if (!actor1->employed)
 			[employedList removeObject:actor1];
 	}
@@ -190,14 +190,11 @@ extern BOOL pauseState;
 
 	[employedList performInOrder:@selector(scheduleDrawing)];
 	[keyTimerList performInOrder:@selector(postOneStep)];
-
-	return self;
 }
 
-- requestLevel:(int)lev
+- (void)requestLevel:(int)lev
 {
 	requestedLevel = lev;
-	return self;
 }
 
 // This method begins with an underbar because it's not safe for

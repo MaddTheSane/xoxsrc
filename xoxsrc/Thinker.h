@@ -1,7 +1,8 @@
 
 #import <AppKit/AppKit.h>
 
-extern id gameList;
+@class GameInfo;
+extern NSMutableArray<GameInfo*> *gameList;
 extern int gameIndex;
 
 @interface Thinker: NSObject
@@ -59,10 +60,7 @@ extern int gameIndex;
 - (BOOL)bigWindowOK;
 @end
 
-@interface List (XoxAdditions)
-- performInOrder:(SEL)aSelector;
-@end
 
-@interface Object (thinkerAdditions)
+@interface NSObject (thinkerAdditions)
 - (BOOL) shouldObscureCursor;
 @end

@@ -1,6 +1,5 @@
 #import <AppKit/AppKit.h>
-#import <objc/Object.h>
-#import <soundkit/soundkit.h>
+#include <CoreAudio/CoreAudio.h>
 
 #define MAX_STREAMS 8
 

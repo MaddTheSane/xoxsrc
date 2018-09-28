@@ -99,7 +99,7 @@
 
 extern BOOL actorsCollide(Actor *a1, Actor *a2);
 
-@interface Object (scoreKeepingMethods)
+@interface NSObject (scoreKeepingMethods)
 - (int)setScore:(int)val for:dude;
 - (int)addToScore:(int)val for:dude gen:(int)age;
 - (int)score;

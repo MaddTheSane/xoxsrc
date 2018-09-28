@@ -8,24 +8,22 @@
 @interface GameInfo: NSObject
 {
 	id	scenario;
-	char *scenarioName;
-	char *path;
+	NSString *scenarioName;
+	NSString *path;
 	char *altPaths;
 	int level;
 	GAME_STATUS gameStatus;
 }
 
 - (id)init;
-- initWithScenario:aScenario name:(const char *)aName path:(const char *)aPath;
+- initWithScenario:aScenario name:(NSString *)aName path:(NSString *)aPath;
 - setScenario:newScenario;
 - scenario;
-- (const char *) scenarioName;
-- (const char *) path;
-- setPath: (const char *)p;
+@property (readonly, copy) NSString *scenarioName;
+@property (copy) NSString *path;
 - appendPath: (const char *)p;
 - useNextPath;
 - discardAltPaths;
-- free;
 - (int) setLevel:(int)newLevel;
 - (int) level;
 - (GAME_STATUS) setStatus:(GAME_STATUS)newStatus;

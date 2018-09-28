@@ -5,9 +5,9 @@
 @interface CacheManager: NSObject
 {
 	id cache;
-	List *displayList;			// everything needed to construct the cache
-	Storage *drawRectList;		// used to flush the cache
-	Storage *eraseRectList;		// used to erase the cache
+	NSMutableArray *displayList;			// everything needed to construct the cache
+	NSMutableArray *drawRectList;		// used to flush the cache
+	NSMutableArray *eraseRectList;		// used to erase the cache
 	NSImage *virgin;			// virgin background buffer for erasures
 	NSImage *tile;				// image used to tile virgin background
 }

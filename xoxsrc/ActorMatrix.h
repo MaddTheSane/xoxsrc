@@ -1,10 +1,10 @@
 
 #import "Actor.h"
-#import <objc/Storage.h>
+#import <Foundation/Foundation.h>
 
 @interface ActorMatrix:Actor
 {
-	Storage *formation;
+	NSArray *formation;
     int rows;
 	int columns;
 	float actWidth;
@@ -25,12 +25,6 @@
 		:(int *)begc :(int *)endc :(int *)begr :(int *)endr;
 
 
-@end
-
-@interface Storage (gimmeTheData)
-- (id *) idAt:(int)ndx;
-- actorAt:(int)ndx;
-- replaceActorAt:(unsigned int)index with:theActor;
 @end
 
 typedef struct {

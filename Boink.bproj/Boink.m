@@ -23,7 +23,7 @@ static int whichImage;
 	[actorMgr newActor:(int)[BOSkull class] for:self tag:0];
 	for (i=0; i<7; i++)
 		[actorMgr newActor:(int)[BOBall class] for:self tag:GOOD];
-	[[mainView window] setTitle:"Boink"];
+	[[mainView window] setTitle:@"Boink"];
 
 	sprintf(str,"BOtile%02d.tiff",(whichImage++)%6);
 	[cacheMgr tileUsing:[[BOBall class] findImageNamed:str]];
