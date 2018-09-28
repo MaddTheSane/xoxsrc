@@ -1,0 +1,102 @@
+ActorMgr = {
+    OUTLETS = {
+	retireList;
+	employedList;
+    };
+    SUPERCLASS = Object;
+};
+FirstResponder = {
+    ACTIONS = {
+    };
+    SUPERCLASS = Object;
+};
+Thinker = {
+    ACTIONS = {
+	appDidInit:;
+	setSound:;
+	newGame:;
+	toggleFullScreen:;
+	toggleUserPause:;
+	selectGame:;
+    };
+    OUTLETS = {
+	soundsToCache;
+	soundButton;
+	scenarioBrowser;
+	gameWindow;
+	backView;
+	imageNames;
+	progressView;
+	statusText;
+	invisibleInfoBox;
+	imageRequestor;
+	littleWindow;
+	bigWindow;
+	nullInfoBox;
+    };
+    SUPERCLASS = Object;
+};
+Explosion = {
+    SUPERCLASS = Actor;
+};
+EKProgressView = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+    };
+    SUPERCLASS = View;
+};
+Xoxeroids = {
+    SUPERCLASS = Object;
+};
+Actor = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+	image;
+    };
+    SUPERCLASS = Object;
+};
+Cannonball = {
+    SUPERCLASS = Actor;
+};
+Bullet = {
+    SUPERCLASS = Actor;
+};
+BackView = {
+    SUPERCLASS = View;
+};
+StatusView = {
+    SUPERCLASS = View;
+};
+SpaceGen = {
+    SUPERCLASS = Actor;
+};
+CacheObject = {
+    SUPERCLASS = Object;
+};
+Ship = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+	flame2;
+	noflame;
+	flame1;
+    };
+    SUPERCLASS = Actor;
+};
+MineFragment = {
+    SUPERCLASS = Actor;
+};
+Cannon = {
+    SUPERCLASS = Actor;
+};
+DisplayManager = {
+    SUPERCLASS = Object;
+};
+Asteroid = {
+    SUPERCLASS = Actor;
+};
+SpaceSpinGen = {
+    SUPERCLASS = Actor;
+};

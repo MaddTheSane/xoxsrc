@@ -1,0 +1,74 @@
+SWScoreView = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+    };
+    SUPERCLASS = View;
+};
+Actor = {
+    ACTIONS = {
+	activate:;
+    };
+    OUTLETS = {
+	image;
+    };
+    SUPERCLASS = Object;
+};
+FirstResponder = {
+    ACTIONS = {
+    };
+    SUPERCLASS = Object;
+};
+SpaceGen = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+    };
+    SUPERCLASS = Actor;
+};
+Ship = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+	flame2;
+	noflame;
+	flame1;
+    };
+    SUPERCLASS = Actor;
+};
+SpaxeWars = {
+    ACTIONS = {
+	adjustSettings:;
+    };
+    OUTLETS = {
+	dartButton;
+	bulletMatrix;
+	scoreView;
+	gravityMatrix;
+	settingsMatrix;
+	badShip;
+	clawButton;
+	uselessBox;
+	meteorsSlider;
+	goodShip;
+	clawKillsText;
+	dartKillsText;
+	infoView;
+	space;
+	sun;
+    };
+    SUPERCLASS = Object;
+};
+Bullet = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+    };
+    SUPERCLASS = Actor;
+};
+SWShip = {
+    SUPERCLASS = Ship;
+};
+SWSpaceGen = {
+    SUPERCLASS = SpaceGen;
+};

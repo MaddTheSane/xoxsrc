@@ -1,0 +1,19 @@
+BUNDLE_EXTENSION = XoX;
+FILESTABLE = {
+    SOUNDS = (sndEeOo.snd, sndHi.snd);
+    CLASSES = (Asteroid.m, Base.m, Cannon.m, Cannonball.m, Cave.m, Eye.m, Mine.m, MineFragment.m, Rocket.m, RocketMatrix.m, RotBox.m, ScoreView.m, Xoxeroids.m, XXShip.m);
+    OTHER_RESOURCES = ();
+    OTHER_SOURCES = (Makefile.preamble, Makefile, Makefile.postamble);
+    H_FILES = (Actor.h, ActorMatrix.h, ActorMgr.h, Asteroid.h, BackView.h, Base.h, Bullet.h, CacheManager.h, Cannon.h, Cannonball.h, Cave.h, DisplayManager.h, Explosion.h, Eye.h, GOLetter.h, KeyTimer.h, Mine.h, MineFragment.h, Rocket.h, RocketMatrix.h, RotBox.h, Scenario.h, ScoreView.h, Ship.h, SoundMgr.h, Thinker.h, xoxDefs.h, Xoxeroids.h, XXShip.h);
+    INTERFACES = (xoxeroids.nib);
+    IMAGES = (base.tiff, bigMineArray.tiff, bigMineArray2.tiff, cannon1.tiff, cannonball1.tiff, cave.tiff, crabneb.tiff, eye.tiff, ganymedeB.tiff, ganymedeM.tiff, ganymedeS.tiff, ioB.tiff, ioM.tiff, ioS.tiff, jupiterB.tiff, jupiterM.tiff, jupiterS.tiff, mineFrag.tiff, rockB.tiff, rocket1.tiff, rocket2.tiff, rockM.tiff, rockS.tiff, rotBall.tiff, rotBox1.tiff, rotBox2.tiff, skulls.tiff, smiley.tiff);
+};
+LOCALIZABLE_FILES = {
+    xoxeroids.nib;
+};
+PROJECTVERSION = 1.1;
+PROJECTTYPE = Bundle;
+PROJECTNAME = Xoxeroids;
+GENERATEMAIN = YES;
+LANGUAGE = English;
+DOCICONFILES = ();

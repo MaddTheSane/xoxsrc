@@ -1,0 +1,13 @@
+FirstResponder = {
+    ACTIONS = {
+    };
+    SUPERCLASS = Object;
+};
+Boink = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+	infoView;
+    };
+    SUPERCLASS = Object;
+};

@@ -1,0 +1,28 @@
+Xoxeroids = {
+    ACTIONS = {
+	gotoLevel:;
+    };
+    OUTLETS = {
+	infoView;
+	ship;
+	space;
+	scoreView;
+	uselessView;
+    };
+    SUPERCLASS = Object;
+};
+FirstResponder = {
+    ACTIONS = {
+    };
+    SUPERCLASS = Object;
+};
+ScoreView = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+	scoreField;
+	livesField;
+	levelField;
+    };
+    SUPERCLASS = View;
+};

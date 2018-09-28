@@ -1,0 +1,17 @@
+DOCICONFILES = ();
+FILESTABLE = {
+    SOUNDS = (sndBullet1.snd, sndBullet2.snd, sndExplosion1.snd, sndExplosion2.snd, sndExplosion3.snd, sndFutility.snd, sndShip.snd, sndWarp.snd);
+    CLASSES = (Bullet.m, CommonStuff.m, Explosion.m, GOLetter.m, Shield.m, Ship.m, SpaceGen.m, SpaceSpinGen.m);
+    OTHER_RESOURCES = ();
+    OTHER_SOURCES = (Makefile.preamble, Makefile, Makefile.postamble);
+    H_FILES = (Actor.h, ActorMgr.h, Bullet.h, CacheManager.h, CommonStuff.h, DisplayManager.h, Explosion.h, GOLetter.h, KeyTimer.h, Scenario.h, Shield.h, Ship.h, SoundMgr.h, SpaceGen.h, SpaceSpinGen.h, Thinker.h, xoxDefs.h, Xoxeroids.h);
+    IMAGES = (bullets1.tiff, explosionM.tiff, explosionS.tiff, flame1.tiff, flame2.tiff, GameOver.tiff, shield.tiff, ship.tiff);
+};
+LOCALIZABLE_FILES = {
+};
+PROJECTVERSION = 1.1;
+PROJECTTYPE = Bundle;
+PROJECTNAME = CommonEffects;
+GENERATEMAIN = YES;
+LANGUAGE = English;
+BUNDLE_EXTENSION = XoXo;

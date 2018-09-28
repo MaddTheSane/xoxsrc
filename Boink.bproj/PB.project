@@ -1,0 +1,19 @@
+DOCICONFILES = ();
+DOCEXTENSIONS = ();
+LOCALIZABLE_FILES = {
+    boink.nib;
+};
+PROJECTVERSION = 1.1;
+INSTALLDIR = "$(HOME)/Library/XoxGames";
+PROJECTTYPE = Bundle;
+PROJECTNAME = Boink;
+GENERATEMAIN = YES;
+LANGUAGE = English;
+FILESTABLE = {
+    OTHER_SOURCES = (Makefile.preamble, Makefile, Makefile.postamble);
+    IMAGES = (BOballs.tiff, BObrick.tiff, BOskulls.tiff, BOtile00.tiff, BOtile01.tiff, BOtile02.tiff, BOtile03.tiff, BOtile04.tiff, BOtile05.tiff);
+    H_FILES = (Actor.h, ActorMgr.h, BackView.h, BOBall.h, BOBrick.h, Boink.h, CacheManager.h, Scenario.h, SpaceSpinGen.h, Thinker.h, xoxDefs.h);
+    INTERFACES = (boink.nib);
+    CLASSES = (BOBall.m, BOBrick.m, Boink.m);
+};
+BUNDLE_EXTENSION = XoX;

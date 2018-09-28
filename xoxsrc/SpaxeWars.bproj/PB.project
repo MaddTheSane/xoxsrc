@@ -1,0 +1,19 @@
+LANGUAGE = English;
+FILESTABLE = {
+    SOUNDS = ();
+    CLASSES = (SpaxeWars.m, SWBullet.m, SWMeteor.m, SWScoreView.m, SWShip.m, SWSpaceGen.m, SWSun.m);
+    OTHER_RESOURCES = ();
+    OTHER_SOURCES = (Makefile.preamble, Makefile, Makefile.postamble);
+    H_FILES = (Actor.h, ActorMgr.h, BackView.h, Bullet.h, CacheManager.h, DisplayManager.h, Explosion.h, GOLetter.h, KeyTimer.h, Scenario.h, Ship.h, SoundMgr.h, SpaceGen.h, SpaxeWars.h, SWBullet.h, SWMeteor.h, SWScoreView.h, SWShip.h, SWSpaceGen.h, SWSun.h, Thinker.h, xoxDefs.h);
+    INTERFACES = (spaxewars.nib);
+    IMAGES = (claw0.tiff, claw1.tiff, claw2.tiff, dart0.tiff, dart1.tiff, dart2.tiff, spbullet0.tiff, spbullet1.tiff, sun.tiff, swmeteor.tiff);
+};
+LOCALIZABLE_FILES = {
+    spaxewars.nib;
+};
+PROJECTVERSION = 1.1;
+PROJECTTYPE = Bundle;
+PROJECTNAME = Spaxewars;
+GENERATEMAIN = YES;
+DOCICONFILES = ();
+BUNDLE_EXTENSION = XoX;

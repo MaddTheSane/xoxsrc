@@ -1,0 +1,30 @@
+INSTALLDIR = "$(HOME)/Apps";
+APPICON = xoxicon.tiff;
+GENERATEMAIN = NO;
+DOCICONFILES = (xoxext.tiff);
+FILESTABLE = {
+    M_FILES = (Xox_main.m);
+    OTHER_LINKED = ();
+    H_FILES = (Actor.h, ActorMatrix.h, ActorMgr.h, Asteroid.h, BackView.h, BackWindow.h, CacheManager.h, collisions.h, DisplayManager.h, EKProgressView.h, GameInfo.h, KeyTimer.h, Scenario.h, Ship.h, SoundMgr.h, Thinker.h, UserPath.h, xoxDefs.h, Xoxeroids.h);
+    CLASSES = (Actor.m, ActorMatrix.m, ActorMgr.m, BackView.m, BackWindow.m, CacheManager.m, collisions.m, DisplayManager.m, EKProgressView.m, GameInfo.m, KeyTimer.m, SoundMgr.m, Think2.m, Thinker.m, UserPath.m);
+    IMAGES = (funnyFace.tiff, funnyFace2.tiff, sam.tiff);
+    PSW_FILES = (psfuncts.psw);
+    OTHER_RESOURCES = ();
+    OTHER_SOURCES = (Makefile, Makefile.preamble, README.rtf);
+    SUBPROJECTS = ();
+    SOUNDS = ();
+    BUNDLES = (Xoxeroids.bproj, CommonEffects.bproj, SpaxeWars.bproj);
+    OTHER_LIBS = (NeXT_s);
+    INTERFACES = (Xox.nib);
+};
+APPCLASS = Application;
+MAINNIB = Xox;
+DOCEXTENSIONS = (XoX);
+PROJECTTYPE = Application;
+PROJECTVERSION = 1.1;
+LOCALIZABLE_FILES = {
+    Xox.nib;
+};
+PROJECTNAME = Xox;
+SYSTEMEXTENSIONS = ();
+LANGUAGE = English;

@@ -1,0 +1,14 @@
+defineps tweakWindow(userobject windowNum ; int level)
+
+	% tweaks a window so it works as a background window
+
+	level windowNum setwindowlevel
+	true windowNum setautofill
+	
+	gsave
+	windowNum windowdeviceround
+	0 setgray
+	setexposurecolor
+	grestore
+
+endps

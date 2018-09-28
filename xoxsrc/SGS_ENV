@@ -1,0 +1,28 @@
+#
+# NRW Cross compilation environment until all the makefiles get fixed.
+#
+
+make=/bin/make
+	-/RC_ARCHS/ $ "RC_CFLAGS=-arch m98k" RC_ARCHS=m98k MACHINE=m98k
+
+cc=/bin/cc
+	^ -I/Net/agnosis/mk/osdev/MKNRW/mknrw
+	^ -I/Net/agnosis/mk/osdev/ARCHITECTURE
+	-/-DLOCALARCHITECTURE/ ^ -B/usr/local/cross_bin/
+#	+/-arch m88k/ $ -fno-delayed-branch
+#	+/-arch m88k/ s -O2=-O
+#	+/-arch m88k/ ^ -DBRINGUP
+#	+/-arch m88k/ $ -fno-omit-frame-pointer
+	+/-o sh.proc.o/ s -O2= 
+	
+ld=/Net/georgia/heard/enderby/m98k/ld-15.1
+	+/-arch m98k/ ^ -L/Net/gatekeeper/nrw/dclegg/m98k
+	+/-arch m98k/ s /lib/crt0.o=-lcrt0.o
+	+/-arch m98k/ s /lib/mcrt0.o=-lmcrt0.o
+	+/-arch m98k/ s /lib/gcrt0.o=-lgcrt0.o
+	+/-arch m98k/ s /lib/pscrt0.o=-lpscrt0.o
+	+/-object/ ^ -seg1addr 0x13a00000
+	+/-lcs/ ^ -L/Net/newton/sci/jdoenias/m98k/libcs
+	+/-lsys_s/  ^ -segaddr __TEXT 0x13a00000
+	+/-lNeXT_s/ ^ -L/Net/newton/sci/jdoenias/m98k/libnext_sym/m98k_sym
+	s -lMedia_s=
