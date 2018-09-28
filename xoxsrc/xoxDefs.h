@@ -1,4 +1,5 @@
 
+@class BackView;
 
 extern float randBetween(float a, float b);
 
@@ -9,7 +10,7 @@ extern float collisionDistance;
 extern float gx, gy;
 extern id scenario, actorMgr, cacheMgr, displayMgr, soundMgr;
 extern id mainView;		// whatever the windows main view is
-extern id abackView;	// an available BackView; use but don't reassign
+extern BackView *abackView;	// an available BackView; use but don't reassign
 extern id gcontentView;
 extern id keyTimerList;
 extern float xOffset, yOffset;
