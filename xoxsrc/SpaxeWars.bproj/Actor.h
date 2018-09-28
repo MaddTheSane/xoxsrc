@@ -3,7 +3,7 @@
 // the methods in there; they are hooks for subclassing and most are
 // notifications sent only by the various managers.
 
-#import <appkit/appkit.h>
+#import <AppKit/AppKit.h>
 #import "xoxDefs.h"
 
 @interface Actor:Object
@@ -12,7 +12,7 @@
 @public
 	int numFrames;
 	int frame;
-	NXSize frameSize;
+	NSSize frameSize;
 	id image;
 	BOOL employed;
 	float theta;			// generally the direction of travel
@@ -24,17 +24,17 @@
 	COLLISION_SHAPE collisionShape;
 	ALLIANCE alliance;
 	TIER tier;
-	NXRect drawRect;		// position in cache
-	NXRect eraseRect;		// optimization, draw rect likely to overlap erasure
-	NXRect collisionRect;	// position in universe
+	NSRect drawRect;		// position in cache
+	NSRect eraseRect;		// optimization, draw rect likely to overlap erasure
+	NSRect collisionRect;	// position in universe
 	float radius;			// used for circular collisions
 	BOOL buffered;
-	NXSize distToCorner;
+	NSSize distToCorner;
 	int actorType;
 
-	NXRect *complexShapePtr;	// a pointer to rect list or lines, as necessary
+	NSRect *complexShapePtr;	// a pointer to rect list or lines, as necessary
 	int complexShapeCnt;
-	NXPoint shapeArray[5];		// area for converting rects and circs to lines
+	NSPoint shapeArray[5];		// area for converting rects and circs to lines
 								// may be used as scratch area by collision manager
 	int pointValue;
 	id scoreTaker;
@@ -48,7 +48,7 @@
 // this method reinitializes an Actor, it may be called many times
 // typically from within activate
 - reinitWithImage:(const char *)imageName
-	frameSize:(NXSize *) size
+	frameSize:(NSSize *) size
 	numFrames:(int)frames
 	shape: (COLLISION_SHAPE)shape
 	alliance: (ALLIANCE)al
@@ -59,7 +59,7 @@
 	theta: (float) thta
 	vel: (float) v
 	interval: (unsigned) time
-	distToCorner: (NXSize *)d2c;
+	distToCorner: (NSSize *)d2c;
 
 // only sent by the actor manager, should reintialize the object
 - activate:sender :(int)tag;
@@ -70,7 +70,7 @@
 - erase;
 
 - positionChanged;
-- calcDxDy:(NXPoint *)dp;
+- calcDxDy:(NSPoint *)dp;
 - calcDrawRect;
 - moveBy:(float)dx :(float)dy;
 - moveTo:(float)newx :(float)newy;

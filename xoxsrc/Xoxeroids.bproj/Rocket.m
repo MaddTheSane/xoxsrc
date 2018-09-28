@@ -10,8 +10,8 @@
 
 - activate:sender :(int)tag
 {
-	NXSize tsize = {42,42};
-	NXSize tsize2 = {21,21};
+	NSSize tsize = {42,42};
+	NSSize tsize2 = {21,21};
 	Actor *dude = (Actor *)sender;
 	float ttheta = (135. * (PI/180.) * (tag%8));
 
@@ -44,8 +44,8 @@
 + initialize
 {
 	[super initialize];
-	[[NXApp delegate] addImageResource:"rocket1" for: self];
-	[[NXApp delegate] addImageResource:"rocket2" for: self];
+	[[NSApp delegate] addImageResource:"rocket1" for: self];
+	[[NSApp delegate] addImageResource:"rocket2" for: self];
 	return self;
 }
 
@@ -57,7 +57,7 @@
 	return self;
 }
 
-- calcDxDy:(NXPoint *)dp
+- calcDxDy:(NSPoint *)dp
 {
 	if (timeInMS >= moveChangeTime)
 	{

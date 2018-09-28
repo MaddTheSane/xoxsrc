@@ -5,7 +5,7 @@
 #import "DisplayManager.h"
 #import "CacheManager.h"
 
-BOOL intersectsRect(NXRect *r1, NXRect *r2)
+BOOL intersectsRect(NSRect *r1, NSRect *r2)
 {
 	if ((NX_X(r1) > NX_MAXX(r2)) ||
 			(NX_X(r2) > NX_MAXX(r1)) ||
@@ -28,7 +28,7 @@ BOOL intersectsCircle(Actor *a1, Actor *a2)
 	return YES;
 }
 
-void circleToLines(Actor *a1, NXPoint *pt)
+void circleToLines(Actor *a1, NSPoint *pt)
 {
 	pt[0].x = pt[2].x = pt[4].x = a1->x;
 	pt[1].y = pt[3].y = a1->y;
@@ -40,9 +40,9 @@ void circleToLines(Actor *a1, NXPoint *pt)
 
 #define MINRECTSIZE 11
 
-void rectToLines(NXRect *rO, NXPoint *pt, int minSize)
+void rectToLines(NSRect *rO, NSPoint *pt, int minSize)
 {
-	NXRect r = *rO;
+	NSRect r = *rO;
 
 	if (r.size.width < minSize)
 	{
@@ -86,7 +86,7 @@ BOOL linesCollide(XXLine *ln1, int cnt1, BOOL packed1,
 			XXLine *ln2s, int cnt2, BOOL packed2)
 {
 	int i,j;
-	NXPoint *tpp;
+	NSPoint *tpp;
 
 	for (i=0; i<cnt1; i++)
 	{
@@ -127,7 +127,7 @@ BOOL linesCollide(XXLine *ln1, int cnt1, BOOL packed1,
 
 			if (packed2)
 			{
-				tpp = (NXPoint *)ln2;
+				tpp = (NSPoint *)ln2;
 				tpp++;
 				ln2 = (XXLine *)tpp;
 			}
@@ -135,7 +135,7 @@ BOOL linesCollide(XXLine *ln1, int cnt1, BOOL packed1,
 		}
 		if (packed1)
 		{
-			tpp = (NXPoint *)ln1;
+			tpp = (NSPoint *)ln1;
 			tpp++;
 			ln1 = (XXLine *)tpp;
 		}
@@ -200,7 +200,7 @@ BOOL actorsCollide(Actor *a1, Actor *a2)
 			if (!a1->complexShapePtr)
 			{
 				rectToLines(&a1->collisionRect,a1->shapeArray, MINRECTSIZE);
-				a1->complexShapePtr = (NXRect *)a1->shapeArray;
+				a1->complexShapePtr = (NSRect *)a1->shapeArray;
 			}
 			if (!a2->complexShapePtr) [a2 constructComplexShape];
 			if (linesCollide((XXLine *)a1->shapeArray,4,YES,
@@ -240,12 +240,12 @@ BOOL actorsCollide(Actor *a1, Actor *a2)
 			if (!a1->complexShapePtr)
 			{
 				rectToLines(&a1->collisionRect,a1->shapeArray, MINRECTSIZE);
-				a1->complexShapePtr = (NXRect *)a1->shapeArray;
+				a1->complexShapePtr = (NSRect *)a1->shapeArray;
 			}
 			if (!a2->complexShapePtr)
 			{
 				circleToLines(a2,a2->shapeArray);
-				a2->complexShapePtr = (NXRect *)a2->shapeArray;
+				a2->complexShapePtr = (NSRect *)a2->shapeArray;
 			}
 			if (linesCollide((XXLine *)a1->complexShapePtr,4,YES,
 						(XXLine *)a2->complexShapePtr,4,YES))
@@ -260,7 +260,7 @@ BOOL actorsCollide(Actor *a1, Actor *a2)
 			if (!a1->complexShapePtr)
 			{
 				rectToLines(&a1->collisionRect,a1->shapeArray, MINRECTSIZE);
-				a1->complexShapePtr = (NXRect *)a1->shapeArray;
+				a1->complexShapePtr = (NSRect *)a1->shapeArray;
 			}
 			if (!a2->complexShapePtr) [a2 constructComplexShape];
 			if (linesCollide((XXLine *)a1->complexShapePtr,4,YES,
@@ -301,7 +301,7 @@ BOOL actorsCollide(Actor *a1, Actor *a2)
 			if (!a2->complexShapePtr)
 			{
 				circleToLines(a2,a2->shapeArray);
-				a2->complexShapePtr = (NXRect *)a2->shapeArray;
+				a2->complexShapePtr = (NSRect *)a2->shapeArray;
 			}
 			for (i=0; i<a1->complexShapeCnt; i++)
 			{
@@ -345,7 +345,7 @@ BOOL actorsCollide(Actor *a1, Actor *a2)
 			if (!a1->complexShapePtr)
 			{
 				circleToLines(a1,a1->shapeArray);
-				a1->complexShapePtr = (NXRect *)a1->shapeArray;
+				a1->complexShapePtr = (NSRect *)a1->shapeArray;
 			}
 			if (!a2->complexShapePtr) [a2 constructComplexShape];
 			if (linesCollide((XXLine *)a1->shapeArray,4,YES,

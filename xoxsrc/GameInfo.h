@@ -2,10 +2,10 @@
 //  GameInfo.h
 //
 
-#import <appkit/appkit.h>
+#import <AppKit/AppKit.h>
 #import "xoxDefs.h"
 
-@interface GameInfo:Object
+@interface GameInfo: NSObject
 {
 	id	scenario;
 	char *scenarioName;
@@ -15,7 +15,7 @@
 	GAME_STATUS gameStatus;
 }
 
-- init;
+- (id)init;
 - initWithScenario:aScenario name:(const char *)aName path:(const char *)aPath;
 - setScenario:newScenario;
 - scenario;

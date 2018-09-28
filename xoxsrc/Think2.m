@@ -1,4 +1,4 @@
-#import <appkit/appkit.h>
+#import <AppKit/AppKit.h>
 #import "Thinker.h"
 #import "xoxDefs.h"
 #import "BackView.h"
@@ -30,7 +30,7 @@ extern BOOL obscureMouse;
 	gameList = [[GameList alloc] init];
 
 	[self loadGamesFrom:buf];
-	ptr = NXGetDefaultValue([NXApp appName], "altGamePath");
+	ptr = NXGetDefaultValue([NSApp appName], "altGamePath");
 	if (ptr) [self loadGamesFrom:ptr];
 	[self loadGamesFrom: [[NXBundle mainBundle] directory]];
 	[self loadGamesFrom: "/LocalLibrary/XoxGames"];
@@ -54,7 +54,7 @@ extern BOOL obscureMouse;
 	soundMgr = [[SoundMgr allocFromZone:soundZone] init];
 
 	
-	ptr = NXGetDefaultValue([NXApp appName], "Sound");
+	ptr = NXGetDefaultValue([NSApp appName], "Sound");
 	if (!ptr || !strcmp(ptr,"On"))
 	{
 		[soundMgr turnSoundOn:nil];
@@ -74,8 +74,8 @@ extern BOOL obscureMouse;
 	}
 
 	if ([soundMgr isSoundEnabled])
-		NXRemoveDefault([NXApp appName], "Sound");
-	else NXWriteDefault([NXApp appName], "Sound", "Off");
+		NXRemoveDefault([NSApp appName], "Sound");
+	else NXWriteDefault([NSApp appName], "Sound", "Off");
 
 	return self;
 }
@@ -85,7 +85,7 @@ extern BOOL obscureMouse;
 	// sender is the game browser, or nil if sent from within the app
 	int i;
 	int index = [[scenarioBrowser matrixInColumn:0] selectedRow];
-	NXRect f1;
+	NSRect f1;
 	id inspector;
 	GAME_STATUS gs;
 	
@@ -99,7 +99,7 @@ extern BOOL obscureMouse;
 
 	scenario = [self getScenario];
 
-	if (sender) NXWriteDefault([NXApp appName], "whichGame", [gameList nameAt: index]);
+	if (sender) NXWriteDefault([NSApp appName], "whichGame", [gameList nameAt: index]);
 
 	gx = gy = 0;
 	maxTimeScale = 1.5;
@@ -158,7 +158,7 @@ extern BOOL obscureMouse;
 		mainView = [scenario tile];
 	else
 	{
-		NXRect r;
+		NSRect r;
 		[gcontentView getBounds:&r];
 		[abackView setFrame:&r];
 		[gcontentView addSubview:abackView];
@@ -200,7 +200,7 @@ extern BOOL obscureMouse;
 		[self addCellWithString:NXLocalString([gameList nameAt: i], 0, 0)
 			at:(i) toMatrix:matrix];
 			
-	ptr = NXGetDefaultValue([NXApp appName], "whichGame");
+	ptr = NXGetDefaultValue([NSApp appName], "whichGame");
 	if (ptr)
 	{
 	    for (i = 0; i < [gameList count]; i++)
@@ -339,7 +339,7 @@ extern NXZone *scenarioZone, *bundleZone;
 
 			if (!theClass)
 			{
-				NXRunAlertPanel([NXApp appName], NXLocalString(
+				NXRunAlertPanel([NSApp appName], NXLocalString(
 					"Could not load class: %s",0,0),
 					NULL, NULL, NULL, [gi scenarioName]);
 			}
@@ -354,8 +354,8 @@ extern NXZone *scenarioZone, *bundleZone;
 {
 	if (!bigWindow)
 	{
-		NXRect r={{0, 0}};
-		[NXApp getScreenSize:&(r.size)];
+		NSRect r={{0, 0}};
+		[NSApp getScreenSize:&(r.size)];
 
 		bigWindow = [[BackWindow allocFromZone:[self zone]]
 			initContent:&r style:NX_PLAINSTYLE
@@ -369,10 +369,10 @@ extern NXZone *scenarioZone, *bundleZone;
 }
 
 // delegate method invoked by window
-- windowWillResize:sender toSize:(NXSize *)frameSize
+- windowWillResize:sender toSize:(NSSize *)frameSize
 {
-	NXRect frm = {0,0,0,0};
-	NXRect cnt = {0,0,0,0};
+	NSRect frm = {0,0,0,0};
+	NSRect cnt = {0,0,0,0};
 
 	if (![scenario respondsTo:@selector(newWindowContentSize:)])
 		return self;
@@ -389,7 +389,7 @@ extern NXZone *scenarioZone, *bundleZone;
 
 - adjustLittleWindowSize
 {
-	NXRect contRect;
+	NSRect contRect;
 
 	if (![scenario respondsTo:@selector(newWindowContentSize:)])
 		return self;
@@ -405,12 +405,12 @@ extern NXZone *scenarioZone, *bundleZone;
 
 - (BOOL)bigWindowOK
 {
-	NXSize screenSize;
+	NSSize screenSize;
 
 	if (![scenario respondsTo:@selector(newWindowContentSize:)])
 		return YES;
 
-	[NXApp getScreenSize:&screenSize];
+	[NSApp getScreenSize:&screenSize];
 	return (![scenario newWindowContentSize:&screenSize]);
 }
 

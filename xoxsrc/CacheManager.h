@@ -1,27 +1,27 @@
 
-#import <appkit/appkit.h>
+#import <AppKit/AppKit.h>
 #import "Actor.h"
 
-@interface CacheManager:Object
+@interface CacheManager: NSObject
 {
 	id cache;
 	List *displayList;			// everything needed to construct the cache
 	Storage *drawRectList;		// used to flush the cache
 	Storage *eraseRectList;		// used to erase the cache
-	NXImage *virgin;			// virgin background buffer for erasures
-	NXImage *tile;				// image used to tile virgin background
+	NSImage *virgin;			// virgin background buffer for erasures
+	NSImage *tile;				// image used to tile virgin background
 }
 
 - eraseCache;
-- newSize:(NXSize *)sp;
+- newSize:(NSSize *)sp;
 - oneStep;
-- erase:(NXRect *)r;
-- displayRect:(NXRect *)r;
+- erase:(NSRect *)r;
+- displayRect:(NSRect *)r;
 - draw:(Actor *)sender;
 - setBackground:(BOOL)val;
 - background;
 - tileUsing:theTile;
-- retileRect:(NXRect *)rp;
+- retileRect:(NSRect *)rp;
 - draw;
 
 @end

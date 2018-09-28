@@ -1,28 +1,11 @@
-Xoxeroids = {
-    ACTIONS = {
-	gotoLevel:;
-    };
-    OUTLETS = {
-	infoView;
-	ship;
-	space;
-	scoreView;
-	uselessView;
-    };
-    SUPERCLASS = Object;
+"FirstResponder" = {ACTIONS = {}; OUTLETS = {}; SUPERCLASS = NSObject; };
+"ScoreView" = {
+    ACTIONS = {}; 
+    OUTLETS = {levelField = id; livesField = id; scoreField = id; }; 
+    SUPERCLASS = NSView; 
 };
-FirstResponder = {
-    ACTIONS = {
-    };
-    SUPERCLASS = Object;
-};
-ScoreView = {
-    ACTIONS = {
-    };
-    OUTLETS = {
-	scoreField;
-	livesField;
-	levelField;
-    };
-    SUPERCLASS = View;
+"Xoxeroids" = {
+    ACTIONS = {"gotoLevel:" = id; }; 
+    OUTLETS = {infoView = id; scoreView = id; ship = id; space = id; uselessView = id; }; 
+    SUPERCLASS = Object; 
 };

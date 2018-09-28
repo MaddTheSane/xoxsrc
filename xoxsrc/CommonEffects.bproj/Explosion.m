@@ -9,9 +9,9 @@ static char explosionSize[] = {'M', 'S'};
 
 - activate:sender :(int)tag
 {
-	NXSize tsize = {120,120};
-	NXSize tsize2 = {60,60};
-	NXSize tsize3 = {30,30};
+	NSSize tsize = {120,120};
+	NSSize tsize2 = {60,60};
+	NSSize tsize3 = {30,30};
 	char imagename[20];
 	Actor *dude = (Actor *)sender;
 

@@ -4,7 +4,7 @@
 //  NeXT disclaims any warranty of any kind, expressed or  implied, as to its
 //  fitness for any particular use.
 
-#import <appkit/appkit.h>
+#import <AppKit/AppKit.h>
 #import "BackWindow.h"
 
 
@@ -12,27 +12,27 @@
 
 @implementation BackWindow
 
-+ getFrameRect:(NXRect *)fRect forContentRect:(const NXRect *)cRect
++ getFrameRect:(NSRect *)fRect forContentRect:(const NSRect *)cRect
 	 style:(int)aStyle
 {
   fRect->origin.x=fRect->origin.y=0;
-  [NXApp getScreenSize:&(fRect->size)];
+  [NSApp getScreenSize:&(fRect->size)];
   return self;
 }
 
-+ getContentRect:(NXRect *)cRect forFrameRect:(const NXRect *)fRect
++ getContentRect:(NSRect *)cRect forFrameRect:(const NSRect *)fRect
 	   style:(int)aStyle
 {
   cRect->origin.x=cRect->origin.y=0;
-  [NXApp getScreenSize:&(cRect->size)];
+  [NSApp getScreenSize:&(cRect->size)];
   return self;
 }
 
 + (NXCoord)minFrameWidth:(const char *)aTitle forStyle:(int)aStyle
 	      buttonMask:(int)aMask;
 {
-  NXSize s;
-  [NXApp getScreenSize:&s];
+  NSSize s;
+  [NSApp getScreenSize:&s];
   return s.width;
 }
 

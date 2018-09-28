@@ -12,12 +12,12 @@
 
 	eraseList = [[Storage allocFromZone:[self zone]]
 		initCount:8
-		elementSize: sizeof(NXRect)
-		description: @encode(NXRect)];
+		elementSize: sizeof(NSRect)
+		description: @encode(NSRect)];
 	whiteList = [[Storage allocFromZone:[self zone]]
 		initCount:8
-		elementSize: sizeof(NXRect)
-		description: @encode(NXRect)];
+		elementSize: sizeof(NSRect)
+		description: @encode(NSRect)];
 	drawList = [[List allocFromZone:[self zone]] init];
 
 	return self;
@@ -28,7 +28,7 @@
 	if ([eraseList count])
 	{
 		PSsetgray(NX_BLACK);
-		NXRectFillList(eraseList->dataPtr, eraseList->numElements);
+		NSRectFillList(eraseList->dataPtr, eraseList->numElements);
 		[eraseList empty];
 	}
 
@@ -38,27 +38,27 @@
 	if ([whiteList count])
 	{
 		PSsetgray(NX_WHITE);
-		NXRectFillList(whiteList->dataPtr, whiteList->numElements);
+		NSRectFillList(whiteList->dataPtr, whiteList->numElements);
 		[whiteList empty];
 	}
 	return self;
 }
 
-- erase:(NXRect *)r
+- erase:(NSRect *)r
 {
 	// it looks best if we erase by drawing from the cache
 	[cacheMgr displayRect:r];
 	return self;
 }
 
-- displayRect:(NXRect *)r
+- displayRect:(NSRect *)r
 {
 	// it looks best if we erase by drawing from the cache
 	[cacheMgr displayRect:r];
 	return self;
 }
 
-- drawWhiteRect:(NXRect *)r
+- drawWhiteRect:(NSRect *)r
 {
 	[whiteList addElement:r];
 	return self;

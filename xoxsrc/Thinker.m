@@ -30,7 +30,7 @@ BOOL fullScreen;
 BOOL keepLooping;
 BOOL obscureMouse;
 
-NXEventHandle eventhandle;
+NSEventHandle eventhandle;
 double oldKeyThreshold;
 
 int		BULLET1SND, 
@@ -135,7 +135,7 @@ void timedEntryFunction (DPSTimedEntry timedEntry, double timeNow, void *theObje
 
 - doOneStepLoop
 {
-    NXEvent dummyEvent, *pEvent;
+    NSEvent dummyEvent, *pEvent;
 	
 	[mainView lockFocus];
 
@@ -145,7 +145,7 @@ void timedEntryFunction (DPSTimedEntry timedEntry, double timeNow, void *theObje
 
 		[self oneStep];
 
-		while ([NXApp peekNextEvent:NX_ALLEVENTS into:&dummyEvent 
+		while ([NSApp peekNextEvent:NX_ALLEVENTS into:&dummyEvent 
 				waitFor:0 threshold:NX_BASETHRESHOLD])
 		{
 			if ((dummyEvent.type & (NX_KEYDOWNMASK|NX_KEYUPMASK)) && 
@@ -154,9 +154,9 @@ void timedEntryFunction (DPSTimedEntry timedEntry, double timeNow, void *theObje
 				// if it's a key event other than a command key, we save
 				// ourselves the overhead of a focus change
 
-				pEvent = [NXApp getNextEvent: NX_ALLEVENTS 
+				pEvent = [NSApp getNextEvent: NX_ALLEVENTS 
 						waitFor:0 threshold:NX_BASETHRESHOLD];
-				[NXApp sendEvent: pEvent];
+				[NSApp sendEvent: pEvent];
 			}
 			else
 			{
@@ -246,10 +246,10 @@ float randBetween(float a, float b)
 {
 	if (flag)
 	{
-		NXRect r={{0, 0}};
+		NSRect r={{0, 0}};
 		if ([self bigWindowOK])
 		{
-			[NXApp getScreenSize:&(r.size)];
+			[NSApp getScreenSize:&(r.size)];
 			[self createBigWindowIfNecessary];
 			tweakWindow([bigWindow windowNum], 40);
 

@@ -6,7 +6,7 @@
 #import "Xoxeroids.h"
 
 #import <dpsclient/wraps.h>
-#import <appkit/NXImage.h>
+#import <AppKit/NSImage.h>
 #import <objc/zone.h>
 #import <mach/mach.h>
 #import <c.h>
@@ -15,11 +15,11 @@
 
 #define PI (3.141592653589)
 
-NXSize sizeArray[] = {{1,1},{2,1},{2,2},{3,2},{3,3},{4,3},{4,4}};
+NSSize sizeArray[] = {{1,1},{2,1},{2,2},{3,2},{3,3},{4,3},{4,4}};
 
 @implementation SpaceSpinGen
 
-- newSize:(NXSize *)s
+- newSize:(NSSize *)s
 {
 	int i;
 	float tx,ty;
@@ -114,10 +114,10 @@ NXSize sizeArray[] = {{1,1},{2,1},{2,2},{3,2},{3,3},{4,3},{4,4}};
 			i = (t < STARSPERIT)?t:STARSPERIT;
 			
 			PSsetgray(NX_BLACK);
-			NXRectFillList(&b[count],i);
+			NSRectFillList(&b[count],i);
 			
 			PSsetgray(NX_WHITE);
-			NXRectFillList(&w[count],i);
+			NSRectFillList(&w[count],i);
 			
 			count += STARSPERIT;
 		}
@@ -128,7 +128,7 @@ NXSize sizeArray[] = {{1,1},{2,1},{2,2},{3,2},{3,3},{4,3},{4,4}};
 
 - activate:sender :(int)tag
 {
-	NXSize tsize = {1,1};
+	NSSize tsize = {1,1};
 
 	[soundMgr playSound: WARPSND at:0.5];
 

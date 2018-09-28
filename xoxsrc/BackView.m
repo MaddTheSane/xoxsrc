@@ -6,11 +6,11 @@
 #import "ActorMgr.h"
 
 float xOffset, yOffset;
-NXRect screenRect;
+NSRect screenRect;
 
 @implementation BackView
 
-- initFrame:(const NXRect *)frameRect
+- initFrame:(const NSRect *)frameRect
 {
 	[super initFrame:frameRect];
 	[self allocateGState];		// For faster lock/unlockFocus
@@ -25,18 +25,18 @@ NXRect screenRect;
 	return self;
 }
 
-- drawSelf:(const NXRect *)rects :(int)rectCount
+- drawSelf:(const NSRect *)rects :(int)rectCount
 {
-	NXRect t = {0,0,1,1};
+	NSRect t = {0,0,1,1};
 	PSsetrgbcolor(1,0,0);
-	NXRectFill(&t);	//yucky trick for window depth promotion!
-	PSsetgray(NX_BLACK); NXRectFill(rects);
+	NSRectFill(&t);	//yucky trick for window depth promotion!
+	PSsetgray(NX_BLACK); NSRectFill(rects);
 	[(CacheManager *)cacheMgr draw];
 	[(ActorMgr *)actorMgr draw];
 	return self;
 }
 
-- keyDown:(NXEvent *)theEvent
+- keyDown:(NSEvent *)theEvent
 {
 //	switch(theEvent->data.key.charCode)
 	{
@@ -47,7 +47,7 @@ NXRect screenRect;
 	return self;
 }
 
-- keyUp:(NXEvent *)theEvent
+- keyUp:(NSEvent *)theEvent
 {
 	[scenario keyUp:theEvent];
 	return self;
@@ -89,8 +89,8 @@ NXRect screenRect;
 ******************************************************************************/
 - sizeWindow:(NXCoord)width :(NXCoord)height byCorner:(int)corner
 {
-	NXRect newFrame;
-	NXSize minSize, maxSize;
+	NSRect newFrame;
+	NSSize minSize, maxSize;
 
 	// Clamp width and height to their respective minimum and maximum values
 	[self getMinSize:&minSize]; [self getMaxSize:&maxSize];
@@ -133,7 +133,7 @@ NXRect screenRect;
 	float stretchingWidth = NX_WIDTH(&bounds);
 	float stretchingHeight = NX_HEIGHT(&bounds);
 	float newSuperWidth, newSuperHeight;
-	NXRect superFrame;
+	NSRect superFrame;
 
 	// If we are a contentView we simply need to grow window by our growth
 	if(self==[window contentView]) {

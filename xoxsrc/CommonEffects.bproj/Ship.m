@@ -16,8 +16,8 @@ extern float gx, gy;
 
 - activate:sender :(int)tag
 {
-	NXSize t20 = {20,20};
-	NXSize t10 = {10,10};
+	NSSize t20 = {20,20};
+	NSSize t10 = {10,10};
 	int oldFrame = frame;
 
 	[super activate:sender :tag];
@@ -47,9 +47,9 @@ extern float gx, gy;
 + initialize
 {
 	[super initialize];
-	[[NXApp delegate] addImageResource:"ship" for: [Ship class]];
-	[[NXApp delegate] addImageResource:"flame1" for: [Ship class]];
-	[[NXApp delegate] addImageResource:"flame2" for: [Ship class]];
+	[[NSApp delegate] addImageResource:"ship" for: [Ship class]];
+	[[NSApp delegate] addImageResource:"flame1" for: [Ship class]];
+	[[NSApp delegate] addImageResource:"flame2" for: [Ship class]];
 
 	return self;
 }
@@ -81,8 +81,8 @@ extern float gx, gy;
 
 - _flameOn
 {
-	NXSize t30 = {30,30};
-	NXSize t15 = {15,15};
+	NSSize t30 = {30,30};
+	NSSize t15 = {15,15};
 	frameSize = t30;
 	distToCorner = t15;
 	image = flame1;
@@ -91,8 +91,8 @@ extern float gx, gy;
 
 - _flameOff
 {
-	NXSize t20 = {20,20};
-	NXSize t10 = {10,10};
+	NSSize t20 = {20,20};
+	NSSize t10 = {10,10};
 	frameSize = t20;
 	distToCorner = t10;
 	image = noflame;
@@ -172,7 +172,7 @@ extern float gx, gy;
 	return self;
 }
 
-- calcDxDy:(NXPoint *)dp
+- calcDxDy:(NSPoint *)dp
 {
 	float thrust = [thrustVal val];
 	if (thrust > 0)

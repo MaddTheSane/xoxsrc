@@ -9,15 +9,19 @@
 
 NAME = Xox
 
-PROJECTVERSION = 1.1
+PROJECTVERSION = 2.6
+PROJECT_TYPE = Application
 LANGUAGE = English
 
-APPICON = xoxicon.tiff
-DOCICONS = xoxext.tiff
+NEXTSTEP_APPICON = xoxicon.tiff
+NEXTSTEP_DOCICONS = xoxext.tiff
+
+ICONSECTIONS =	-sectcreate __ICON app xoxicon.tiff \
+		-sectcreate __ICON xoxext xoxext.tiff
 
 LOCAL_RESOURCES = Xox.nib
 
-GLOBAL_RESOURCES = funnyFace.tiff funnyFace2.tiff sam.tiff
+GLOBAL_RESOURCES = funnyFace.tiff funnyFace2.tiff sam.tiff xoxext.tiff
 
 CLASSES = Actor.m ActorMatrix.m ActorMgr.m BackView.m BackWindow.m\
           CacheManager.m collisions.m DisplayManager.m EKProgressView.m\
@@ -38,19 +42,20 @@ BUNDLES = Xoxeroids.bproj CommonEffects.bproj SpaxeWars.bproj
 OTHERSRCS = Makefile Makefile.preamble README.rtf
 
 
-MAKEFILEDIR = /NextDeveloper/Makefiles/app
+MAKEFILEDIR = $(NEXT_ROOT)/NextDeveloper/Makefiles/pb_makefiles
+CODE_GEN_STYLE = DYNAMIC
 MAKEFILE = app.make
-INSTALLDIR = $(HOME)/Apps
-INSTALLFLAGS = -c -s -m 755
-SOURCEMODE = 444
-
-ICONSECTIONS =	-sectcreate __ICON app xoxicon.tiff \
-		-sectcreate __ICON xoxext xoxext.tiff
-
+NEXTSTEP_INSTALLDIR = $(HOME)/Apps
+WINDOWS_INSTALLDIR = $(HOME)/Apps
+PDO_UNIX_INSTALLDIR = $(HOME)/Apps
 LIBS = -lNeXT_s
 DEBUG_LIBS = $(LIBS)
 PROF_LIBS = $(LIBS)
 
+
+
+
+include $(MAKEFILEDIR)/platform.make
 
 -include Makefile.preamble
 

@@ -6,7 +6,7 @@
 #import "collisions.h"
 #import <math.h>
 
-extern BOOL coalesce(NXRect *p1, NXRect *p2);
+extern BOOL coalesce(NSRect *p1, NSRect *p2);
 
 float gx, gy;
 
@@ -48,7 +48,7 @@ float gx, gy;
 // note that this method is _not_ the object's designated initializer;
 // this method may be called more than once (by activate)
 - reinitWithImage:(const char *)imageName
-	frameSize:(NXSize *) size
+	frameSize:(NSSize *) size
 	numFrames:(int)frames
 	shape: (COLLISION_SHAPE)shape
 	alliance: (ALLIANCE)al
@@ -59,7 +59,7 @@ float gx, gy;
 	theta: (float) thta
 	vel: (float) v
 	interval: (unsigned) time
-	distToCorner: (NXSize *)d2c
+	distToCorner: (NSSize *)d2c
 {
 	image = [self findImageNamed:imageName];
 
@@ -125,7 +125,7 @@ float gx, gy;
 	return self;
 }
 
-- calcDxDy:(NXPoint *)dp
+- calcDxDy:(NSPoint *)dp
 {
 	dp->x = timeScale * xv;
 	dp->y = timeScale * yv;
@@ -199,7 +199,7 @@ float gx, gy;
 
 - oneStep
 {
-	NXPoint dXdY;
+	NSPoint dXdY;
 
 	if (intersectsRect(&screenRect, &eraseRect))
 	{
@@ -241,7 +241,7 @@ float gx, gy;
 
 - draw
 {
-	NXRect src;
+	NSRect src;
 	src.origin.x = (frame & 3) * frameSize.width;
 	src.origin.y = (frame >> 2) * frameSize.height;
 	src.size = drawRect.size = frameSize;
@@ -251,7 +251,7 @@ float gx, gy;
 
 #if S_DEBUG
 	{
-		NXRect t = collisionRect;
+		NSRect t = collisionRect;
 		t.origin.x = floor(collisionRect.origin.x - gx + xOffset);
 		t.origin.y = floor(collisionRect.origin.y - gy + yOffset);
 		PSsetrgbcolor(1,0,0);
@@ -371,7 +371,7 @@ extern XXLine *gln2;
 - (int) bounceOff:(Actor *)dude
 {
 	XXLine vector[3], line[2], t;
-	NXPoint pts[3];
+	NSPoint pts[3];
 	float dx, dy;
 	int i, ret=0;
 	XXLine *horozLn = &line[0];
@@ -475,7 +475,7 @@ extern XXLine *gln2;
 
 + findImageNamed:(const char *)name
 {
-	NXImage *ret_image = [NXImage findImageNamed:name];
+	NSImage *ret_image = [NSImage findImageNamed:name];
 	if (!ret_image)
 	{
 		char path[256];
@@ -484,7 +484,7 @@ extern XXLine *gln2;
 			forResource:name
 			ofType:"tiff"])
 		{
-			ret_image = [[NXImage allocFromZone:[self zone]] 
+			ret_image = [[NSImage allocFromZone:[self zone]] 
 				initFromFile:path];
 			[ret_image setName:name];
 		}
@@ -499,7 +499,7 @@ extern XXLine *gln2;
 
 + cacheImage:(const char *)name
 {
-	NXImage *timage;
+	NSImage *timage;
 	timage = [self findImageNamed:name];
 	if ([timage lockFocus]) [timage unlockFocus];
 	return self;

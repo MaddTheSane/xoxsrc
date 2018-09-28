@@ -5,7 +5,7 @@
 
 extern BOOL pauseState;
 
-- newSize:(NXSize *)s
+- newSize:(NSSize *)s
 {
 	int i;
 	STAR *p;
@@ -36,7 +36,7 @@ extern BOOL pauseState;
 - oneStep
 {
 	int i;
-	NXRect *t;
+	NSRect *t;
 	STAR *p;
 	
 	xv = gx - oldX; yv = gy - oldY;
@@ -77,9 +77,9 @@ extern BOOL pauseState;
 	}
 
 	PSsetgray(NX_BLACK);
-	NXRectFillList(b, NSTARS);
+	NSRectFillList(b, NSTARS);
 	PSsetgray(NX_WHITE);
-	NXRectFillList(w, NSTARS);
+	NSRectFillList(w, NSTARS);
 
 	t=b; b=w; w=t;
 
@@ -88,7 +88,7 @@ extern BOOL pauseState;
 
 - activate:sender :(int)tag
 {
-	NXSize tsize = {1,1};
+	NSSize tsize = {1,1};
 
 	[super activate:sender :tag];
 
@@ -122,7 +122,7 @@ extern BOOL pauseState;
 	if (pauseState == 0) return self;
 
 	PSsetgray(NX_WHITE);
-	NXRectFillList(w, NSTARS);
+	NSRectFillList(w, NSTARS);
 	return self;
 }
 

@@ -2,7 +2,7 @@
 // It has to do some guessing, since the event time base can't be related
 // back to the system clock...
 
-#import <appkit/appkit.h>
+#import <AppKit/AppKit.h>
 #import "xoxDefs.h"
 
 @interface KeyTimer:Object

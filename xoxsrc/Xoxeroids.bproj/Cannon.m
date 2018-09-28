@@ -9,8 +9,8 @@
 
 - activate:sender :(int)tag
 {
-	NXSize tsize = {48,48};
-	NXSize tsize2 = {24,24};
+	NSSize tsize = {48,48};
+	NSSize tsize2 = {24,24};
 
 	[super activate:sender :tag];
 
@@ -47,7 +47,7 @@
 	return self;
 }
 
-- calcDxDy:(NXPoint *)dp
+- calcDxDy:(NSPoint *)dp
 {
 	if (timeInMS > moveChangeTime)
 	{

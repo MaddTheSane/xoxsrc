@@ -33,7 +33,7 @@ int sw_bulletMass;
 - _createLevel:(int)lev
 {
 	int i;
-	NXRect r;
+	NSRect r;
 	char title[40];
 
 	goToNextLevel = explosionCount = goodBullets = badBullets = 0;
@@ -115,7 +115,7 @@ int sw_bulletMass;
 
 
 
-- keyDown:(NXEvent *)theEvent
+- keyDown:(NSEvent *)theEvent
 {
 	if (theEvent->data.key.repeat > 0) return self;
 
@@ -156,7 +156,7 @@ int sw_bulletMass;
 	return self;
 }
 
-- keyUp:(NXEvent *)theEvent
+- keyUp:(NSEvent *)theEvent
 {
 	switch(theEvent->data.key.charCode)
 	{
@@ -201,7 +201,7 @@ int sw_bulletMass;
 - scenarioDeselected
 {	return self; }
 
-- newSize:(NXSize *)s
+- newSize:(NSSize *)s
 {
 	[space newSize:s];
 	return self;
@@ -224,7 +224,7 @@ int sw_bulletMass;
 		forResource:"spaxewars"
 		ofType:"nib"])
 	{
-		[NXApp loadNibFile:path
+		[NSApp loadNibFile:path
 			owner:self
 			withNames:NO
 			fromZone:[self zone]];
@@ -242,16 +242,16 @@ int sw_bulletMass;
 
 	[self adjustSettings:self];
 
-	[[NXApp delegate] addImageResource:"explosionM" for: [Explosion class]];
-	[[NXApp delegate] addImageResource:"explosionS" for: [Explosion class]];
-	[[NXApp delegate] addSoundResource:	SHIPSND];
+	[[NSApp delegate] addImageResource:"explosionM" for: [Explosion class]];
+	[[NSApp delegate] addImageResource:"explosionS" for: [Explosion class]];
+	[[NSApp delegate] addSoundResource:	SHIPSND];
 
 	return self;
 }
 
 - tile
 {
-	NXRect r;
+	NSRect r;
 	float f;
 
 	[gcontentView getBounds:&r];

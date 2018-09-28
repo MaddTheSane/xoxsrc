@@ -12,14 +12,14 @@ static int lastMineFragSound;
 + initialize
 {
 	[super initialize];
-	[[NXApp delegate] addImageResource:"mineFrag" for: self];
+	[[NSApp delegate] addImageResource:"mineFrag" for: self];
 	return self;
 }
 
 - activate:sender :(int)tag
 {
-	NXSize tsize = {25,25};
-	NXSize tsize2 = {12.5,12.5};
+	NSSize tsize = {25,25};
+	NSSize tsize2 = {12.5,12.5};
 	Actor *dude = (Actor *)sender;
 	float xfactor = -sin(dude->theta), yfactor = cos(dude->theta);
 	float speed;
@@ -51,7 +51,7 @@ static int lastMineFragSound;
 	return self;
 }
 
-- calcDxDy:(NXPoint *)dp
+- calcDxDy:(NSPoint *)dp
 {
 	if (timeInMS > expireTime)
 		[actorMgr destroyActor:self];

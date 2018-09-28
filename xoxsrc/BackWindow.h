@@ -1,6 +1,6 @@
-#import <appkit/Window.h>
+#import <AppKit/NSWindow.h>
 
-@interface BackWindow:Window
+@interface BackWindow: NSWindow
 {
 }
 

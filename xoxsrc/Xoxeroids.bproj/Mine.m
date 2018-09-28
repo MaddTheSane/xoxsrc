@@ -12,15 +12,15 @@
 + initialize
 {
 	[super initialize];
-	[[NXApp delegate] addImageResource:"bigMineArray" for: self];
-	[[NXApp delegate] addImageResource:"bigMineArray2" for: self];
+	[[NSApp delegate] addImageResource:"bigMineArray" for: self];
+	[[NSApp delegate] addImageResource:"bigMineArray2" for: self];
 	return self;
 }
 
 - activate:sender :(int)tag
 {
-	NXSize tsize = {48,48};
-	NXSize tsize2 = {24,24};
+	NSSize tsize = {48,48};
+	NSSize tsize2 = {24,24};
 
 	[super activate:sender :tag];
 

@@ -37,7 +37,7 @@ typedef struct _UP {
     float          *points;
     int             numberOfPoints;
     char           *ops;
-    NXPoint         cp;
+    NSPoint         cp;
     int             numberOfOps;
     int             max;
     float           bbox[4];

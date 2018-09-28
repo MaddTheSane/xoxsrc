@@ -1,14 +1,14 @@
 
-#import <appkit/Application.h>
+#import <AppKit/NSApplication.h>
 
 
 void main(int argc, char *argv[])
 {
     
     [Application new];
-    if ([NXApp loadNibSection:"Xox.nib" owner:NXApp withNames:NO])
-	    [NXApp run];
+    if ([NSApp loadNibSection:"Xox.nib" owner:NSApp withNames:NO])
+	    [NSApp run];
 	    
-    [NXApp free];
+    [NSApp free];
     exit(0);
 }

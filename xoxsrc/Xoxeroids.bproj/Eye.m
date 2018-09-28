@@ -9,8 +9,8 @@
 - activate:sender :(int)tag
 {
 	static unsigned short mfbuffered;
-	NXSize tsize = {19,19};
-	NXSize tsize2 = {9.5,9.5};
+	NSSize tsize = {19,19};
+	NSSize tsize2 = {9.5,9.5};
 	Actor *dude = (Actor *)sender;
 	float ttheta = atan2(dude->x - gx, gy - dude->y);
 
@@ -50,7 +50,7 @@
 	return self;
 }
 
-- calcDxDy:(NXPoint *)dp
+- calcDxDy:(NSPoint *)dp
 {
 	if (timeInMS > expireTime)
 		[actorMgr destroyActor:self];
@@ -81,8 +81,8 @@
 
 - activate:sender :(int)tag
 {
-	NXSize tsize = {107,125};
-	NXSize tsize2 = {53,62};
+	NSSize tsize = {107,125};
+	NSSize tsize2 = {53,62};
 
 	[super activate:sender :tag];
 

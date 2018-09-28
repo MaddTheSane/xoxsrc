@@ -9,7 +9,8 @@
 
 NAME = Xoxeroids
 
-PROJECTVERSION = 1.1
+PROJECTVERSION = 2.6
+PROJECT_TYPE = Loadable Bundle
 LANGUAGE = English
 
 LOCAL_RESOURCES = xoxeroids.nib
@@ -37,12 +38,20 @@ HFILES = Actor.h ActorMatrix.h ActorMgr.h Asteroid.h BackView.h\
 
 OTHERSRCS = Makefile.preamble Makefile Makefile.postamble
 
-MAKEFILEDIR = /NextDeveloper/Makefiles/app
-MAKEFILE = bundle.make
-SOURCEMODE = 444
 
+MAKEFILEDIR = $(NEXT_ROOT)/NextDeveloper/Makefiles/pb_makefiles
+CODE_GEN_STYLE = DYNAMIC
+MAKEFILE = bundle.make
+NEXTSTEP_INSTALLDIR = $(HOME)/Apps
+LIBS = 
+DEBUG_LIBS = $(LIBS)
+PROF_LIBS = $(LIBS)
 BUNDLE_EXTENSION = XoX
 
+
+
+
+include $(MAKEFILEDIR)/platform.make
 
 -include Makefile.preamble
 

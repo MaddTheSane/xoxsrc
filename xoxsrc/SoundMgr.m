@@ -4,7 +4,7 @@
 // Munged again by sam for XoX
 
 
-#import <appkit/appkit.h>
+#import <AppKit/AppKit.h>
 #import "SoundMgr.h"
 #import "xoxDefs.h"
 

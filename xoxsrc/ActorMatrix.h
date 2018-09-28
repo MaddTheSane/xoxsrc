@@ -21,7 +21,7 @@
 - nukeActorAt:(int)col :(int)row;
 - makeActorsPerform:(SEL)func;
 - perform:(SEL)func cols:(int)begc :(int)endc rows:(int)begr :(int)endr;
-- (BOOL) rowsNcols:(NXRect *)r myRect:(NXRect *)myRect
+- (BOOL) rowsNcols:(NSRect *)r myRect:(NSRect *)myRect
 		:(int *)begc :(int *)endc :(int *)begr :(int *)endr;
 
 

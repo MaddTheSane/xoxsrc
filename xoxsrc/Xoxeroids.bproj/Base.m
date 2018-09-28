@@ -11,8 +11,8 @@
 
 - activate:sender :(int)tag
 {
-	NXSize tsize = {50,50};
-	NXSize tsize2 = {25,25};
+	NSSize tsize = {50,50};
+	NSSize tsize2 = {25,25};
 
 	[super activate:sender :tag];
 

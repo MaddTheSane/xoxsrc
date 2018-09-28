@@ -14,7 +14,7 @@ extern id gcontentView;
 extern id keyTimerList;
 extern float xOffset, yOffset;
 extern int level;
-extern NXRect screenRect;
+extern NSRect screenRect;
 
 typedef enum {
 	NOSHAPE,

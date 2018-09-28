@@ -7,15 +7,15 @@
 
 - eraseCache
 {
-	NXRect r = {{0,0}};
-	NXSize theSize;
+	NSRect r = {{0,0}};
+	NSSize theSize;
 
 	[cache getSize:&theSize];
 	r.size = theSize;
 	if ([cache lockFocus])
 	{
 		PSsetgray(NX_BLACK);
-		NXRectFill(&r);
+		NSRectFill(&r);
 		if (virgin) [self tileUsing:tile];
 		[virgin composite:NX_COPY toPoint:&r.origin];
 		[cache unlockFocus];
@@ -23,15 +23,15 @@
 	return self;
 }
 
-- newSize:(NXSize *)sp
+- newSize:(NSSize *)sp
 {
 
 	[cache free];
-	cache = [[NXImage allocFromZone:[self zone]] initSize:sp];
+	cache = [[NSImage allocFromZone:[self zone]] initSize:sp];
 	if (virgin)
 	{
 		[virgin free];
-		virgin = [[NXImage allocFromZone:[self zone]] initSize:sp];
+		virgin = [[NSImage allocFromZone:[self zone]] initSize:sp];
 	}
 	[self eraseCache];
 	[eraseRectList empty];
@@ -46,12 +46,12 @@
 	displayList = [[List allocFromZone:[self zone]] init];
 	drawRectList = [[Storage allocFromZone:[self zone]]
 		initCount:8
-		elementSize: sizeof(NXRect)
-		description: @encode(NXRect)];
+		elementSize: sizeof(NSRect)
+		description: @encode(NSRect)];
 	eraseRectList = [[Storage allocFromZone:[self zone]]
 		initCount:8
-		elementSize: sizeof(NXRect)
-		description: @encode(NXRect)];
+		elementSize: sizeof(NSRect)
+		description: @encode(NSRect)];
 
 	return self;
 }
@@ -62,9 +62,9 @@
 // and returns NO if the regions don't intersect, otherwise the combined
 // region is returned in *p1 and returns YES
 
-BOOL coalesce(NXRect *p1, NXRect *p2)
+BOOL coalesce(NSRect *p1, NSRect *p2)
 {
-	NXRect p3;
+	NSRect p3;
 	
 	if (((p1->origin.x + p1->size.width) < p2->origin.x) ||
 		((p2->origin.x + p2->size.width) < p1->origin.x) ||
@@ -95,7 +95,7 @@ BOOL coalesce(NXRect *p1, NXRect *p2)
 
 - oneStep
 {
-	NXRect *p1, *p2, *rectArray;
+	NSRect *p1, *p2, *rectArray;
 	int i, j, iterations;
 	BOOL changed;
 	int count;
@@ -110,11 +110,11 @@ BOOL coalesce(NXRect *p1, NXRect *p2)
 		if (!virgin)
 		{
 			PSsetgray(NX_BLACK);
-			NXRectFillList(eraseRectList->dataPtr, eraseRectList->numElements);
+			NSRectFillList(eraseRectList->dataPtr, eraseRectList->numElements);
 		}
 		else
 		{
-			NXRect *r = (NXRect *) eraseRectList->dataPtr;
+			NSRect *r = (NSRect *) eraseRectList->dataPtr;
 			for (i=0; i<eraseRectList->numElements; i++)
 				[virgin composite:NX_COPY fromRect:r+i toPoint:&((r+i)->origin)];
 		}
@@ -171,7 +171,7 @@ BOOL coalesce(NXRect *p1, NXRect *p2)
 			toPoint:&rectArray[i].origin];
 #if XDEBUG
 		{
-			NXRect t = rectArray[i];
+			NSRect t = rectArray[i];
 			PSsetrgbcolor(.2,.2,1);
 			NXFrameRect(&t);
 		}
@@ -185,14 +185,14 @@ BOOL coalesce(NXRect *p1, NXRect *p2)
 	return self;
 }
 
-- erase:(NXRect *)r
+- erase:(NSRect *)r
 {
 	[eraseRectList addElement:r];
 //	[drawRectList addElement:r];
 	return self;
 }
 
-- displayRect:(NXRect *)r
+- displayRect:(NSRect *)r
 {
 	[drawRectList addElement:r];
 	return self;
@@ -206,12 +206,12 @@ BOOL coalesce(NXRect *p1, NXRect *p2)
 
 - setBackground:(BOOL)val
 {
-	NXSize theSize;
+	NSSize theSize;
 
 	if (val)
 	{
 		[cache getSize:&theSize];
-		if (!virgin) virgin = [[NXImage allocFromZone:[self zone]] initSize:&theSize];
+		if (!virgin) virgin = [[NSImage allocFromZone:[self zone]] initSize:&theSize];
 	}
 	else
 	{
@@ -228,9 +228,9 @@ BOOL coalesce(NXRect *p1, NXRect *p2)
 
 - tileUsing:theTile
 {
-	NXSize tileSize;
-	NXSize virginSize;
-	NXPoint pt;
+	NSSize tileSize;
+	NSSize virginSize;
+	NSPoint pt;
 	
 	[self setBackground:YES];
 
@@ -257,13 +257,13 @@ BOOL coalesce(NXRect *p1, NXRect *p2)
 	return self;
 }
 
-- retileRect:(NXRect *)rp
+- retileRect:(NSRect *)rp
 {
-	NXSize tileSize;
-	NXSize virginSize;
-	NXPoint pt;
-	NXPoint edge;
-	NXRect src;
+	NSSize tileSize;
+	NSSize virginSize;
+	NSPoint pt;
+	NSPoint edge;
+	NSRect src;
 	
 	if (!tile) return nil;
 
@@ -300,7 +300,7 @@ BOOL coalesce(NXRect *p1, NXRect *p2)
 
 - draw
 {
-	NXPoint p = {0,0};
+	NSPoint p = {0,0};
 	[virgin composite:NX_COPY toPoint:&p];
 	return self;
 }

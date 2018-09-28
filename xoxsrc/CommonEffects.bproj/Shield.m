@@ -10,14 +10,14 @@
 + initialize
 {
 	[super initialize];
-	[[NXApp delegate] addImageResource:"shield" for: self];
+	[[NSApp delegate] addImageResource:"shield" for: self];
 	return self;
 }
 
 - activate:sender :(int)tag
 {
-	NXSize tsize = {40,40};
-	NXSize tsize2 = {20,20};
+	NSSize tsize = {40,40};
+	NSSize tsize2 = {20,20};
 
 	[super activate:sender :tag];
 

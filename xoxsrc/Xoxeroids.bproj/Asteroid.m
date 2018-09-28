@@ -30,15 +30,15 @@ static int pointvals[] = {15,25,50};
 	for (j=0; j<3; j++)
 	{
 		sprintf(imagename,rocks[i],rockSize[j]);
-		[[NXApp delegate] addImageResource:imagename for: self];
+		[[NSApp delegate] addImageResource:imagename for: self];
 	}
 	return self;
 }
 
 - activate:sender :(int)tag
 {
-	NXSize tsize = {10,10};
-	NXSize tsize2 = {10,10};
+	NSSize tsize = {10,10};
+	NSSize tsize2 = {10,10};
 	char imagename[30];
 
 	[super activate:sender :tag];

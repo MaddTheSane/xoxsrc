@@ -1,5 +1,5 @@
 
-#import <appkit/appkit.h>
+#import <AppKit/AppKit.h>
 
 @interface DisplayManager:Object
 {
@@ -9,9 +9,9 @@
 }
 
 - oneStep;
-- erase:(NXRect *)r;
-- displayRect:(NXRect *)r;
-- drawWhiteRect:(NXRect *)r;
+- erase:(NSRect *)r;
+- displayRect:(NSRect *)r;
+- drawWhiteRect:(NSRect *)r;
 - draw:sender;
 
 @end

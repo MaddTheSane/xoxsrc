@@ -46,7 +46,7 @@ int xx_mine, xx_minefragment, xx_rocket, xx_ship;
 - _createLevel:(int)lev
 {
 	int i;
-	NXRect r;
+	NSRect r;
 
 	badGuyCount = explosionCount = shipCount = rocketCount = 0;
 
@@ -130,7 +130,7 @@ int xx_mine, xx_minefragment, xx_rocket, xx_ship;
 
 - didRetire:(Actor *)theActor
 {
-	NXRect r;
+	NSRect r;
 
 	if(theActor->actorType == xx_ship)
 	{
@@ -173,7 +173,7 @@ int xx_mine, xx_minefragment, xx_rocket, xx_ship;
 }
 
 
-- keyDown:(NXEvent *)theEvent
+- keyDown:(NSEvent *)theEvent
 {
 	if (theEvent->data.key.repeat > 0) return self;
 
@@ -199,7 +199,7 @@ int xx_mine, xx_minefragment, xx_rocket, xx_ship;
 	return self;
 }
 
-- keyUp:(NXEvent *)theEvent
+- keyUp:(NSEvent *)theEvent
 {
 	switch(theEvent->data.key.charCode)
 	{
@@ -235,7 +235,7 @@ int xx_mine, xx_minefragment, xx_rocket, xx_ship;
 	return self; 
 }
 
-- newSize:(NXSize *)s
+- newSize:(NSSize *)s
 {
 	[space newSize:s];
 	return self;
@@ -258,7 +258,7 @@ int xx_mine, xx_minefragment, xx_rocket, xx_ship;
 		forResource:"xoxeroids"
 		ofType:"nib"])
 	{
-		[NXApp loadNibFile:path
+		[NSApp loadNibFile:path
 			owner:self
 			withNames:NO
 			fromZone:[self zone]];
@@ -282,20 +282,20 @@ int xx_mine, xx_minefragment, xx_rocket, xx_ship;
 	xx_rocket = (int)[Rocket class];
 	xx_ship = (int)[XXShip class];
 
-	[[NXApp delegate] addImageResource:"explosionM" for: [Explosion class]];
-	[[NXApp delegate] addImageResource:"explosionS" for: [Explosion class]];
-	[[NXApp delegate] addSoundResource:	EXP1SND];
-	[[NXApp delegate] addSoundResource:	EXP2SND];
-	[[NXApp delegate] addSoundResource:	EXP3SND];
-	[[NXApp delegate] addSoundResource:	BULLET1SND];
-	[[NXApp delegate] addSoundResource:	SHIPSND];
+	[[NSApp delegate] addImageResource:"explosionM" for: [Explosion class]];
+	[[NSApp delegate] addImageResource:"explosionS" for: [Explosion class]];
+	[[NSApp delegate] addSoundResource:	EXP1SND];
+	[[NSApp delegate] addSoundResource:	EXP2SND];
+	[[NSApp delegate] addSoundResource:	EXP3SND];
+	[[NSApp delegate] addSoundResource:	BULLET1SND];
+	[[NSApp delegate] addSoundResource:	SHIPSND];
 
 	return self;
 }
 
 - tile
 {
-	NXRect r;
+	NSRect r;
 	char title[50];
 	sprintf(title,"Xoxeroids level %d",level);
 	[[gcontentView window] setTitle:title];

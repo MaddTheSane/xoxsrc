@@ -1,5 +1,5 @@
 
-#import <appkit/appkit.h>
+#import <AppKit/AppKit.h>
 #import "xoxDefs.h"
 
 #import "Actor.h"
@@ -15,8 +15,8 @@ typedef struct {
 	int changemode;
 	float changepoint[6];
 	
-	NXRect draw;
-	NXRect erase;
+	NSRect draw;
+	NSRect erase;
 	
 	} SSTAR;
 
@@ -26,10 +26,10 @@ typedef struct {
 	int nstars;
 	int zradius;			// min radius of this view
 
-	NXRect b[NSTARS2];
-	NXRect w[NSTARS2];
+	NSRect b[NSTARS2];
+	NSRect w[NSTARS2];
 
-	NXSize mySize;
+	NSSize mySize;
 	unsigned expireTime;
 	float cumuTimeStamp;
 }

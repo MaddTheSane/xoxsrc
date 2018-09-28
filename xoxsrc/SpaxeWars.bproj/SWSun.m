@@ -6,8 +6,8 @@
 
 - activate:sender :(int)tag
 {
-	NXSize tsize = {24,24};
-	NXSize t2 = {12, 12};
+	NSSize tsize = {24,24};
+	NSSize t2 = {12, 12};
 
 	[super activate:sender :tag];
 

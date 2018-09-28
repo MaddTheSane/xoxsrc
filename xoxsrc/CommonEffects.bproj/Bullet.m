@@ -11,8 +11,8 @@ static int lastBulletSound;
 
 - activate:sender :(int)tag
 {
-	NXSize tsize = {3,2};
-	NXSize t2 = {1.5, 1.0};
+	NSSize tsize = {3,2};
+	NSSize t2 = {1.5, 1.0};
 	Actor *dude = (Actor *)sender;
 	float xfactor = -sin(dude->theta), yfactor = cos(dude->theta);
 
@@ -88,7 +88,7 @@ static int lastBulletSound;
 	return self;
 }
 
-- calcDxDy:(NXPoint *)dp
+- calcDxDy:(NSPoint *)dp
 {
 	if (timeInMS > expireTime)
 		[actorMgr destroyActor:self];

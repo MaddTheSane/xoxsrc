@@ -1,1 +1,6 @@
 .DS_Store
+obj-*-opt/
+*.nib~/
+derived_src
+project.xcworkspace/
+xcuserdata/

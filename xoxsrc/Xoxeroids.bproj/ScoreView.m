@@ -6,7 +6,7 @@
 
 @implementation ScoreView
 
-- initFrame:(const NXRect *)frameRect
+- initFrame:(const NSRect *)frameRect
 {
 	[super initFrame:frameRect];
 	[self allocateGState];		// For faster lock/unlockFocus
@@ -14,10 +14,10 @@
 	return self;
 }
 
-- drawSelf:(const NXRect *)rects :(int)rectCount
+- drawSelf:(const NSRect *)rects :(int)rectCount
 {
 	PSsetrgbcolor(0,0,.2);
-	NXRectFill(rects);
+	NSRectFill(rects);
 	return self;
 }
 

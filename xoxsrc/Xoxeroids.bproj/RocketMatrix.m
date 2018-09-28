@@ -15,8 +15,8 @@
 @implementation DumbRocket
 - activate:sender :(int)tag
 {
-	NXSize tsize = {42,42};
-	NXSize tsize2 = {21,21};
+	NSSize tsize = {42,42};
+	NSSize tsize2 = {21,21};
 	Actor *dude = (Actor *)sender;
 
 	employed = YES;
@@ -110,7 +110,7 @@
 	return self;
 }
 
-- calcDxDy:(NXPoint *)dp
+- calcDxDy:(NSPoint *)dp
 {
 	if (timeInMS > changeTime)
 	{

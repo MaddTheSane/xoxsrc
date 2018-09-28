@@ -6,15 +6,15 @@
  *	6/1/93  [Erik Kay] - added color support
  */
 
-#import <appkit/appkit.h>
+#import <AppKit/AppKit.h>
 
 #define HORIZONTAL 0
 #define VERTICAL 1
 
-@interface EKProgressView:View
+@interface EKProgressView: NSView
 {
     int min, max, progress, orientation;
-    NXColor fillColor;
+    NSColor* fillColor;
 }
 
 // set the range of the bar
@@ -28,6 +28,6 @@
 - setOrientation:(int)val;
 
 // set the color that the grow bar is being drawn in
-- setFillColor:(NXColor)color;
+- setFillColor:(NSColor*)color;
 
 @end

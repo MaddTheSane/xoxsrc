@@ -1,5 +1,5 @@
 
-#import <appkit/appkit.h>
+#import <AppKit/AppKit.h>
 #import "Scenario.h"
 #import "KeyTimer.h"
 
@@ -7,7 +7,7 @@ extern int
 		HISND,
 		EEOOSND;
 
-@interface Xoxeroids:Object <Scenario>
+@interface Xoxeroids: NSObject <Scenario>
 {
 	id ship;
 	id space;

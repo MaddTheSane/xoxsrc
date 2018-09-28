@@ -1,5 +1,5 @@
 
-#import <appkit/appkit.h>
+#import <AppKit/AppKit.h>
 
 extern id gameList;
 extern int gameIndex;
@@ -13,7 +13,7 @@ extern int gameIndex;
 	id invisibleInfoBox;
 	id nullInfoBox;
 	BOOL browserValid;
-	NXRect inspectorFrame;
+	NSRect inspectorFrame;
 	id bigWindow;
 	id littleWindow;
 	id gameWindow;

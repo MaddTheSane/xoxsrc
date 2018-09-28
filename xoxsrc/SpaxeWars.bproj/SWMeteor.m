@@ -10,8 +10,8 @@ static int wobble;
 
 - activate:sender :(int)tag
 {
-	NXSize tsize = {37,35};
-	NXSize t2 = {18,18};
+	NSSize tsize = {37,35};
+	NSSize t2 = {18,18};
 
 	wobble = (++wobble) & 1;
 
@@ -65,7 +65,7 @@ static int wobble;
 }
 
 #define MAXV 30
-- calcDxDy:(NXPoint *)dp
+- calcDxDy:(NSPoint *)dp
 {
 	x *=2; y*=2;
 	if (sw_gravity) [self swApplyGravity];
@@ -76,7 +76,7 @@ static int wobble;
 	if (yv > MAXV) yv = MAXV;
 	else if (yv < -MAXV) yv = -MAXV;
 
-	return [super calcDxDy:(NXPoint *)dp];
+	return [super calcDxDy:(NSPoint *)dp];
 }
 
 - performCollisionWith:(Actor *) dude

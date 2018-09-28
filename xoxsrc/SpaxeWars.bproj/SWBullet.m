@@ -10,8 +10,8 @@ extern int sw_bulletMass;
 
 - activate:sender :(int)tag
 {
-	NXSize tsize = {8,8};
-	NXSize t2 = {4, 4};
+	NSSize tsize = {8,8};
+	NSSize t2 = {4, 4};
 	Actor *dude = (Actor *)sender;
 	float xfactor = -sin(dude->theta), yfactor = cos(dude->theta);
 	float bulletDistance = sw_nastyShots ? 9 : 4;
@@ -57,7 +57,7 @@ extern int sw_bulletMass;
 }
 
 #define MAXV 105
-- calcDxDy:(NXPoint *)dp
+- calcDxDy:(NSPoint *)dp
 {
 	if (sw_gravity && sw_bulletMass) [self swApplyGravity];
 
@@ -66,6 +66,6 @@ extern int sw_bulletMass;
 	if (yv > MAXV) yv = MAXV;
 	else if (yv < -MAXV) yv = -MAXV;
 
-	return [super calcDxDy:(NXPoint *)dp];
+	return [super calcDxDy:(NSPoint *)dp];
 }
 @end

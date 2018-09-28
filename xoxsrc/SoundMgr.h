@@ -1,10 +1,10 @@
-#import <appkit/appkit.h>
+#import <AppKit/AppKit.h>
 #import <objc/Object.h>
 #import <soundkit/soundkit.h>
 
 #define MAX_STREAMS 8
 
-@interface SoundMgr:Object
+@interface SoundMgr: NSObject
 {
 	int currentStream;
 	NXSoundOut *device;

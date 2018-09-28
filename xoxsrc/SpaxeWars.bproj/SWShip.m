@@ -25,8 +25,8 @@
 
 - activate:sender :(int)tag
 {
-	NXSize t20 = {36,36};
-	NXSize t10 = {18,18};
+	NSSize t20 = {36,36};
+	NSSize t10 = {18,18};
 	int oldFrame = frame;
 
 	[super activate:sender :tag];
@@ -57,10 +57,10 @@
 + initialize
 {
 	[super initialize];
-	[[NXApp delegate] addImageResource:"dart1" for: self];
-	[[NXApp delegate] addImageResource:"dart2" for: self];
-	[[NXApp delegate] addImageResource:"claw1" for: self];
-	[[NXApp delegate] addImageResource:"claw2" for: self];
+	[[NSApp delegate] addImageResource:"dart1" for: self];
+	[[NSApp delegate] addImageResource:"dart2" for: self];
+	[[NSApp delegate] addImageResource:"claw1" for: self];
+	[[NSApp delegate] addImageResource:"claw2" for: self];
 	return self;
 }
 
@@ -102,7 +102,7 @@
 	return self;
 }
 
-- calcDxDy:(NXPoint *)dp
+- calcDxDy:(NSPoint *)dp
 {
 	float thrust = [thrustVal val];
 	if (thrust > 0)

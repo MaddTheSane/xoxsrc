@@ -49,8 +49,8 @@
 
 - activate:sender :(int)tag
 {
-	NXSize t2;
-	NXSize t1;
+	NSSize t2;
+	NSSize t1;
 	MatrixData *md = (MatrixData *)tag;
 	int numActors = (md->columns * md->rows);
 	int i,j;
@@ -169,7 +169,7 @@
 // determine if a collision happended into the matrix, and if so, what the
 // beginning and ending rows and columns are.
 
-- (BOOL) rowsNcols:(NXRect *)r myRect:(NXRect *)myRect
+- (BOOL) rowsNcols:(NSRect *)r myRect:(NSRect *)myRect
 		:(int *)begc :(int *)endc :(int *)begr :(int *)endr
 {
 	int t;
@@ -212,7 +212,7 @@
 
 - oneStep
 {
-	NXPoint dXdY;
+	NSPoint dXdY;
 	int i,j;
 	Actor *dude;
 	float bx, by;

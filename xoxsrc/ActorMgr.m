@@ -282,7 +282,7 @@ extern BOOL pauseState;
 
 - setGameStatus:(GAME_STATUS)gs
 {
-	id thinker = [NXApp delegate];
+	id thinker = [NSApp delegate];
 
 	gameStatus = gs;
 	switch (gameStatus)

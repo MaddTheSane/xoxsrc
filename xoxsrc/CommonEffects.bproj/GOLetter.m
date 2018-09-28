@@ -10,7 +10,7 @@ static int endConditions;
 
 typedef struct {
 	char *name;
-	NXRect r;
+	NSRect r;
 	} GOstruct;
 
 static GOstruct goarray[] = {
@@ -29,8 +29,8 @@ static int wobble;
 - activate:sender :(int)tag
 {
 	GOstruct *gp = (GOstruct *)tag;
-	NXRect *rp = &gp->r;
-	NXSize tsize;
+	NSRect *rp = &gp->r;
+	NSSize tsize;
 
 	tsize.width = rp->size.width / 2;
 	tsize.height = rp->size.height / 2;
@@ -85,7 +85,7 @@ static int wobble;
 	theImage = [self findImageNamed:"GameOver"];	
 	for (i=0; i<8; i++)
 	{
-		NXImage *i2 = [[NXImage allocFromZone:[self zone]]
+		NSImage *i2 = [[NSImage allocFromZone:[self zone]]
 					initFromImage:theImage rect:&goarray[i].r];
 		[i2 setName:goarray[i].name];
 	}

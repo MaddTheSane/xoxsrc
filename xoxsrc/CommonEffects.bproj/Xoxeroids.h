@@ -1,5 +1,5 @@
 
-#import <appkit/appkit.h>
+#import <AppKit/AppKit.h>
 #import "Scenario.h"
 #import "KeyTimer.h"
 

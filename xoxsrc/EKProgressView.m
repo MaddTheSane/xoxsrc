@@ -10,7 +10,7 @@
 
 @implementation EKProgressView
 
-- initFrame:(const NXRect *)f
+- initFrame:(const NSRect *)f
 {
     [super initFrame:f];
 
@@ -66,21 +66,21 @@
 }
 
 // set the fill color
-- setFillColor:(NXColor)color
+- setFillColor:(NSColor*)color
 {
     fillColor = color;
     return self;
 }
 
-- drawSelf:(const NXRect *)rects :(int)c
+- drawSelf:(const NSRect *)rects :(int)c
 {
-    NXRect r;
+    NSRect r;
     int distance;
 	int tmax = max;
 	if (tmax == min) tmax++;
     
     PSsetgray(0.667);
-    NXRectFill(&frame);
+    NSRectFill(&frame);
     NXSetColor(fillColor);
     if (orientation == HORIZONTAL) {
 	distance = (progress - min) * NX_WIDTH(&frame) / (tmax - min);
@@ -89,7 +89,7 @@
 	distance = (progress - min) * NX_HEIGHT(&frame) / (tmax - min);
 	NXSetRect(&r,0,0,NX_WIDTH(&frame),distance);
     }
-    NXRectFill(&r);
+    NSRectFill(&r);
     return self;
 }
 

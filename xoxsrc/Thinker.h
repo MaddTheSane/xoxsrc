@@ -1,10 +1,10 @@
 
-#import <appkit/appkit.h>
+#import <AppKit/AppKit.h>
 
 extern id gameList;
 extern int gameIndex;
 
-@interface Thinker:Object
+@interface Thinker: NSObject
 {
 	BOOL timerValid;
     id	backView;
@@ -13,7 +13,7 @@ extern int gameIndex;
 	id invisibleInfoBox;
 	id nullInfoBox;
 	BOOL browserValid;
-	NXRect inspectorFrame;
+	NSRect inspectorFrame;
 	id bigWindow;
 	id littleWindow;
 	id gameWindow;

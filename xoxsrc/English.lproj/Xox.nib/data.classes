@@ -1,102 +1,54 @@
-ActorMgr = {
-    OUTLETS = {
-	retireList;
-	employedList;
-    };
-    SUPERCLASS = Object;
+"Actor" = {ACTIONS = {}; OUTLETS = {image = id; }; SUPERCLASS = Object; };
+"ActorMgr" = {
+    ACTIONS = {}; 
+    OUTLETS = {employedList = id; retireList = id; }; 
+    SUPERCLASS = Object; 
 };
-FirstResponder = {
+"Asteroid" = {ACTIONS = {}; OUTLETS = {}; SUPERCLASS = Actor; };
+"BackView" = {ACTIONS = {}; OUTLETS = {}; SUPERCLASS = NSView; };
+"Bullet" = {ACTIONS = {}; OUTLETS = {}; SUPERCLASS = Actor; };
+"CacheObject" = {ACTIONS = {}; OUTLETS = {}; SUPERCLASS = Object; };
+"Cannon" = {ACTIONS = {}; OUTLETS = {}; SUPERCLASS = Actor; };
+"Cannonball" = {ACTIONS = {}; OUTLETS = {}; SUPERCLASS = Actor; };
+"DisplayManager" = {ACTIONS = {}; OUTLETS = {}; SUPERCLASS = Object; };
+"EKProgressView" = {ACTIONS = {}; OUTLETS = {}; SUPERCLASS = NSView; };
+"Explosion" = {ACTIONS = {}; OUTLETS = {}; SUPERCLASS = Actor; };
+"FirstResponder" = {ACTIONS = {}; OUTLETS = {}; SUPERCLASS = NSObject; };
+"MineFragment" = {ACTIONS = {}; OUTLETS = {}; SUPERCLASS = Actor; };
+"NSView" = {ACTIONS = {}; OUTLETS = {}; SUPERCLASS = NSResponder; };
+"NSWindow" = {ACTIONS = {}; OUTLETS = {}; SUPERCLASS = NSResponder; };
+"Ship" = {
+    ACTIONS = {}; 
+    OUTLETS = {flame1 = id; flame2 = id; noflame = id; }; 
+    SUPERCLASS = Actor; 
+};
+"SpaceGen" = {ACTIONS = {}; OUTLETS = {}; SUPERCLASS = Actor; };
+"SpaceSpinGen" = {ACTIONS = {}; OUTLETS = {}; SUPERCLASS = Actor; };
+"StatusView" = {ACTIONS = {}; OUTLETS = {}; SUPERCLASS = NSView; };
+"Thinker" = {
     ACTIONS = {
-    };
-    SUPERCLASS = Object;
-};
-Thinker = {
-    ACTIONS = {
-	appDidInit:;
-	setSound:;
-	newGame:;
-	toggleFullScreen:;
-	toggleUserPause:;
-	selectGame:;
-    };
+        "appDidInit:" = id; 
+        "newGame:" = id; 
+        "selectGame:" = id; 
+        "setSound:" = id; 
+        "toggleFullScreen:" = id; 
+        "toggleUserPause:" = id; 
+    }; 
     OUTLETS = {
-	soundsToCache;
-	soundButton;
-	scenarioBrowser;
-	gameWindow;
-	backView;
-	imageNames;
-	progressView;
-	statusText;
-	invisibleInfoBox;
-	imageRequestor;
-	littleWindow;
-	bigWindow;
-	nullInfoBox;
-    };
-    SUPERCLASS = Object;
+        backView = id; 
+        bigWindow = id; 
+        gameWindow = id; 
+        imageNames = id; 
+        imageRequestor = id; 
+        invisibleInfoBox = id; 
+        littleWindow = id; 
+        nullInfoBox = id; 
+        progressView = id; 
+        scenarioBrowser = id; 
+        soundButton = id; 
+        soundsToCache = id; 
+        statusText = id; 
+    }; 
+    SUPERCLASS = Object; 
 };
-Explosion = {
-    SUPERCLASS = Actor;
-};
-EKProgressView = {
-    ACTIONS = {
-    };
-    OUTLETS = {
-    };
-    SUPERCLASS = View;
-};
-Xoxeroids = {
-    SUPERCLASS = Object;
-};
-Actor = {
-    ACTIONS = {
-    };
-    OUTLETS = {
-	image;
-    };
-    SUPERCLASS = Object;
-};
-Cannonball = {
-    SUPERCLASS = Actor;
-};
-Bullet = {
-    SUPERCLASS = Actor;
-};
-BackView = {
-    SUPERCLASS = View;
-};
-StatusView = {
-    SUPERCLASS = View;
-};
-SpaceGen = {
-    SUPERCLASS = Actor;
-};
-CacheObject = {
-    SUPERCLASS = Object;
-};
-Ship = {
-    ACTIONS = {
-    };
-    OUTLETS = {
-	flame2;
-	noflame;
-	flame1;
-    };
-    SUPERCLASS = Actor;
-};
-MineFragment = {
-    SUPERCLASS = Actor;
-};
-Cannon = {
-    SUPERCLASS = Actor;
-};
-DisplayManager = {
-    SUPERCLASS = Object;
-};
-Asteroid = {
-    SUPERCLASS = Actor;
-};
-SpaceSpinGen = {
-    SUPERCLASS = Actor;
-};
+"Xoxeroids" = {ACTIONS = {}; OUTLETS = {}; SUPERCLASS = Object; };

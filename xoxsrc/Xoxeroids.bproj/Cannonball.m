@@ -9,8 +9,8 @@
 
 - activate:sender :(int)tag
 {
-	NXSize tsize = {30,30};
-	NXSize tsize2 = {15,15};
+	NSSize tsize = {30,30};
+	NSSize tsize2 = {15,15};
 	Actor *dude = (Actor *)sender;
 	float ttheta = (90. * (PI/180.) * (tag%4));
 
@@ -35,7 +35,7 @@
 	return self;
 }
 
-- calcDxDy:(NXPoint *)dp
+- calcDxDy:(NSPoint *)dp
 {
 	if (timeInMS > moveChangeTime)
 	{

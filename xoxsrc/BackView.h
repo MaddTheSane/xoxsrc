@@ -1,8 +1,8 @@
 
-#import <appkit/appkit.h>
+#import <AppKit/AppKit.h>
 #import "xoxDefs.h"
 
-@interface BackView:View
+@interface BackView: NSView
 {
 }
 
@@ -12,10 +12,10 @@
 
 
 
-@interface Window(Sizing)
+@interface NSWindow(Sizing)
 - sizeWindow:(NXCoord)width :(NXCoord)height byCorner:(int)corner;
 @end
 
-@interface View(Sizing)
+@interface NSView(Sizing)
 - sizeTo:(NXCoord)width :(NXCoord)height byWindowCorner:(int)corner;
 @end

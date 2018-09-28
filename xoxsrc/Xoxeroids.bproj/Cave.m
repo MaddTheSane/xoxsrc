@@ -12,8 +12,8 @@ extern int xx_ship;
 
 - activate:sender :(int)tag
 {
-	NXSize tsize = {150,150};
-	NXSize tsize2 = {75,75};
+	NSSize tsize = {150,150};
+	NSSize tsize2 = {75,75};
 
 	[super activate:sender :tag];
 
@@ -78,7 +78,7 @@ static XXLine myShape[] = {
 		cave[i].y1 += y - 75;
 		cave[i].y2 += y - 75;
 	}
-	complexShapePtr = (NXRect *)(&cave[0]);
+	complexShapePtr = (NSRect *)(&cave[0]);
 	return self;
 }
 
@@ -105,8 +105,8 @@ static XXLine myShape[] = {
 
 - activate:sender :(int)tag
 {
-	NXSize tsize = {40,40};
-	NXSize tsize2 = {20,20};
+	NSSize tsize = {40,40};
+	NSSize tsize2 = {20,20};
 	Actor *dude = (Actor *)sender;
 
 	[super activate:sender :tag];
@@ -190,8 +190,8 @@ static XXLine myShape[] = {
 
 - activate:sender :(int)tag
 {
-	NXSize tsize = {48,48};
-	NXSize tsize2 = {24,24};
+	NSSize tsize = {48,48};
+	NSSize tsize2 = {24,24};
 	Actor *dude = (Actor *)sender;
 
 	[super activate:sender :tag];
@@ -217,7 +217,7 @@ static XXLine myShape[] = {
 	return self;
 }
 
-- calcDxDy:(NXPoint *)dp
+- calcDxDy:(NSPoint *)dp
 {
 	if (timeInMS > moveChangeTime)
 	{

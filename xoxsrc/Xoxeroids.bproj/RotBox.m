@@ -11,8 +11,8 @@ extern int xx_ship;
 
 - activate:sender :(int)tag
 {
-	NXSize tsize = {124,149};
-	NXSize tsize2 = {62,75};
+	NSSize tsize = {124,149};
+	NSSize tsize2 = {62,75};
 	Actor *dude = (Actor *)sender;
 	char *whatImage = tag ? "rotBox2" : "rotBox1";
 
@@ -95,7 +95,7 @@ static XXLine myShape[] = {
 		outline[i].y1 += y - 75;
 		outline[i].y2 += y - 75;
 	}
-	complexShapePtr = (NXRect *)(&outline[0]);
+	complexShapePtr = (NSRect *)(&outline[0]);
 	return self;
 }
 
@@ -141,8 +141,8 @@ static XXLine myShape[] = {
 
 - activate:sender :(int)tag
 {
-	NXSize tsize = {32,32};
-	NXSize tsize2 = {16,16};
+	NSSize tsize = {32,32};
+	NSSize tsize2 = {16,16};
 	Actor *dude = (Actor *)sender;
 
 	[super activate:sender :tag];
