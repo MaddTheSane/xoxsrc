@@ -2,30 +2,32 @@
 #import <AppKit/AppKit.h>
 
 @class GameInfo;
+@class EKProgressView;
+@class BackView;
 extern NSMutableArray<GameInfo*> *gameList;
 extern int gameIndex;
 
-@interface Thinker: NSObject <NSApplicationDelegate>
+@interface Thinker: NSObject <NSApplicationDelegate, NSWindowDelegate>
 {
 	BOOL timerValid;
-    IBOutlet id	backView;
+    IBOutlet BackView *backView;
 	NSTimer *timer;
-	IBOutlet id scenarioBrowser;
-	IBOutlet id invisibleInfoBox;
-	IBOutlet id nullInfoBox;
+	IBOutlet NSBrowser *scenarioBrowser;
+	IBOutlet NSBox *invisibleInfoBox;
+	IBOutlet NSBox *nullInfoBox;
 	BOOL browserValid;
 	NSRect inspectorFrame;
-	IBOutlet id bigWindow;
-	IBOutlet id littleWindow;
-	IBOutlet id gameWindow;
-	IBOutlet id progressView;
+	IBOutlet NSWindow *bigWindow;
+	IBOutlet NSWindow *littleWindow;
+	IBOutlet NSWindow *gameWindow;
+	IBOutlet EKProgressView *progressView;
 
-	id imageNames;
-	id imageRequestor;
+	IBOutlet NSMutableArray<NSString*> *imageNames;
+	IBOutlet NSMutableArray *imageRequestor;
 
-	IBOutlet id statusText;
-	id soundsToCache;
-	IBOutlet id soundButton;
+	IBOutlet NSTextField *statusText;
+	IBOutlet id soundsToCache;
+	IBOutlet NSButton *soundButton;
 }
 
 - (void)createTimer;
@@ -38,7 +40,7 @@ extern int gameIndex;
 - (IBAction)toggleUserPause:sender;
 - (void)setPauseState:(BOOL)flag;
 - (IBAction)newGame:sender;
-- (void)addImageResource:(const char *)r for:whom;
+- (void)addImageResource:(NSString *)r for:whom;
 - (void)addSoundResource:(int)sound;
 - (void)loadResources;
 
@@ -50,11 +52,10 @@ extern int gameIndex;
 - (IBAction)setSound:sender;
 - (IBAction)selectGame:sender;
 - installGameViewsIntoWindow:w;
-- (int)browser:sender fillMatrix:matrix inColumn:(int)column;
-- loadGamesFrom: (const char *) dirname;
+- (void)loadGamesFrom: (NSString *) dirname;
 - getScenario;
-- createBigWindowIfNecessary;
-- adjustLittleWindowSize;
+- (void)createBigWindowIfNecessary;
+- (void)adjustLittleWindowSize;
 - (BOOL)bigWindowOK;
 @end
 

@@ -16,10 +16,10 @@ extern int
 	int shipCount;
 //	int nextLevel;
 
-	id infoView;
-	id scoreView;
+	IBOutlet id infoView;
+	IBOutlet id scoreView;
 
-	id uselessView;
+	IBOutlet id uselessView;
 
 	unsigned scoreTime;
 	int score;
@@ -30,7 +30,7 @@ extern int
 	int oldBonus;
 }
 
-- gotoLevel:sender;
+- (IBAction)gotoLevel:sender;
 - (int) lives;
 
 @end

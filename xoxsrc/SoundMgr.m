@@ -119,7 +119,7 @@ typedef struct {
 	return self;
 }
 
-- (char *)soundName:(int)whichSound
+- (NSString*)soundName:(int)whichSound
 {
 	SoundInfo *sip;
 	whichSound--;	// make it zero based

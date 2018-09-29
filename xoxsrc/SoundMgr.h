@@ -6,10 +6,10 @@
 @interface SoundMgr: NSObject
 
 - oneStep;
-- (int) addSound:(const char *)name sender:whom;
-- (int) addSound:(const char *)name sender:whom cache:(BOOL)cacheit;
+- (int) addSound:(NSString *)name sender:whom;
+- (int) addSound:(NSString *)name sender:whom cache:(BOOL)cacheit;
 - cacheSound:(int)whichSound;
-- (char *)soundName:(int)whichSound;
+- (NSString *)soundName:(int)whichSound;
 - playSound: (int)whichSound at: (float)mix;
 - free;
 - (BOOL)turnSoundOn:sender;

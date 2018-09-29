@@ -1,4 +1,5 @@
 
+#include <sys/time.h>
 #import "Thinker.h"
 #import "BackView.h"
 #import "DisplayManager.h"
@@ -47,7 +48,7 @@ static unsigned currentTimeInMs()
 {
     struct timeval curTime;
     gettimeofday (&curTime, NULL);
-    return (curTime.tv_sec) * 1000 + curTime.tv_usec / 1000;
+    return (unsigned)((curTime.tv_sec) * 1000 + curTime.tv_usec / 1000);
 }
 
 - init
@@ -66,7 +67,7 @@ id commonStuff = nil;
 	NSBundle *commonBundle;
 	NSString *path;
 
-	srandom(time(0));
+	srandom(time(0) & 0x7fffffff);
 	timeInMS = lastTimeInMS = currentTimeInMs();
 
 	eventhandle = NXOpenEventStatus();
@@ -78,11 +79,6 @@ id commonStuff = nil;
 	gameWindow = littleWindow;
 	gcontentView = [littleWindow contentView];
 	inspectorFrame = [nullInfoBox frame];
-
-	actorZone = NXCreateZone(vm_page_size, vm_page_size, YES);
-	displayZone = NXCreateZone(vm_page_size, vm_page_size, YES);
-	scenarioZone = NXCreateZone(vm_page_size, vm_page_size, YES);
-	bundleZone = NXCreateZone(vm_page_size, vm_page_size, YES);
 
 	actorMgr = [[ActorMgr alloc] init];
 	displayMgr = [[DisplayManager alloc] init];
@@ -111,26 +107,25 @@ id commonStuff = nil;
 //{	[(id)theObject doOneStepLoop];
 //}
 
-- createTimer
+- (void)createTimer
 {
 	if (!timerValid)
 	{
 		timerValid = YES;
 		timer = DPSAddTimedEntry(0.02, &timedEntryFunction, self, NX_BASETHRESHOLD);
 	}
-	return self;
 }
 
-- removeTimer
+- (void)removeTimer
 {
-	if (timerValid) DPSRemoveTimedEntry (timer);
+	if (timerValid) [timer invalidate];
+	timer = nil;
 	timerValid = NO;
-	return self;
 }
 
-- doOneStepLoop
+- (void)doOneStepLoop
 {
-    NSEvent dummyEvent, *pEvent;
+    NSEvent *dummyEvent, *pEvent;
 	
 	[mainView lockFocus];
 
@@ -163,12 +158,9 @@ id commonStuff = nil;
 	   } while (timerValid && keepLooping);
 
 	[mainView unlockFocus];
-	
-	return self;
-
 }
 
-- justOneStep
+- (void)justOneStep
 {
 	[mainView lockFocus];
 //	[self oneStep];
@@ -178,10 +170,9 @@ id commonStuff = nil;
 		[displayMgr oneStep];
 	}
 	[mainView unlockFocus];
-	return self;
 }
 
-- oneStep
+- (void)oneStep
 {
 	float tinterval;
 
@@ -191,7 +182,7 @@ id commonStuff = nil;
 
 	if (obscureMouse && (timeInMS > obscureTime))
 	{
-		PSobscurecursor();
+		[NSCursor hide];
 		obscureTime = timeInMS + 5000;
 	}
 
@@ -200,14 +191,13 @@ id commonStuff = nil;
 	if (timeScale > maxTimeScale) timeScale = maxTimeScale;
 
 	[soundMgr oneStep];
-	[sceneOneStepper oneStep];		// notify the scenario, if it cares
+	[(id<DrawManager>)sceneOneStepper oneStep];		// notify the scenario, if it cares
 	[actorMgr oneStep];
 
 	[cacheMgr oneStep];
 	[displayMgr oneStep];
 
 	NXPing ();	// Synchronize postscript for smoother animation
-	return self;
 }
 
 // This should return a float between 0 and 1
@@ -231,13 +221,12 @@ float randBetween(float a, float b)
 	return (a + val);
 }
 
-- toggleFullScreen:sender;
+- (IBAction)toggleFullScreen:sender;
 {
 	[self setFullScreen: !fullScreen];
-	return self;
 }
 
-- setFullScreen:(BOOL)flag
+- (void)setFullScreen:(BOOL)flag
 {
 	if (flag)
 	{
@@ -246,7 +235,7 @@ float randBetween(float a, float b)
 		{
 			[NSApp getScreenSize:&(r.size)];
 			[self createBigWindowIfNecessary];
-			tweakWindow([bigWindow windowNum], 40);
+			tweakWindow([bigWindow windowNumber], 40);
 
 			[self installGameViewsIntoWindow:bigWindow];
 
@@ -264,109 +253,95 @@ float randBetween(float a, float b)
 		[littleWindow display];
 	}
 	fullScreen = flag;
-	return self;
 }
 
-- toggleUserPause:sender
+- (IBAction)toggleUserPause:sender
 {
 	[self setPauseState: (pauseState ^ 1)];
-	return self;
 }
 
-- setPauseState:(BOOL)flag
+- (void)setPauseState:(BOOL)flag
 {
 	if (flag) [self removeTimer];
 	else [self createTimer];
 	pauseState = flag;
-	return self;
 }
 
-- appDidHide:sender
+- (void)applicationDidHide:(NSNotification *)notification
 {
 	[self setPauseState:(pauseState | 2)];
-	return self;
 }
 
-- appDidUnhide:sender
+- (void)applicationDidUnhide:(NSNotification *)notification
 {
 	[self setPauseState:(pauseState & ~2)];
-	return self;
 }
 
-- appDidBecomeActive:sender
+- (void)applicationDidBecomeActive:(NSNotification *)notification
 {
 	[self setPauseState:(pauseState & ~4)];
 	NXSetKeyRepeatThreshold(eventhandle, 300.0);
-	return self;
 }
 
-- appDidResignActive:sender
+- (void)applicationDidResignActive:(NSNotification *)notification
 {
 	[self setPauseState:(pauseState | 4)];
 	NXSetKeyRepeatThreshold(eventhandle, oldKeyThreshold);
-	return self;
 }
 
-- windowDidBecomeKey:sender
+- (void)windowDidBecomeKey:(NSNotification *)notification
 {
-	if (sender == littleWindow || sender == bigWindow)
+	if (notification.object == littleWindow || notification.object == bigWindow)
 		[self setPauseState:(pauseState & ~8)];
-	return self;
 }
 
-- windowDidResignKey:sender
+- (void)windowDidResignKey:(NSNotification *)notification
 {
-	if (sender == littleWindow || sender == bigWindow)
+	if (notification.object == littleWindow || notification.object == bigWindow)
 		[self setPauseState:(pauseState | 8)];
-	return self;
 }
 
-- windowDidMove:sender
+- (void)windowDidMove:(NSNotification *)notification
 {
-	if ((sender == littleWindow) && ([scenario respondsTo:@selector(windowDidMove:)]))
-		[scenario windowDidMove:sender];
-	return self;
+	if ((notification.object == littleWindow) && ([scenario respondsToSelector:@selector(windowDidMove:)]))
+		[scenario windowDidMove:notification];
 }
 
-- appWillTerminate:sender
+- (void)applicationWillTerminate:(NSNotification *)notification
 {
 	NXSetKeyRepeatThreshold(eventhandle, oldKeyThreshold);
-	return self;
 }
 
-- newGame:sender
+- (IBAction)newGame:sender
 {
 	[self setPauseState:(pauseState & ~1)];
 	[actorMgr setGameStatus:GAME_RUNNING];
 	[actorMgr requestLevel:0];
-	return self;
 }
 
 // Image Loading status stuff was borrowed from Erik Kay, 
 // slightly munged for xox by sam
 // add an image filename to the image resource list
-- addImageResource:(const char *)r for:whom
+- (void)addImageResource:(NSString *)r for:whom
 {
     //! we cheat here a bit and take advantage of the fact that a list just
     //! takes id's which are pointers, and therefore, character pointers work
     //! just fine too.  Probably not the best thing to do...
-    [imageNames addObject:(id)NXCopyStringBuffer(r)];
+    [imageNames addObject:r];
     [imageRequestor addObject:whom];
-    return self;
 }
 
-- addSoundResource:(int)sound
+- (void)addSoundResource:(int)sound
 {
-	[soundsToCache addElement:&sound];
-	return self;
+	[soundsToCache addObject:@(sound)];
 }
 
 // preload resources for the app
 
-- loadResources
+- (void)loadResources
 {
-	int i, count, progress = 0;
-	char *str;
+	NSInteger i, count, progress = 0;
+	NSString *str;
 	id whom;
 	int soundndx;
     
@@ -374,26 +349,25 @@ float randBetween(float a, float b)
     count = [imageNames count];
     for (i = 0; i < count; i++)
 	{
-		str = (char *)[imageNames objectAt:i];
-		whom = [imageRequestor objectAt:i];
-		[[statusText setStringValue:str] display];
+		str = [imageNames objectAtIndex:i];
+		whom = [imageRequestor objectAtIndex:i];
+		[statusText setStringValue:str];
 		[whom cacheImage:str];
-		free(str);
 		// update the progress bar
 		progress++;
 		[progressView setProgress:progress];
-		NXPing();
+		//NXPing();
     }
 
     // convert/cache the sounds
     count = [soundsToCache count];
     for (i = 0; i < count; i++)
 	{
-		soundndx = *(int *)[soundsToCache elementAt:i];
-		str = (char *)[soundMgr soundName:soundndx];
+		soundndx = *(int *)[soundsToCache elementAtIndex:i];
+		str = [soundMgr soundName:soundndx];
 		if (str)
 		{
-			[[statusText setStringValue:str] display];
+			[statusText setStringValue:str];
 			[soundMgr cacheSound:soundndx];
 		}
 		// update the progress bar
@@ -402,10 +376,8 @@ float randBetween(float a, float b)
 		NXPing();
     }
 
-	[imageNames empty];
-	[imageRequestor empty];
-	[soundsToCache empty];
-    
-    return self;
+	[imageNames removeAllObjects];
+	[imageRequestor removeAllObjects];
+	[soundsToCache removeAllObjects];
 }
 @end

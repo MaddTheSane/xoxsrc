@@ -12,10 +12,10 @@ BOOL intersectsRect(NSRect *r1, NSRect *r2)
 
 BOOL intersectsCircle(Actor *a1, Actor *a2)
 {
-	float dx, dy, dist, sumrad;
+	CGFloat dx, dy, dist, sumrad;
 
-	dx = a1->x - a2->x;
-	dy = a1->y - a2->y;
+	dx = a1->point.x - a2->point.x;
+	dy = a1->point.y - a2->point.y;
 	dist = dx*dx + dy*dy;
 	sumrad = (a1->radius + a2->radius);
 	if (dist > (sumrad * sumrad)) return NO;
@@ -24,12 +24,12 @@ BOOL intersectsCircle(Actor *a1, Actor *a2)
 
 void circleToLines(Actor *a1, NSPoint *pt)
 {
-	pt[0].x = pt[2].x = pt[4].x = a1->x;
-	pt[1].y = pt[3].y = a1->y;
-	pt[0].y = pt[4].y = a1->y - a1->radius;
-	pt[2].y = a1->y + a1->radius;
-	pt[1].x = a1->x + a1->radius;
-	pt[3].x = a1->x - a1->radius;
+	pt[0].x = pt[2].x = pt[4].x = a1->point.x;
+	pt[1].y = pt[3].y = a1->point.y;
+	pt[0].y = pt[4].y = a1->point.y - a1->radius;
+	pt[2].y = a1->point.y + a1->radius;
+	pt[1].x = a1->point.x + a1->radius;
+	pt[3].x = a1->point.x - a1->radius;
 }
 
 #define MINRECTSIZE 11

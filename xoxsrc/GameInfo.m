@@ -70,77 +70,57 @@
 
 @synthesize path;
 
-- appendPath: (const char *)p
+- (void)appendPath: (NSString *)p
 {
 	if (altPaths)
 	{
-		altPaths = realloc(altPaths,strlen(altPaths)+strlen(p)+2);
-		strcat(altPaths,"\t");
-		strcat(altPaths,p);
+		[altPaths addObject:p];
 	}
-	else altPaths = str_copy(p);
-	return self;
+	else altPaths = [NSMutableArray arrayWithObject:p];
 }
 
 // if the path is bogus, this will set the path to the next one
 // returns self if successful, nil if there is no additional path
-- useNextPath
+- (BOOL)useNextPath
 {
-	char *p1, *p2;
-
-	if (altPaths)
+	if (altPaths && altPaths.count > 0)
 	{
-		p1 = p2 = altPaths;
-		while (*p1 && *p1 != '\t') p1++;
-		if (*p1 == '\t')
+		NSString *p1 = altPaths.firstObject;
+		[altPaths removeObjectAtIndex:0];
+		path = p1;
+		if (altPaths.count == 0) // last one
 		{
-			*p1=0;
-			path = realloc(path,strlen(p1)+1);
-			strcpy(path,p1);
-			while (*p2++ = *p1++);
-			altPaths = realloc(altPaths,strlen(altPaths)+1);
+			altPaths = nil;
 		}
-		else		// last one
-		{
-			str_free(path);
-			path = altPaths;
-			altPaths = NULL;
-		}
-		return self;
+		return YES;
 	}
-	return nil;
+	return NO;
 }
 
-- discardAltPaths
+- (void)discardAltPaths
 {
-	str_free(altPaths);
 	altPaths = NULL;
-	return self;
 }
 
 @end
 
 @implementation GameList
 
-- (const char *) nameAt: (int) i
+- (NSString *) nameAtIndex:(NSInteger)i
 {
-	return [[self objectAt: i] scenarioName];
+	return [[self objectAtIndex: i] scenarioName];
 }
 
-- scenarioAt: (int) i
+- (id)scenarioAtIndex:(NSInteger)i
 {
-	return [[self objectAt: i] scenario];
+	return [[self objectAtIndex: i] scenario];
 }
 
-static int docompare(const void *x, const void *y)
+- (void)sort
 {
-	return strcasecmp([(id)(*(GameInfo **)x) scenarioName], [(id)(*(GameInfo **)y) scenarioName]);
-}
-
-- sort
-{
-	qsort((GameInfo **)dataPtr, numElements, sizeof(id), docompare);
-	return self;
+	[self sortUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+		return [[obj1 scenarioName] caseInsensitiveCompare:[obj2 scenarioName]];
+	}];
 }
 
 @end

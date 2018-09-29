@@ -2,9 +2,9 @@
 #import <appkit/appkit.h>
 #import "Scenario.h"
 
-@interface Boink:Object <Scenario>
+@interface Boink:NSObject <Scenario>
 {
-	id infoView;
+	IBOutlet id infoView;
 }
 
 @end

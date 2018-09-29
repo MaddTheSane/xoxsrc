@@ -21,7 +21,7 @@ extern DisplayManager *displayMgr;
 extern SoundMgr *soundMgr;
 extern id mainView;		//!< whatever the windows main view is
 extern BackView *abackView;	//!< an available BackView; use but don't reassign
-extern id gcontentView;
+extern NSView *gcontentView;
 extern id keyTimerList;
 extern CGFloat xOffset, yOffset;
 extern int level;

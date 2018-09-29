@@ -47,15 +47,10 @@ extern BOOL obscureMouse;
 
 - getSoundSetting
 {
-	NXZone *soundZone;
-	const char *ptr;
-	
-	soundZone = NXCreateZone(vm_page_size, vm_page_size, YES);
-	soundMgr = [[SoundMgr allocFromZone:soundZone] init];
+	soundMgr = [[SoundMgr alloc] init];
 
 	
-	ptr = NXGetDefaultValue([NSApp appName], "Sound");
-	if (!ptr || !strcmp(ptr,"On"))
+	if ([NSUserDefaults.standardUserDefaults boolForKey:@"Sound"])
 	{
 		[soundMgr turnSoundOn:nil];
 	}
@@ -64,7 +59,7 @@ extern BOOL obscureMouse;
 	return self;
 }
 
-- setSound:sender
+- (IBAction)setSound:sender
 {
 	if ([soundButton state])
 	{	if (![soundMgr turnSoundOn:sender]) [soundButton setState:0];
@@ -74,13 +69,12 @@ extern BOOL obscureMouse;
 	}
 
 	if ([soundMgr isSoundEnabled])
-		NXRemoveDefault([NSApp appName], "Sound");
-	else NXWriteDefault([NSApp appName], "Sound", "Off");
+		[NSUserDefaults.standardUserDefaults setBool:YES forKey:@"Sound"];
+	else [NSUserDefaults.standardUserDefaults setBool:NO forKey:@"Sound"];
 
-	return self;
 }
 
-- selectGame:sender
+- (IBAction)selectGame:sender
 {
 	// sender is the game browser, or nil if sent from within the app
 	int i;
@@ -89,7 +83,7 @@ extern BOOL obscureMouse;
 	id inspector;
 	GAME_STATUS gs;
 	
-	if (sender && (index == gameIndex)) return self;
+	if (sender && (index == gameIndex)) return;
 
 	[scenario scenarioDeselected];
 
@@ -104,13 +98,13 @@ extern BOOL obscureMouse;
 	gx = gy = 0;
 	maxTimeScale = 1.5;
 	collisionDistance = 1.25;
-	if ([scenario respondsTo:@selector(oneStep)]) sceneOneStepper = scenario;
+	if ([scenario respondsToSelector:@selector(oneStep)]) sceneOneStepper = scenario;
 	else sceneOneStepper = nil;
-	if ([scenario respondsTo:@selector(shouldObscureCursor)] && 
+	if ([scenario respondsToSelector:@selector(shouldObscureCursor)] &&
 		![scenario shouldObscureCursor]) obscureMouse = NO;
 	else obscureMouse = YES;
 
-	[keyTimerList empty];
+	[keyTimerList removeAllObjects];
 
 	inspector = [scenario infoView];
 	[inspector getFrame:&f1];
@@ -130,7 +124,7 @@ extern BOOL obscureMouse;
 	[scenario scenarioSelected];
 
 	[self setPauseState: (pauseState & ~1)];
-	gs = [(GameInfo *)[gameList objectAt: gameIndex] status];
+	gs = [(GameInfo *)[gameList objectAtIndex: gameIndex] status];
 	if (gs == GAME_DYING || gs == GAME_DEAD)
 		[self newGame:self];
 	else [actorMgr setGameStatus:gs];
@@ -140,7 +134,6 @@ extern BOOL obscureMouse;
 
 	if (sender) [self justOneStep];		// yech! I should have a better way to get
 										// everything set up...
-	return self;
 }
 
 - installGameViewsIntoWindow:w
@@ -148,13 +141,13 @@ extern BOOL obscureMouse;
 	int i;
 
 	for (i=([[gcontentView subviews] count]-1); i>=0; i--)
-	{	[[[gcontentView subviews] objectAt:i] removeFromSuperview];
+	{	[[[gcontentView subviews] objectAtIndex:i] removeFromSuperview];
 	}
 
 	gameWindow = w;
 	gcontentView = [w contentView];
 
-	if ([scenario respondsTo:@selector(tile)])
+	if ([scenario respondsToSelector:@selector(tile)])
 		mainView = [scenario tile];
 	else
 	{
@@ -176,16 +169,15 @@ extern BOOL obscureMouse;
 	return browserValid;
 }
 
-- addCellWithString:(const char *)str at:(int)row toMatrix:matrix
+- (void)addCellWithString:(NSString *)str atRow:(int)row toMatrix:(NSMatrix*)matrix
 {
 	id theCell;
 	
-	[matrix insertRowAt:row];
-	theCell = [matrix cellAt:row :0];
+	[matrix insertRow:row];
+	theCell = [matrix cellAtRow:row column:0];
 	[theCell setStringValue:str];
 	[theCell setLoaded:YES];
 	[theCell setLeaf:YES];
-	return self;
 }
 
 - (int)browser:sender createRowsForColumn:(int)column inMatrix:(NSMatrix*)matrix
@@ -219,7 +211,7 @@ extern BOOL obscureMouse;
 //	if we find a module in several places, we save the additional paths
 //	in case they point to modules for different architectures
 
-- loadGamesFrom: (const char *) dirname
+- (void)loadGamesFrom: (NSString *) dirname
 {
     DIR *dir;
     struct direct *de;
@@ -230,10 +222,10 @@ extern BOOL obscureMouse;
 	BOOL validName;
 
 
-	dir = opendir(dirname);
+	dir = opendir(dirname.fileSystemRepresentation);
 	if (dir == NULL)
 	{
-		return self;
+		return;
 	}
 
 	while ((de = readdir(dir)) != NULL)
@@ -283,8 +275,6 @@ extern BOOL obscureMouse;
 	}
 
     closedir(dir);
-
-    return self;
 }
 
 - getScenario
@@ -348,7 +338,7 @@ extern BOOL obscureMouse;
 	return [gameList scenarioAt:gameIndex];
 }
 
-- createBigWindowIfNecessary
+- (void)createBigWindowIfNecessary
 {
 	if (!bigWindow)
 	{
@@ -362,8 +352,6 @@ extern BOOL obscureMouse;
 		[bigWindow setBackgroundGray:NX_BLACK];
 		[bigWindow setDelegate:self];
 	}
-
-	return self;
 }
 
 // delegate method invoked by window
@@ -385,12 +373,12 @@ extern BOOL obscureMouse;
 	return self;
 }
 
-- adjustLittleWindowSize
+- (void)adjustLittleWindowSize
 {
 	NSRect contRect;
 
-	if (![scenario respondsTo:@selector(newWindowContentSize:)])
-		return self;
+	if (![scenario respondsToSelector:@selector(newWindowContentSize:)])
+		return;
 
 	[[littleWindow contentView] getBounds:&contRect];
 	if ([scenario newWindowContentSize:&contRect.size])
@@ -398,7 +386,6 @@ extern BOOL obscureMouse;
 		[[littleWindow contentView] sizeTo:contRect.size.width 
 			:contRect.size.height byWindowCorner:3];
 	}
-	return self;
 }
 
 - (BOOL)bigWindowOK

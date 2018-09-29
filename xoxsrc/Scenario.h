@@ -8,26 +8,23 @@
 @protocol Scenario
 
 // invoked only by the actor manager
-- _createLevel:(int)lev;
+- (void)_createLevel:(int)lev;
 
-- infoView;
-- didActivate:(Actor *)theActor;
-- didRetire:(Actor *)theActor;
+- (NSView*)infoView;
+- (void)didActivate:(Actor *)theActor;
+- (void)didRetire:(Actor *)theActor;
 
-- keyDown:(NSEvent *)theEvent;
-- keyUp:(NSEvent *)theEvent;
+- (void)keyDown:(NSEvent *)theEvent;
+- (void)keyUp:(NSEvent *)theEvent;
 
-- scenarioSelected;
-- scenarioDeselected;
+- (void)scenarioSelected;
+- (void)scenarioDeselected;
 
 - (COLLISION_PARADIGM)collisionParadigm;
 
-@end
+@optional
 
-
-@interface NSObject (optionalScenarioMethods)
-
-- collisionDelegate;		// who performs collisions?
+- (id)collisionDelegate;		// who performs collisions?
 - tile;						// invoked to tile the game window
 - newSize:(NSSize *)s;		// notification of new view size
 - (BOOL)newWindowContentSize:(NSSize *)s;

@@ -109,13 +109,12 @@ CGFloat gx, gy;
 	return self;
 }
 
-- retire
+- (void)retire
 {
 //	[self erase];
 	if (buffered && (eraseRect.size.width > 0))
 		[cacheMgr displayRect:eraseRect];
 	employed = NO;
-	return self;
 }
 
 - (void)erase
@@ -180,26 +179,15 @@ CGFloat gx, gy;
 	}
 }
 
-- setVel:(float)newVel theta:(float)newTheta sync:(BOOL)sync
+- (void)setVel:(float)newVel theta:(float)newTheta sync:(BOOL)sync
 {
-	vel = newVel;
-	theta = newTheta;
+	self.vel = newVel;
+	self.theta = newTheta;
 	if (sync)
 	{
 		xv = vel * -sin(theta);
 		yv = vel * cos(theta);
 	}
-	return self;
-}
-
-- (void)setVel:(float)newVel
-{
-	vel = newVel;
-}
-
-- (void)setTheta:(float)newTheta
-{
-	theta = newTheta;
 }
 
 - (void)oneStep

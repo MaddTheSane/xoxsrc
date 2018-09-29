@@ -51,10 +51,89 @@
         </window>
         <menu title="Xox" systemMenu="main" id="20" userLabel="MainMenu">
             <items>
-                <menuItem title="Info" id="21">
-                    <connections>
-                        <action selector="makeKeyAndOrderFront:" target="45" id="66"/>
-                    </connections>
+                <menuItem title="XöX" id="6nT-L3-dZ1">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="XöX" id="1gY-nD-3aT">
+                        <items>
+                            <menuItem title="About XöX" id="21">
+                                <connections>
+                                    <action selector="makeKeyAndOrderFront:" target="45" id="66"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="33S-9w-8DX"/>
+                            <menuItem title="Services" id="dxg-CM-fYG">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Services" id="GTl-3r-Zyb">
+                                    <items>
+                                        <menuItem title="Item" id="mob-th-kxu">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="Dnk-pw-QXm"/>
+                            <menuItem title="Hide XöX" keyEquivalent="h" id="16" userLabel="Hide XöX">
+                                <connections>
+                                    <action selector="hide:" target="-2" id="59"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Hide Others" keyEquivalent="h" id="A82-lD-I3K">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                <connections>
+                                    <action selector="hideOtherApplications:" target="-2" id="unl-dZ-5Qg"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Show All" id="Ihj-jD-5Ms">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="unhideAllApplications:" target="-2" id="dJL-GU-axE"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="GBv-d6-60G"/>
+                            <menuItem title="Quit XöX" keyEquivalent="q" id="7">
+                                <connections>
+                                    <action selector="terminate:" target="-2" id="60"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Game" id="18">
+                    <menu key="submenu" title="Game" id="17">
+                        <items>
+                            <menuItem title="New" keyEquivalent="n" id="39">
+                                <connections>
+                                    <action selector="newGame:" target="38" id="77"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Full Screen" keyEquivalent="F" id="28">
+                                <connections>
+                                    <action selector="toggleFullScreen:" target="38" id="75"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Pause" keyEquivalent="p" id="11">
+                                <connections>
+                                    <action selector="toggleUserPause:" target="38" id="76"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Close Window" keyEquivalent="w" id="2">
+                                <connections>
+                                    <action selector="performClose:" target="-1" id="83"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="tb8-7J-TuU"/>
+                            <menuItem title="Control" id="12">
+                                <connections>
+                                    <action selector="makeKeyAndOrderFront:" target="47" id="68"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Colors..." id="26">
+                                <connections>
+                                    <action selector="orderFrontColorPanel:" target="-1" id="84"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
                 </menuItem>
                 <menuItem title="Edit" id="13">
                     <menu key="submenu" title="Edit" id="4">
@@ -82,51 +161,17 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Control" id="12">
-                    <connections>
-                        <action selector="makeKeyAndOrderFront:" target="47" id="68"/>
-                    </connections>
-                </menuItem>
-                <menuItem title="Game" id="18">
-                    <menu key="submenu" title="Game" id="17">
+                <menuItem title="Help" id="kXl-Op-uHb">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Help" systemMenu="help" id="VcO-1R-v1h">
                         <items>
-                            <menuItem title="New" keyEquivalent="n" id="39">
+                            <menuItem title="Application Help" keyEquivalent="?" id="Q2B-AL-nq2">
                                 <connections>
-                                    <action selector="newGame:" target="38" id="77"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Full Screen" keyEquivalent="F" id="28">
-                                <connections>
-                                    <action selector="toggleFullScreen:" target="38" id="75"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Pause" keyEquivalent="p" id="11">
-                                <connections>
-                                    <action selector="toggleUserPause:" target="38" id="76"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Close Window" keyEquivalent="w" id="2">
-                                <connections>
-                                    <action selector="performClose:" target="-1" id="83"/>
+                                    <action selector="showHelp:" target="-1" id="tW5-tY-1Fh"/>
                                 </connections>
                             </menuItem>
                         </items>
                     </menu>
-                </menuItem>
-                <menuItem title="Colors..." id="26">
-                    <connections>
-                        <action selector="orderFrontColorPanel:" target="-1" id="84"/>
-                    </connections>
-                </menuItem>
-                <menuItem title="Hide" keyEquivalent="h" id="16">
-                    <connections>
-                        <action selector="hide:" target="-2" id="59"/>
-                    </connections>
-                </menuItem>
-                <menuItem title="Quit" keyEquivalent="q" id="7">
-                    <connections>
-                        <action selector="terminate:" target="-2" id="60"/>
-                    </connections>
                 </menuItem>
             </items>
         </menu>
@@ -519,11 +564,11 @@ Enjoy!
                                     </buttonCell>
                                 </button>
                                 <button imageHugsTitle="YES" id="6">
-                                    <rect key="frame" x="175" y="0.0" width="58" height="15"/>
+                                    <rect key="frame" x="174" y="-1" width="59" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                    <buttonCell key="cell" type="check" title="Sound" imagePosition="trailing" alignment="right" state="on" inset="2" id="108">
+                                    <buttonCell key="cell" type="check" title="Sound" imagePosition="left" alignment="right" controlSize="small" state="on" inset="2" id="108">
                                         <behavior key="behavior" pushIn="YES" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                        <font key="font" size="12" name="Helvetica"/>
+                                        <font key="font" metaFont="smallSystem"/>
                                     </buttonCell>
                                     <connections>
                                         <action selector="setSound:" target="38" id="82"/>
@@ -542,7 +587,7 @@ Enjoy!
             <rect key="contentRect" x="142" y="178" width="750" height="600"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
             <view key="contentView" id="24">
-                <rect key="frame" x="1" y="9" width="750" height="600"/>
+                <rect key="frame" x="0.0" y="0.0" width="750" height="600"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <customView id="58" customClass="BackView">
