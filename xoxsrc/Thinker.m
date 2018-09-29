@@ -11,16 +11,16 @@
 @implementation Thinker
 
 unsigned timeInMS, lastTimeInMS, obscureTime;
-float timeScale;
-float maxTimeScale;
-float collisionDistance;
-id actorMgr;
+NSTimeInterval timeScale;
+CGFloat maxTimeScale;
+CGFloat collisionDistance;
+ActorMgr *actorMgr;
 DisplayManager *displayMgr;
 CacheManager *cacheMgr;
-id soundMgr;
+SoundMgr *soundMgr;
 id scenario;
 id mainView;
-id abackView;
+BackView *abackView;
 id gcontentView;
 id gameList;
 int gameIndex;
@@ -59,11 +59,12 @@ static unsigned currentTimeInMs()
 	}
 	return self;
 }
+id commonStuff = nil;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
-	id commonBundle;
-	char path[1024];
+	NSBundle *commonBundle;
+	NSString *path;
 
 	srandom(time(0));
 	timeInMS = lastTimeInMS = currentTimeInMs();
@@ -76,23 +77,23 @@ static unsigned currentTimeInMs()
 	mainView = abackView = backView;
 	gameWindow = littleWindow;
 	gcontentView = [littleWindow contentView];
-	[nullInfoBox getFrame: &inspectorFrame];
+	inspectorFrame = [nullInfoBox frame];
 
 	actorZone = NXCreateZone(vm_page_size, vm_page_size, YES);
 	displayZone = NXCreateZone(vm_page_size, vm_page_size, YES);
 	scenarioZone = NXCreateZone(vm_page_size, vm_page_size, YES);
 	bundleZone = NXCreateZone(vm_page_size, vm_page_size, YES);
 
-	actorMgr = [[ActorMgr allocFromZone:actorZone] init];
-	displayMgr = [[DisplayManager allocFromZone:displayZone] init];
-	cacheMgr = [[CacheManager allocFromZone:displayZone] init];
+	actorMgr = [[ActorMgr alloc] init];
+	displayMgr = [[DisplayManager alloc] init];
+	cacheMgr = [[CacheManager alloc] init];
 	[self getSoundSetting];
 
 	[self setupGameBrowser];
 
-	[[NSBundle mainBundle] getPath:path forResource:"CommonEffects" ofType:"XoXo"];
-	commonBundle = [[NSBundle allocFromZone:bundleZone] initForDirectory:path];
-	[[[commonBundle classNamed:"CommonStuff"] alloc] init];
+	path = [[NSBundle mainBundle] pathForResource:@"CommonEffects" ofType:@"XoXo"];
+	commonBundle = [[NSBundle alloc] initWithPath:path];
+	commonStuff = [[[commonBundle classNamed:@"CommonStuff"] alloc] init];
 
 	[self selectGame:nil];
 

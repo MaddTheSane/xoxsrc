@@ -8,50 +8,48 @@ extern int gameIndex;
 @interface Thinker: NSObject <NSApplicationDelegate>
 {
 	BOOL timerValid;
-    id	backView;
+    IBOutlet id	backView;
 	NSTimer *timer;
-	id scenarioBrowser;
-	id invisibleInfoBox;
-	id nullInfoBox;
+	IBOutlet id scenarioBrowser;
+	IBOutlet id invisibleInfoBox;
+	IBOutlet id nullInfoBox;
 	BOOL browserValid;
 	NSRect inspectorFrame;
-	id bigWindow;
-	id littleWindow;
-	id gameWindow;
-	id progressView;
+	IBOutlet id bigWindow;
+	IBOutlet id littleWindow;
+	IBOutlet id gameWindow;
+	IBOutlet id progressView;
 
 	id imageNames;
 	id imageRequestor;
 
-	id statusText;
+	IBOutlet id statusText;
 	id soundsToCache;
-	id soundButton;
+	IBOutlet id soundButton;
 }
 
-- appDidInit:sender;
-- createTimer;
-- removeTimer;
-- doOneStepLoop;
-- justOneStep;
-- oneStep;
-- toggleFullScreen:sender;
-- setFullScreen:(BOOL)flag;
-- toggleUserPause:sender;
-- setPauseState:(BOOL)flag;
-- newGame:sender;
-- addImageResource:(const char *)r for:whom;
-- addSoundResource:(int)sound;
-- loadResources;
+- (void)createTimer;
+- (void)removeTimer;
+- (void)doOneStepLoop;
+- (void)justOneStep;
+- (void)oneStep;
+- (IBAction)toggleFullScreen:sender;
+- (void)setFullScreen:(BOOL)flag;
+- (IBAction)toggleUserPause:sender;
+- (void)setPauseState:(BOOL)flag;
+- (IBAction)newGame:sender;
+- (void)addImageResource:(const char *)r for:whom;
+- (void)addSoundResource:(int)sound;
+- (void)loadResources;
 
 @end
 
-@interface Thinker(thinker2)
+@interface Thinker(thinker2) <NSBrowserDelegate>
 - setupGameBrowser;
 - getSoundSetting;
-- setSound:sender;
-- selectGame:sender;
+- (IBAction)setSound:sender;
+- (IBAction)selectGame:sender;
 - installGameViewsIntoWindow:w;
-- (BOOL)browser:sender columnIsValid:(int)column;
 - (int)browser:sender fillMatrix:matrix inColumn:(int)column;
 - loadGamesFrom: (const char *) dirname;
 - getScenario;

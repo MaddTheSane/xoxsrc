@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12121" systemVersion="17G65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
-        <capability name="box content view" minToolsVersion="7.0"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -12,7 +12,7 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window title="Loading..." allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="19" userLabel="Progress">
             <windowStyleMask key="styleMask" titled="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -37,7 +37,7 @@
                         </view>
                         <font key="titleFont" size="12" name="Helvetica"/>
                     </box>
-                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="5">
+                    <textField verticalHuggingPriority="750" id="5">
                         <rect key="frame" x="8" y="6" width="278" height="15"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textFieldCell key="cell" alignment="center" title="loading code" id="99">
@@ -148,7 +148,7 @@
             <rect key="contentRect" x="172" y="510" width="388" height="198"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
             <view key="contentView" id="9">
-                <rect key="frame" x="1" y="1" width="388" height="198"/>
+                <rect key="frame" x="0.0" y="0.0" width="388" height="198"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <box borderType="none" title="Title" titlePosition="noTitle" id="23">
@@ -165,7 +165,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="146" height="79"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="15">
+                                            <textField verticalHuggingPriority="750" id="15">
                                                 <rect key="frame" x="8" y="0.0" width="133" height="77"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <textFieldCell key="cell" alignment="center" title="XöX" id="100">
@@ -174,7 +174,7 @@
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="22">
+                                            <textField verticalHuggingPriority="750" id="22">
                                                 <rect key="frame" x="5" y="2" width="133" height="77"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <textFieldCell key="cell" alignment="center" title="XöX" id="101">
@@ -183,7 +183,7 @@
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="43">
+                                            <textField verticalHuggingPriority="750" id="43">
                                                 <rect key="frame" x="6" y="1" width="133" height="77"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <textFieldCell key="cell" alignment="center" title="XöX" id="102">
@@ -196,7 +196,7 @@
                                     </view>
                                     <font key="titleFont" size="12" name="Helvetica"/>
                                 </box>
-                                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="44">
+                                <textField verticalHuggingPriority="750" id="44">
                                     <rect key="frame" x="85" y="26" width="217" height="22"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <textFieldCell key="cell" alignment="center" title="Mission Critical Mayhem!" id="103">
@@ -205,7 +205,7 @@
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
-                                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="25">
+                                <textField verticalHuggingPriority="750" id="25">
                                     <rect key="frame" x="112" y="5" width="159" height="28"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <textFieldCell key="cell" alignment="center" title="by sam streeper" id="104">
@@ -229,20 +229,20 @@
                     <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="53">
                         <rect key="frame" x="7" y="3" width="372" height="82"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <clipView key="contentView" id="Hav-Wz-pXh">
+                        <clipView key="contentView" drawsBackground="NO" id="Hav-Wz-pXh">
                             <rect key="frame" x="1" y="1" width="355" height="80"/>
-                            <autoresizingMask key="autoresizingMask"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView editable="NO" importsGraphics="NO" baseWritingDirection="leftToRight" usesFontPanel="YES" usesRuler="YES" spellingCorrection="YES" smartInsertDelete="YES" id="97">
-                                    <rect key="frame" x="0.0" y="0.0" width="349" height="400"/>
+                                <textView editable="NO" importsGraphics="NO" verticallyResizable="YES" baseWritingDirection="leftToRight" usesFontPanel="YES" usesRuler="YES" spellingCorrection="YES" smartInsertDelete="YES" id="97">
+                                    <rect key="frame" x="0.0" y="-8" width="349" height="400"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <size key="minSize" width="349" height="392"/>
-                                    <size key="maxSize" width="349" height="10000000"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <size key="minSize" width="355" height="80"/>
+                                    <size key="maxSize" width="372" height="10000000"/>
                                     <attributedString key="textStorage">
                                         <fragment>
-                                            <string key="content">XX - an extensible object-oriented game engine.
+                                            <string key="content">XöX - an extensible object-oriented game engine.
 
 v 0.9 - first alpha, 940213
 
@@ -446,7 +446,6 @@ Enjoy!
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                 </textView>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </clipView>
                         <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="109">
                             <rect key="frame" x="356" y="1" width="15" height="80"/>
@@ -456,13 +455,13 @@ Enjoy!
                 </subviews>
             </view>
         </window>
-        <window title="XöX Control" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="47" userLabel="Control Panel" customClass="NSPanel">
+        <window title="XöX Control" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="47" userLabel="Control Panel" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="10" y="389" width="242" height="193"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
             <view key="contentView" id="50">
-                <rect key="frame" x="1" y="1" width="242" height="193"/>
+                <rect key="frame" x="0.0" y="0.0" width="242" height="193"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <box borderType="none" title="Title" titlePosition="noTitle" id="30">
@@ -479,7 +478,7 @@ Enjoy!
                                         <rect key="frame" x="2" y="2" width="225" height="53"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="33">
+                                            <textField verticalHuggingPriority="750" id="33">
                                                 <rect key="frame" x="93" y="22" width="45" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <textFieldCell key="cell" alignment="center" title="Info" id="106">
@@ -503,7 +502,7 @@ Enjoy!
                             <rect key="frame" x="0.0" y="0.0" width="240" height="120"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <browser verticalHuggingPriority="750" allowsExpansionToolTips="YES" enabled="YES" defaultColumnWidth="-1" minColumnWidth="1" maxVisibleColumns="1" allowsTypeSelect="YES" columnResizingType="auto" id="27">
+                                <browser verticalHuggingPriority="750" allowsExpansionToolTips="YES" enabled="YES" defaultColumnWidth="100" minColumnWidth="1" maxVisibleColumns="1" allowsTypeSelect="YES" columnResizingType="auto" id="27">
                                     <rect key="frame" x="7" y="0.0" width="130" height="120"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                                     <connections>
@@ -558,8 +557,8 @@ Enjoy!
         </window>
     </objects>
     <resources>
-        <image name="funnyFace" width="128" height="128"/>
-        <image name="funnyFace2" width="128" height="128"/>
-        <image name="sam" width="128" height="128"/>
+        <image name="funnyFace" width="48" height="48"/>
+        <image name="funnyFace2" width="48" height="48"/>
+        <image name="sam" width="60" height="88"/>
     </resources>
 </document>

@@ -4,6 +4,8 @@
 @class BackView;
 @class CacheManager;
 @class DisplayManager;
+@class ActorMgr;
+@class SoundMgr;
 
 extern float randBetween(float a, float b);
 
@@ -12,10 +14,11 @@ extern NSTimeInterval timeScale;
 extern CGFloat maxTimeScale;
 extern CGFloat collisionDistance;
 extern CGFloat gx, gy;
-extern id scenario, actorMgr;
+extern id scenario;
+extern ActorMgr *actorMgr;
 extern CacheManager *cacheMgr;
 extern DisplayManager *displayMgr;
-extern id soundMgr;
+extern SoundMgr *soundMgr;
 extern id mainView;		//!< whatever the windows main view is
 extern BackView *abackView;	//!< an available BackView; use but don't reassign
 extern id gcontentView;

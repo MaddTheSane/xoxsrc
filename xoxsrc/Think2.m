@@ -32,7 +32,7 @@ extern BOOL obscureMouse;
 	[self loadGamesFrom:buf];
 	ptr = NXGetDefaultValue([NSApp appName], "altGamePath");
 	if (ptr) [self loadGamesFrom:ptr];
-	[self loadGamesFrom: [[NXBundle mainBundle] directory]];
+	[self loadGamesFrom: [[NSBundle mainBundle] directory]];
 	[self loadGamesFrom: "/LocalLibrary/XoxGames"];
 
 	[gameList sort];
@@ -171,7 +171,7 @@ extern BOOL obscureMouse;
 }
 
 
-- (BOOL)browser:sender columnIsValid:(int)column
+- (BOOL)browser:sender isColumnValid:(int)column
 {
 	return browserValid;
 }
@@ -188,7 +188,7 @@ extern BOOL obscureMouse;
 	return self;
 }
 
-- (int)browser:sender fillMatrix:matrix inColumn:(int)column
+- (int)browser:sender createRowsForColumn:(int)column inMatrix:(NSMatrix*)matrix
 {
 	const char *ptr;
 	int i;
@@ -286,8 +286,6 @@ extern BOOL obscureMouse;
 
     return self;
 }
-
-extern NXZone *scenarioZone, *bundleZone;
 
 - getScenario
 {

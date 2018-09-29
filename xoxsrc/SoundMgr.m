@@ -9,6 +9,14 @@
 #import "xoxDefs.h"
 
 @implementation SoundMgr
+{
+	int currentStream;
+	NXSoundOut *device;
+	NXPlayStream *streamList[MAX_STREAMS];
+	Storage *soundList;
+	BOOL glSoundEnabled;
+	Storage *currentSounds;		// sounds played this iteration
+}
 
 #define str_copy(str)	((str == NULL) ? NULL : NXCopyStringBuffer(str))
 #define str_free(str)	{if (str) free(str);}

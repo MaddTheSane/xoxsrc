@@ -4,14 +4,6 @@
 #define MAX_STREAMS 8
 
 @interface SoundMgr: NSObject
-{
-	int currentStream;
-	NXSoundOut *device;
-	NXPlayStream *streamList[MAX_STREAMS];
-	Storage *soundList;
-	BOOL glSoundEnabled;
-	Storage *currentSounds;		// sounds played this iteration
-}
 
 - oneStep;
 - (int) addSound:(const char *)name sender:whom;
