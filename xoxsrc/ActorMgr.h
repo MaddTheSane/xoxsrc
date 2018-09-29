@@ -5,8 +5,8 @@
 
 @interface ActorMgr: NSObject
 {
-    NSMutableArray	*employedList;
-    NSMutableArray	*retireList;
+    IBOutlet NSMutableArray	*employedList;
+    IBOutlet NSMutableArray	*retireList;
 	int requestedLevel;
 	NSMutableArray	*goodList, *badList, *destroyAllList;
 	id collider;

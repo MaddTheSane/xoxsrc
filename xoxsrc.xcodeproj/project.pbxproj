@@ -165,7 +165,6 @@
 		55EDCF03215EC2000054C4F3 /* README.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = README.rtf; sourceTree = "<group>"; };
 		55EDCF04215EC2000054C4F3 /* sam.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = sam.tiff; sourceTree = "<group>"; };
 		55EDCF05215EC2000054C4F3 /* Scenario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scenario.h; sourceTree = "<group>"; };
-		55EDCF07215EC2000054C4F3 /* Ship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ship.h; sourceTree = "<group>"; };
 		55EDCF08215EC2000054C4F3 /* SoundMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundMgr.h; sourceTree = "<group>"; };
 		55EDCF09215EC2000054C4F3 /* SoundMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundMgr.m; sourceTree = "<group>"; };
 		55EDCF10215EC2000054C4F3 /* claw0.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = claw0.tiff; sourceTree = "<group>"; };
@@ -361,7 +360,6 @@
 				55EDCF03215EC2000054C4F3 /* README.rtf */,
 				55EDCF04215EC2000054C4F3 /* sam.tiff */,
 				55EDCF05215EC2000054C4F3 /* Scenario.h */,
-				55EDCF07215EC2000054C4F3 /* Ship.h */,
 				55EDCF08215EC2000054C4F3 /* SoundMgr.h */,
 				55EDCF09215EC2000054C4F3 /* SoundMgr.m */,
 				55EDCF38215EC2000054C4F3 /* Think2.m */,
