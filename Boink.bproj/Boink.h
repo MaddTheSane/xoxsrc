@@ -4,7 +4,7 @@
 
 @interface Boink:NSObject <Scenario>
 {
-	IBOutlet id infoView;
+	IBOutlet NSBox *infoView;
 }
 
 @end

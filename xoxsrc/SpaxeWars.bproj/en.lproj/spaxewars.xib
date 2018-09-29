@@ -121,27 +121,27 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <size key="cellSize" width="88" height="15"/>
                                     <size key="intercellSpacing" width="4" height="4"/>
-                                    <buttonCell key="prototype" type="check" title="Switch" imagePosition="trailing" alignment="right" inset="2" id="81">
+                                    <buttonCell key="prototype" type="check" title="Switch" imagePosition="left" alignment="left" controlSize="small" inset="2" id="81">
                                         <behavior key="behavior" pushIn="YES" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                        <font key="font" size="12" name="Helvetica"/>
+                                        <font key="font" metaFont="smallSystem"/>
                                     </buttonCell>
                                     <cells>
                                         <column>
-                                            <buttonCell type="check" title="Sun" imagePosition="trailing" alignment="right" state="on" inset="2" id="6">
+                                            <buttonCell type="check" title="Sun" imagePosition="left" alignment="left" controlSize="small" state="on" inset="2" id="6">
                                                 <behavior key="behavior" pushIn="YES" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" size="12" name="Helvetica"/>
+                                                <font key="font" metaFont="smallSystem"/>
                                             </buttonCell>
-                                            <buttonCell type="check" title="Bounce" imagePosition="trailing" alignment="right" tag="1" inset="2" id="48">
+                                            <buttonCell type="check" title="Bounce" imagePosition="left" alignment="left" controlSize="small" tag="1" inset="2" id="48">
                                                 <behavior key="behavior" pushIn="YES" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" size="12" name="Helvetica"/>
+                                                <font key="font" metaFont="smallSystem"/>
                                             </buttonCell>
-                                            <buttonCell type="check" title="Nasty Shots" imagePosition="trailing" alignment="right" tag="2" inset="2" id="2">
+                                            <buttonCell type="check" title="Nasty Shots" imagePosition="left" alignment="left" controlSize="small" tag="2" inset="2" id="2">
                                                 <behavior key="behavior" pushIn="YES" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" size="12" name="Helvetica"/>
+                                                <font key="font" metaFont="smallSystem"/>
                                             </buttonCell>
-                                            <buttonCell type="check" title="Bullet Mass" imagePosition="trailing" alignment="right" state="on" inset="2" id="44">
+                                            <buttonCell type="check" title="Bullet Mass" imagePosition="left" alignment="left" controlSize="small" state="on" inset="2" id="44">
                                                 <behavior key="behavior" pushIn="YES" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" size="12" name="Helvetica"/>
+                                                <font key="font" metaFont="smallSystem"/>
                                             </buttonCell>
                                         </column>
                                     </cells>
@@ -319,7 +319,7 @@
                                 <button imageHugsTitle="YES" id="27">
                                     <rect key="frame" x="19" y="162" width="24" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="bevel" title="Cell" image="dartx1" imagePosition="only" alignment="center" inset="2" id="70">
+                                    <buttonCell key="cell" type="bevel" title="Cell" image="dartx1" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="70">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="cellTitle"/>
                                     </buttonCell>
@@ -327,7 +327,7 @@
                                 <button imageHugsTitle="YES" id="25">
                                     <rect key="frame" x="18" y="52" width="27" height="31"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                    <buttonCell key="cell" type="bevel" title="Cell" image="clawx1" imagePosition="only" alignment="center" inset="2" id="68">
+                                    <buttonCell key="cell" type="bevel" title="Cell" image="clawx1" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="68">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="cellTitle"/>
                                     </buttonCell>
@@ -338,6 +338,7 @@
                     </box>
                 </subviews>
             </view>
+            <point key="canvasLocation" x="140.5" y="147"/>
         </window>
         <window title="Spaxe Wars Info" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="43" userLabel="Info">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" resizable="YES"/>
@@ -345,22 +346,22 @@
             <rect key="contentRect" x="268" y="474" width="387" height="320"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
             <view key="contentView" id="36">
-                <rect key="frame" x="1" y="9" width="387" height="320"/>
+                <rect key="frame" x="0.0" y="0.0" width="387" height="320"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="24">
-                        <rect key="frame" x="8" y="6" width="372" height="308"/>
+                        <rect key="frame" x="-1" y="-1" width="389" height="322"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <clipView key="contentView" id="tIV-vm-pcj">
-                            <rect key="frame" x="1" y="1" width="355" height="306"/>
-                            <autoresizingMask key="autoresizingMask"/>
+                            <rect key="frame" x="1" y="1" width="372" height="320"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textView editable="NO" importsGraphics="NO" verticallyResizable="YES" baseWritingDirection="leftToRight" usesFontPanel="YES" usesRuler="YES" spellingCorrection="YES" smartInsertDelete="YES" id="84">
-                                    <rect key="frame" x="0.0" y="0.0" width="349" height="308"/>
+                                    <rect key="frame" x="0.0" y="-2" width="349" height="320"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="355" height="306"/>
+                                    <size key="minSize" width="372" height="320"/>
                                     <size key="maxSize" width="372" height="10000000"/>
                                     <attributedString key="textStorage">
                                         <fragment>
@@ -427,12 +428,13 @@ The red player's controls (on the keypad) are:
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </clipView>
                         <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="83">
-                            <rect key="frame" x="356" y="1" width="15" height="306"/>
+                            <rect key="frame" x="373" y="1" width="15" height="320"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
                 </subviews>
             </view>
+            <point key="canvasLocation" x="140.5" y="550"/>
         </window>
     </objects>
     <resources>
