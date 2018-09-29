@@ -50,7 +50,7 @@
 		55EDD04F215EC65C0054C4F3 /* BOBall.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EDD035215EC65C0054C4F3 /* BOBall.m */; };
 		55EDD051215EC65C0054C4F3 /* BOBrick.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EDD038215EC65C0054C4F3 /* BOBrick.m */; };
 		55EDD053215EC65C0054C4F3 /* Boink.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EDD03B215EC65C0054C4F3 /* Boink.m */; };
-		55EDD05B215EC65C0054C4F3 /* boink.nib in Resources */ = {isa = PBXBuildFile; fileRef = 55EDD044215EC65C0054C4F3 /* boink.nib */; };
+		55EDD05B215EC65C0054C4F3 /* boink.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55EDD044215EC65C0054C4F3 /* boink.xib */; };
 		55EDD05C215EC65C0054C4F3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55EDD046215EC65C0054C4F3 /* Info.plist */; };
 		55EDD063215F145A0054C4F3 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55EDD062215F145A0054C4F3 /* Media.xcassets */; };
 /* End PBXBuildFile section */
@@ -135,7 +135,7 @@
 		55EDCF13215EC2000054C4F3 /* dart0.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = dart0.tiff; sourceTree = "<group>"; };
 		55EDCF14215EC2000054C4F3 /* dart1.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = dart1.tiff; sourceTree = "<group>"; };
 		55EDCF15215EC2000054C4F3 /* dart2.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = dart2.tiff; sourceTree = "<group>"; };
-		55EDCF18215EC2000054C4F3 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/spaxewars.nib; sourceTree = "<group>"; };
+		55EDCF18215EC2000054C4F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/spaxewars.xib; sourceTree = "<group>"; };
 		55EDCF24215EC2000054C4F3 /* SpaxeWars.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaxeWars.h; sourceTree = "<group>"; };
 		55EDCF25215EC2000054C4F3 /* SpaxeWars.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaxeWars.m; sourceTree = "<group>"; };
 		55EDCF26215EC2000054C4F3 /* spbullet0.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = spbullet0.tiff; sourceTree = "<group>"; };
@@ -199,7 +199,7 @@
 		55EDD038215EC65C0054C4F3 /* BOBrick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOBrick.m; sourceTree = "<group>"; };
 		55EDD03A215EC65C0054C4F3 /* Boink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boink.h; sourceTree = "<group>"; };
 		55EDD03B215EC65C0054C4F3 /* Boink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Boink.m; sourceTree = "<group>"; };
-		55EDD045215EC65C0054C4F3 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/boink.nib; sourceTree = "<group>"; };
+		55EDD045215EC65C0054C4F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/boink.xib; sourceTree = "<group>"; };
 		55EDD046215EC65C0054C4F3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55EDD061215F0BF00054C4F3 /* DrawManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawManager.h; sourceTree = "<group>"; };
 		55EDD062215F145A0054C4F3 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
@@ -371,7 +371,7 @@
 			children = (
 				55EDD021215EC50E0054C4F3 /* Graphics */,
 				55EDD020215EC4FC0054C4F3 /* Classes */,
-				55EDCF17215EC2000054C4F3 /* spaxewars.nib */,
+				55EDCF17215EC2000054C4F3 /* spaxewars.xib */,
 			);
 			name = "Spaxe Wars";
 			path = xoxsrc/SpaxeWars.bproj;
@@ -483,7 +483,7 @@
 				55EDD038215EC65C0054C4F3 /* BOBrick.m */,
 				55EDD03A215EC65C0054C4F3 /* Boink.h */,
 				55EDD03B215EC65C0054C4F3 /* Boink.m */,
-				55EDD044215EC65C0054C4F3 /* boink.nib */,
+				55EDD044215EC65C0054C4F3 /* boink.xib */,
 				55EDD046215EC65C0054C4F3 /* Info.plist */,
 				55EDD062215F145A0054C4F3 /* Media.xcassets */,
 			);
@@ -616,7 +616,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55EDD05B215EC65C0054C4F3 /* boink.nib in Resources */,
+				55EDD05B215EC65C0054C4F3 /* boink.xib in Resources */,
 				55EDD05C215EC65C0054C4F3 /* Info.plist in Resources */,
 				55EDD063215F145A0054C4F3 /* Media.xcassets in Resources */,
 			);
@@ -698,12 +698,12 @@
 			name = Xox.xib;
 			sourceTree = "<group>";
 		};
-		55EDCF17215EC2000054C4F3 /* spaxewars.nib */ = {
+		55EDCF17215EC2000054C4F3 /* spaxewars.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				55EDCF18215EC2000054C4F3 /* English */,
+				55EDCF18215EC2000054C4F3 /* en */,
 			);
-			name = spaxewars.nib;
+			name = spaxewars.xib;
 			sourceTree = "<group>";
 		};
 		55EDCF59215EC2000054C4F3 /* xoxeroids.xib */ = {
@@ -714,12 +714,12 @@
 			name = xoxeroids.xib;
 			sourceTree = "<group>";
 		};
-		55EDD044215EC65C0054C4F3 /* boink.nib */ = {
+		55EDD044215EC65C0054C4F3 /* boink.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				55EDD045215EC65C0054C4F3 /* English */,
+				55EDD045215EC65C0054C4F3 /* en */,
 			);
-			name = boink.nib;
+			name = boink.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
