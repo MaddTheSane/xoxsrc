@@ -31,11 +31,9 @@
 	return self;
 }
 
-- setScenario:newScenario
+- (void)setScenario:newScenario
 {
-	id oldScenario = scenario;
 	scenario = newScenario;
-	return oldScenario;
 }
 
 - scenario

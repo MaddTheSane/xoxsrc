@@ -155,8 +155,8 @@ BOOL actorsCollide(Actor *a1, Actor *a2)
 		a3=a1;a1=a2;a2=a3;
 	}
 
-	a1->collisionThing = a2;
-	a2->collisionThing = a1;
+	a1->collisionThing = (__bridge void *)(a2);
+	a2->collisionThing = (__bridge void *)(a1);
 
 	switch(a1->collisionShape)
 	{

@@ -17,7 +17,7 @@
 - (void)makeActorsPerform:(SEL)action;
 - (void)oneStep;
 - (void)requestLevel:(int)lev;
-- _createLevel:(int)lev;
+- (void)_createLevel:(int)lev;
 - (Actor *) newActor:(int)actorType for:sender tag:(int)tag;
 - destroyActor:theActor;
 - (void)draw;

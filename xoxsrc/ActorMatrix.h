@@ -19,7 +19,7 @@
 
 - addToFormation: whichClass tag:(int)tag at:(int)col :(int)row;
 - nukeActorAt:(int)col :(int)row;
-- makeActorsPerform:(SEL)func;
+- (void)makeActorsPerformSelector:(SEL)func;
 - perform:(SEL)func cols:(int)begc :(int)endc rows:(int)begr :(int)endr;
 - (BOOL) rowsNcols:(NSRect *)r myRect:(NSRect *)myRect
 		:(int *)begc :(int *)endc :(int *)begr :(int *)endr;

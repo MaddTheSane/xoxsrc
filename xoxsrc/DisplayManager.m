@@ -8,66 +8,72 @@
 
 - init
 {
-	[super init];
+	self = [super init];
 
-	eraseList = [[Storage allocFromZone:[self zone]]
-		initCount:8
-		elementSize: sizeof(NSRect)
-		description: @encode(NSRect)];
-	whiteList = [[Storage allocFromZone:[self zone]]
-		initCount:8
-		elementSize: sizeof(NSRect)
-		description: @encode(NSRect)];
-	drawList = [[List allocFromZone:[self zone]] init];
+	eraseList = [[NSMutableArray alloc]
+		init];
+	whiteList = [[NSMutableArray alloc]
+				 init];
+	drawList = [[NSMutableArray alloc]
+				init];
 
 	return self;
 }
 
-- oneStep
+- (void)oneStep
 {
 	if ([eraseList count])
 	{
-		PSsetgray(NX_BLACK);
-		NSRectFillList(eraseList->dataPtr, eraseList->numElements);
-		[eraseList empty];
+		[[NSColor blackColor] set];
+		NSRectArray rarr = calloc(sizeof(NSRect), eraseList.count);
+		
+		for (NSInteger i = 0; i < eraseList.count; i++) {
+			NSValue *theVal = eraseList[i];
+			rarr[i] = theVal.rectValue;
+		}
+		NSRectFillList(rarr, eraseList.count);
+		[eraseList removeAllObjects];
+		free(rarr);
 	}
 
-	[drawList performInOrder:@selector(draw)];
-	[drawList empty];
+	[drawList makeObjectsPerformSelector:@selector(draw)];
+	[drawList removeAllObjects];
 
 	if ([whiteList count])
 	{
-		PSsetgray(NX_WHITE);
-		NSRectFillList(whiteList->dataPtr, whiteList->numElements);
-		[whiteList empty];
+		NSRectArray rarr = calloc(sizeof(NSRect), whiteList.count);
+		
+		for (NSInteger i = 0; i < whiteList.count; i++) {
+			NSValue *theVal = whiteList[i];
+			rarr[i] = theVal.rectValue;
+		}
+		[[NSColor whiteColor] set];
+		NSRectFillList(rarr, whiteList.count);
+		[whiteList removeAllObjects];
+		free(rarr);
 	}
-	return self;
 }
 
-- erase:(NSRect *)r
+- (void)erase:(NSRect)r
 {
 	// it looks best if we erase by drawing from the cache
 	[cacheMgr displayRect:r];
-	return self;
 }
 
-- displayRect:(NSRect *)r
+- (void)displayRect:(NSRect)r
 {
 	// it looks best if we erase by drawing from the cache
 	[cacheMgr displayRect:r];
-	return self;
 }
 
-- drawWhiteRect:(NSRect *)r
+- (void)drawWhiteRect:(NSRect)r
 {
-	[whiteList addElement:r];
-	return self;
+	[whiteList addObject:[NSValue valueWithRect:r]];
 }
 
-- draw:sender;
+- (void)draw:sender;
 {
 	[drawList addObject:sender];
-	return self;
 }
 
 

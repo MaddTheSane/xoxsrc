@@ -140,7 +140,7 @@
 	return [super free];
 }
 
-- makeActorsPerform:(SEL)func
+- (void)makeActorsPerformSelector:(SEL)func
 {
 	int numActors = columns * rows;
 	int i;
@@ -149,7 +149,6 @@
 	{
 		if (dude = [formation actorAt:i]) [dude perform:func];
 	}
-	return self;
 }
 
 - perform:(SEL)func cols:(int)begc :(int)endc rows:(int)begr :(int)endr
@@ -205,7 +204,7 @@
 //-----------------------------------------
 - retire
 {
-	[self makeActorsPerform:@selector(retire)];
+	[self makeActorsPerformSelector:@selector(retire)];
 	employed = NO;
 	return self;
 }

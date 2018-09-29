@@ -48,10 +48,10 @@ extern BOOL pauseState;
 	for (i=0; i<count; i++)
 	{
 		act = (Actor *)[employedList objectAtIndex:i];
-		if ((act->x > gx + collisionDistance*xOffset) || 
-			(act->x < gx - collisionDistance*xOffset) || 
-			(act->y > gy + collisionDistance*yOffset) || 
-			(act->y < gy - collisionDistance*yOffset) ||
+		if ((act->point.x > gx + collisionDistance*xOffset) ||
+			(act->point.x < gx - collisionDistance*xOffset) ||
+			(act->point.y > gy + collisionDistance*yOffset) ||
+			(act->point.y < gy - collisionDistance*yOffset) ||
 				!act->employed)
 			continue;
 		switch((int)(act->alliance))
@@ -78,7 +78,7 @@ extern BOOL pauseState;
 
 - doCollisions
 {
-	int i, j, count, count2;
+	NSInteger i, j, count, count2;
 	Actor *actor1, *actor2;
 	NSArray *list1=nil, *list2=nil;
 	COLLISION_PARADIGM how2collide;
@@ -200,7 +200,7 @@ extern BOOL pauseState;
 
 // This method begins with an underbar because it's not safe for
 // actors to call it in the midst of the animation cycle.
-- _createLevel:(int)lev
+- (void)_createLevel:(int)lev
 {
 	[employedList makeObjectsPerformSelector:@selector(retire)];
 	[employedList removeAllObjects];
@@ -222,14 +222,13 @@ extern BOOL pauseState;
 
 	[mainView display];
 	[cacheMgr eraseCache];
-	return self;
 }
 
 - (Actor *) newActor:(int)actorType for:sender tag:(int)tag
 {
 	NSMutableArray *theList;
 	Actor *theActor = nil;
-	int i, count;
+	NSInteger i, count;
 	BOOL found = NO;
 
 	theList = [(id)actorType instanceList];
