@@ -1,2 +1,0 @@
-"Boink" = {ACTIONS = {}; OUTLETS = {infoView = id; }; SUPERCLASS = Object; };
-"FirstResponder" = {ACTIONS = {}; OUTLETS = {}; SUPERCLASS = NSObject; };
