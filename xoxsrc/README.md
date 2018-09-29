@@ -16,7 +16,7 @@ Permission is granted to freely redistribute the Xox application and source code
 
 # Features
 
-Xox is designed to implement 2 dimensional sprite-based games, which means it should be good for implementing the old classic arcade-style games.  It is less useful for creating full-scrolling games with a solid background and 3 dimentional simulations.  (There's nothing that keeps you from doing such games; however, Xox wasn't designed for such games and can't optimize the display of such games, although the collision detection could still be useful in the 2-D case.)  
+Xox is designed to implement 2 dimensional sprite-based games, which means it should be good for implementing the old classic arcade-style games.  It is less useful for creating full-scrolling games with a solid background and 3 dimensional simulations.  (There's nothing that keeps you from doing such games; however, Xox wasn't designed for such games and can't optimize the display of such games, although the collision detection could still be useful in the 2-D case.)
 
 One reason that Xox games can be quick is that it attempts to minimize the amount of drawing and flushing that can be done.  Accordingly, graphics is Xox can be buffered or unbuffered, and you can mix the 2 in a single game.  Objects can be drawn into a static background buffer (where they are only drawn once), or they can be animated into an off-screen buffer (where they can be erased and redrawn without visible flicker) or they can be drawn directly onto the screen, which is the fastest case and can flicker but is sometimes acceptable for small objects or odd effects.  Drawing done into the buffer is coalesced so that a minimum amount of drawing is performed to bring the contents of the buffer up onto the screen.
 
@@ -24,7 +24,7 @@ Xox is also able to perform fairly arbitrary collision detection.  The algorithm
 
 # Concepts
 
-A game under Xox is defined as a scenario that describes to the engine how the game is to be created.  The engine loads the scenario, then queries it (via the protocol defined in scenario.h) as to what objects are required by the specific game.  The game objects, which typically resemble sprites, are cusomized subclasses of Actor, which is a class that implements generic sprite behavior of drawing, movement, animation, and collision detection.  An actor subclass may specify a custom image, animation rate, etc, and it may extend the provided methods to provide (for example) custom movement behavior in order to follow another object.
+A game under Xox is defined as a scenario that describes to the engine how the game is to be created.  The engine loads the scenario, then queries it (via the protocol defined in scenario.h) as to what objects are required by the specific game.  The game objects, which typically resemble sprites, are customized subclasses of Actor, which is a class that implements generic sprite behavior of drawing, movement, animation, and collision detection.  An actor subclass may specify a custom image, animation rate, etc, and it may extend the provided methods to provide (for example) custom movement behavior in order to follow another object.
 
 The engine initially queries the scenario on how to create level 1.  The concept of a level can be very abstract; a game may only have one level.  The scenario responds by telling the Actor Manager that it would like so many objects of various Actor subclasses for the current level.  The Actor Manager instantiates or reuses the appropriate actors and sets them into motion.  Since Actors know how to do their own thing, the scenario need not be directly involved with game management.  However, the scenario can be informed of each animation step, which it may find useful to create additional actors at specified times.  Furthermore, the scenario is informed of every key press, so it can take game-specific action (like forwarding the keys to the appropriate actors) and the scenario is informed of the employment and retirement of every actor (useful, for example, for tracking object deaths as a result of collisions.)
 
@@ -42,15 +42,15 @@ An animation step goes roughly as follows:
 * Living actors schedule drawing to be done.
 * Drawing is actually performed.
 
-This may seem a bit labyrithine, but it provides a lot of flexiblity; all actors know of collisions before they happen, so an actor can store pre-collision info about its nemesis, if useful.  All collisions are done before any drawing is scheduled, so an actor can modify its own beharvior or request that its nemensis alter its without problems.
+This may seem a bit labyrinthine, but it provides a lot of flexibility; all actors know of collisions before they happen, so an actor can store pre-collision info about its nemesis, if useful.  All collisions are done before any drawing is scheduled, so an actor can modify its own behavior or request that its nemesis alter its without problems.
 
 Collision detection can be very expensive; it tends to be an n-squared algorithm in the simple case.  For example, colliding 100 objects amongst themselves requires 5000 tests.  The Xox engine provides a couple of collision paradigms; first the simple case where every object is collided against every other.  Secondly, it can provide a good versus evil paradigm, where actors are separated into lists based on alliance, and only actors within a specified distance (the global collisionDistance) of the universe center are added to the lists.  This technique can eliminate a bunch of uninteresting collision cases, keeping you lower on the n-squared curve.  If neither of these paradigms is appropriate, the scenario can specify a collision delegate and perform all collisions itself.
 
-Xox can create a scrolling world by translating the global x and y values of the center of the universe.  These values are kept in the gx and gy global variables.  The distance from the corner of the main view to the center of the screen is kept in the xOffset and yOffset globals.    These values can be useful for bouncing an object that gets to the edge of the screen or "wrapping" and object that gets too far from the center of the universe; methods to do this are provided in the Actor class.  Xox can be effective in creating a scrolling space game, as demonstrated by the Xoxeroids game, but games with solid backgrounds will tend to scroll slowly, since the entire screen will need to be flushed for each frame.
+Xox can create a scrolling world by translating the global x and y values of the center of the universe.  These values are kept in the `gx` and `gy` global variables.  The distance from the corner of the main view to the center of the screen is kept in the xOffset and yOffset globals.    These values can be useful for bouncing an object that gets to the edge of the screen or "wrapping" and object that gets too far from the center of the universe; methods to do this are provided in the Actor class.  Xox can be effective in creating a scrolling space game, as demonstrated by the Xoxeroids game, but games with solid backgrounds will tend to scroll slowly, since the entire screen will need to be flushed for each frame.
 
 # Collisions
 
-If an actor has a complex collsion shape, the first time in any given frame that an object collides with its bounding box it will be asked to construct its complex shape.  This shape is an array of lines, and it should be dense enough that most objects inside the actor will collide with at least one of the lines.  The default collision routine leaves behind some info (in an actor's collisionReason and collisionThing instance variables) that may be useful in ascertaining why a collision was detected.  Though this information may be helpful, it generally isn't enough to do accurate bouncing of objects for example.  Sigh.  Great collision resolution is beyond the scope of Xox, though there is an Actor method (bounceOff:) that may be useful for bouncing some objects off of a stationary rectangle.  
+If an actor has a complex collision shape, the first time in any given frame that an object collides with its bounding box it will be asked to construct its complex shape.  This shape is an array of lines, and it should be dense enough that most objects inside the actor will collide with at least one of the lines.  The default collision routine leaves behind some info (in an actor's collisionReason and collisionThing instance variables) that may be useful in ascertaining why a collision was detected.  Though this information may be helpful, it generally isn't enough to do accurate bouncing of objects for example.  Sigh.  Great collision resolution is beyond the scope of Xox, though there is an Actor method (`bounceOff:`) that may be useful for bouncing some objects off of a stationary rectangle.
 
 # Namespace Collisions
 
@@ -89,11 +89,11 @@ Demonstrates the use of a background.  Also, the brick in the center draws itsel
 * Use dot products to calculate bounce vectors off rotated boxes.
 (I currently use (slow) transcendentals up the wazoo in this (rare) case)
 * Make Xoxeroid level restart after ship dead for a while.
-		I currently wait for explosions to go away, which is a poor assumption
+I currently wait for explosions to go away, which is a poor assumption
 * Test rect-array collisions.
-		never used or tested!
+never used or tested!
 * Should there be an option to free actors and sounds?
-* since window must be retained, support for multiple cache managers should work.  I need to test...
+* since window must be retained, support for multiple cache managers should work.  I need to test…
 * need a method for pre-instantiating x number of actors
 * need pause indication
 
