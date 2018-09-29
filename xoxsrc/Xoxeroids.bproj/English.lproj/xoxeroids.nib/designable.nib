@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12121" systemVersion="17G65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
-        <capability name="box content view" minToolsVersion="7.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -14,8 +13,8 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
-        <window title="Views" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="27" userLabel="Views">
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Views" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="27" userLabel="Views">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="138" y="305" width="429" height="380"/>
@@ -38,7 +37,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="23"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="33">
+                                            <textField verticalHuggingPriority="750" id="33">
                                                 <rect key="frame" x="5" y="1" width="69" height="22"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <textFieldCell key="cell" alignment="center" title="by sam" id="58">
@@ -47,7 +46,7 @@
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="8">
+                                            <textField verticalHuggingPriority="750" id="8">
                                                 <rect key="frame" x="6" y="0.0" width="69" height="22"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <textFieldCell key="cell" alignment="center" title="by sam" id="59">
@@ -67,7 +66,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="214" height="46"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="13">
+                                            <textField verticalHuggingPriority="750" id="13">
                                                 <rect key="frame" x="9" y="2" width="187" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <textFieldCell key="cell" alignment="center" title="XöXeroids" id="60">
@@ -76,7 +75,7 @@
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="40">
+                                            <textField verticalHuggingPriority="750" id="40">
                                                 <rect key="frame" x="0.0" y="0.0" width="214" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <textFieldCell key="cell" alignment="center" title="XöXeroids" id="61">
@@ -85,7 +84,7 @@
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="43">
+                                            <textField verticalHuggingPriority="750" id="43">
                                                 <rect key="frame" x="10" y="1" width="187" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <textFieldCell key="cell" alignment="center" title="XöXeroids" id="62">
@@ -98,7 +97,7 @@
                                     </view>
                                     <font key="titleFont" size="12" name="Helvetica"/>
                                 </box>
-                                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="19">
+                                <textField verticalHuggingPriority="750" id="19">
                                     <rect key="frame" x="107" y="41" width="66" height="18"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <textFieldCell key="cell" alignment="center" title="difficulty" id="63">
@@ -114,7 +113,7 @@
                                         <font key="font" size="12" name="Helvetica"/>
                                     </sliderCell>
                                 </slider>
-                                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="37">
+                                <textField verticalHuggingPriority="750" id="37">
                                     <rect key="frame" x="15" y="6" width="45" height="14"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <textFieldCell key="cell" alignment="center" title="wimpy" id="65">
@@ -123,7 +122,7 @@
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
-                                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="6">
+                                <textField verticalHuggingPriority="750" id="6">
                                     <rect key="frame" x="122" y="5" width="45" height="14"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <textFieldCell key="cell" alignment="center" title="normal" id="66">
@@ -132,7 +131,7 @@
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
-                                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="23">
+                                <textField verticalHuggingPriority="750" id="23">
                                     <rect key="frame" x="235" y="5" width="35" height="14"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <textFieldCell key="cell" alignment="center" title="scary" id="67">
@@ -183,7 +182,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="364" height="40"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="3">
+                                <textField verticalHuggingPriority="750" id="3">
                                     <rect key="frame" x="271" y="8" width="86" height="22"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" state="on" alignment="right" title="0" drawsBackground="YES" id="70">
@@ -199,7 +198,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="89" height="22"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="16">
+                                            <textField verticalHuggingPriority="750" id="16">
                                                 <rect key="frame" x="0.0" y="0.0" width="53" height="22"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <textFieldCell key="cell" alignment="center" title="Level" drawsBackground="YES" id="71">
@@ -208,7 +207,7 @@
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="20">
+                                            <textField verticalHuggingPriority="750" id="20">
                                                 <rect key="frame" x="53" y="0.0" width="36" height="22"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <textFieldCell key="cell" state="on" alignment="left" title="0" drawsBackground="YES" id="72">
@@ -228,7 +227,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="93" height="22"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="7">
+                                            <textField verticalHuggingPriority="750" id="7">
                                                 <rect key="frame" x="0.0" y="0.0" width="57" height="22"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <textFieldCell key="cell" alignment="center" title="Lives:" drawsBackground="YES" id="73">
@@ -237,7 +236,7 @@
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="30">
+                                            <textField verticalHuggingPriority="750" id="30">
                                                 <rect key="frame" x="57" y="0.0" width="36" height="22"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <textFieldCell key="cell" state="on" alignment="left" title="0" drawsBackground="YES" id="74">
@@ -272,22 +271,23 @@
             <rect key="contentRect" x="276" y="430" width="387" height="320"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
             <view key="contentView" id="24">
-                <rect key="frame" x="1" y="9" width="387" height="320"/>
+                <rect key="frame" x="0.0" y="0.0" width="387" height="320"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="53">
-                        <rect key="frame" x="12" y="14" width="361" height="295"/>
+                        <rect key="frame" x="-1" y="-1" width="389" height="322"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <clipView key="contentView" id="JN9-sQ-jDh">
-                            <rect key="frame" x="1" y="1" width="344" height="293"/>
-                            <autoresizingMask key="autoresizingMask"/>
+                            <rect key="frame" x="1" y="1" width="372" height="320"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView importsGraphics="NO" baseWritingDirection="leftToRight" usesFontPanel="YES" usesRuler="YES" spellingCorrection="YES" smartInsertDelete="YES" id="54">
-                                    <rect key="frame" x="0.0" y="0.0" width="343" height="434"/>
+                                <textView importsGraphics="NO" verticallyResizable="YES" baseWritingDirection="leftToRight" usesFontPanel="YES" usesRuler="YES" spellingCorrection="YES" smartInsertDelete="YES" id="54">
+                                    <rect key="frame" x="0.0" y="-15" width="371" height="406"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <size key="minSize" width="343" height="293"/>
-                                    <size key="maxSize" width="344" height="10000000"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <size key="minSize" width="372" height="320"/>
+                                    <size key="maxSize" width="379" height="10000000"/>
                                     <attributedString key="textStorage">
                                         <fragment>
                                             <mutableString key="content">In the year 2084, mankind finally perfected lightspeed travel which made inter-galactic party-going feasable at last.  Actually perfected isn't quite the right word; navigation was a bit tricky and the slightest amount of space-detritus obstructing the passage would result in an excrutiating demise, exacerbated by the fact that, at lightspeed, time has all but stopped for the unlucky traveler.
@@ -307,6 +307,7 @@ x - rotate right
 
 You can run over mines when they turn to zero for nifty bonuses.</mutableString>
                                             <attributes>
+                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                 <font key="NSFont" size="12" name="Helvetica"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
                                                     <tabStops>
@@ -354,12 +355,13 @@ You can run over mines when they turn to zero for nifty bonuses.</mutableString>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="76">
-                            <rect key="frame" x="345" y="1" width="15" height="293"/>
+                            <rect key="frame" x="373" y="1" width="15" height="320"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
                 </subviews>
             </view>
+            <point key="canvasLocation" x="140.5" y="595"/>
         </window>
         <window title="Not the Cheat Panel" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="42" userLabel="nothingReally" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
@@ -367,7 +369,7 @@ You can run over mines when they turn to zero for nifty bonuses.</mutableString>
             <rect key="contentRect" x="741" y="685" width="207" height="78"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
             <view key="contentView" id="34">
-                <rect key="frame" x="1" y="1" width="207" height="78"/>
+                <rect key="frame" x="0.0" y="0.0" width="207" height="78"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button imageHugsTitle="YES" id="39">
@@ -378,7 +380,7 @@ You can run over mines when they turn to zero for nifty bonuses.</mutableString>
                             <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
                     </button>
-                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="10">
+                    <textField verticalHuggingPriority="750" id="10">
                         <rect key="frame" x="17" y="26" width="108" height="29"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textFieldCell key="cell" selectable="YES" editable="YES" state="on" borderStyle="bezel" alignment="right" title="1" drawsBackground="YES" id="56">
@@ -395,6 +397,6 @@ You can run over mines when they turn to zero for nifty bonuses.</mutableString>
         </window>
     </objects>
     <resources>
-        <image name="sam" width="128" height="128"/>
+        <image name="sam" width="60" height="88"/>
     </resources>
 </document>

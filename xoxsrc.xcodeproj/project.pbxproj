@@ -11,6 +11,50 @@
 		5568285B215EBA9B0099E344 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5568285A215EBA9B0099E344 /* Assets.xcassets */; };
 		5568285E215EBA9B0099E344 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5568285C215EBA9B0099E344 /* MainMenu.xib */; };
 		55682861215EBA9B0099E344 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55682860215EBA9B0099E344 /* main.m */; };
+		55D9816B215F220D0026DE58 /* xoxeroids.nib in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF59215EC2000054C4F3 /* xoxeroids.nib */; };
+		55D9816C215F22240026DE58 /* sndEeOo.snd in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF87215EC2000054C4F3 /* sndEeOo.snd */; };
+		55D9816D215F22240026DE58 /* sndHi.snd in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF88215EC2000054C4F3 /* sndHi.snd */; };
+		55D9816E215F222B0026DE58 /* base.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF49215EC2000054C4F3 /* base.tiff */; };
+		55D9816F215F222B0026DE58 /* bigMineArray.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF4A215EC2000054C4F3 /* bigMineArray.tiff */; };
+		55D98170215F222B0026DE58 /* bigMineArray2.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF4B215EC2000054C4F3 /* bigMineArray2.tiff */; };
+		55D98171215F222B0026DE58 /* cannon1.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF50215EC2000054C4F3 /* cannon1.tiff */; };
+		55D98172215F222B0026DE58 /* cannonball1.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF53215EC2000054C4F3 /* cannonball1.tiff */; };
+		55D98173215F222B0026DE58 /* cave.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF56215EC2000054C4F3 /* cave.tiff */; };
+		55D98174215F222B0026DE58 /* crabneb.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF57215EC2000054C4F3 /* crabneb.tiff */; };
+		55D98175215F222B0026DE58 /* eye.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF5E215EC2000054C4F3 /* eye.tiff */; };
+		55D98176215F222B0026DE58 /* ganymedeB.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF5F215EC2000054C4F3 /* ganymedeB.tiff */; };
+		55D98177215F222B0026DE58 /* ganymedeM.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF60215EC2000054C4F3 /* ganymedeM.tiff */; };
+		55D98178215F222B0026DE58 /* ganymedeS.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF61215EC2000054C4F3 /* ganymedeS.tiff */; };
+		55D98179215F222B0026DE58 /* ioB.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF63215EC2000054C4F3 /* ioB.tiff */; };
+		55D9817A215F222B0026DE58 /* ioM.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF64215EC2000054C4F3 /* ioM.tiff */; };
+		55D9817B215F222B0026DE58 /* ioS.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF65215EC2000054C4F3 /* ioS.tiff */; };
+		55D9817C215F222B0026DE58 /* jupiterB.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF66215EC2000054C4F3 /* jupiterB.tiff */; };
+		55D9817D215F222B0026DE58 /* jupiterM.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF67215EC2000054C4F3 /* jupiterM.tiff */; };
+		55D9817E215F222B0026DE58 /* jupiterS.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF68215EC2000054C4F3 /* jupiterS.tiff */; };
+		55D9817F215F222B0026DE58 /* mineFrag.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF6F215EC2000054C4F3 /* mineFrag.tiff */; };
+		55D98180215F222B0026DE58 /* rockB.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF73215EC2000054C4F3 /* rockB.tiff */; };
+		55D98181215F222B0026DE58 /* rocket1.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF76215EC2000054C4F3 /* rocket1.tiff */; };
+		55D98182215F222B0026DE58 /* rocket2.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF77215EC2000054C4F3 /* rocket2.tiff */; };
+		55D98183215F222B0026DE58 /* rockM.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF7A215EC2000054C4F3 /* rockM.tiff */; };
+		55D98184215F222B0026DE58 /* rockS.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF7B215EC2000054C4F3 /* rockS.tiff */; };
+		55D98185215F222B0026DE58 /* rotBall.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF7C215EC2000054C4F3 /* rotBall.tiff */; };
+		55D98186215F222B0026DE58 /* rotBox1.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF7F215EC2000054C4F3 /* rotBox1.tiff */; };
+		55D98187215F222B0026DE58 /* rotBox2.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF80215EC2000054C4F3 /* rotBox2.tiff */; };
+		55D98188215F222B0026DE58 /* skulls.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF85215EC2000054C4F3 /* skulls.tiff */; };
+		55D98189215F22380026DE58 /* Asteroid.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EDCF45215EC2000054C4F3 /* Asteroid.m */; };
+		55D9818A215F22380026DE58 /* Base.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EDCF48215EC2000054C4F3 /* Base.m */; };
+		55D9818B215F22380026DE58 /* Cannon.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EDCF4F215EC2000054C4F3 /* Cannon.m */; };
+		55D9818C215F22380026DE58 /* Cannonball.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EDCF52215EC2000054C4F3 /* Cannonball.m */; };
+		55D9818D215F22380026DE58 /* Cave.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EDCF55215EC2000054C4F3 /* Cave.m */; };
+		55D9818E215F22380026DE58 /* Eye.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EDCF5D215EC2000054C4F3 /* Eye.m */; };
+		55D9818F215F22380026DE58 /* Mine.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EDCF6E215EC2000054C4F3 /* Mine.m */; };
+		55D98190215F22380026DE58 /* MineFragment.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EDCF71215EC2000054C4F3 /* MineFragment.m */; };
+		55D98191215F22380026DE58 /* Rocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EDCF75215EC2000054C4F3 /* Rocket.m */; };
+		55D98192215F22380026DE58 /* RocketMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EDCF79215EC2000054C4F3 /* RocketMatrix.m */; };
+		55D98193215F22380026DE58 /* RotBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EDCF7E215EC2000054C4F3 /* RotBox.m */; };
+		55D98194215F22380026DE58 /* ScoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EDCF83215EC2000054C4F3 /* ScoreView.m */; };
+		55D98195215F22380026DE58 /* Xoxeroids.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EDCF8D215EC2000054C4F3 /* Xoxeroids.m */; };
+		55D98196215F22380026DE58 /* XXShip.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EDCF8F215EC2000054C4F3 /* XXShip.m */; };
 		55EDCF94215EC2000054C4F3 /* Actor.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EDCEAC215EC2000054C4F3 /* Actor.m */; };
 		55EDCF95215EC2000054C4F3 /* ActorMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EDCEAE215EC2000054C4F3 /* ActorMatrix.m */; };
 		55EDCF96215EC2000054C4F3 /* ActorMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EDCEB0215EC2000054C4F3 /* ActorMgr.m */; };
@@ -58,6 +102,8 @@
 		5568285F215EBA9B0099E344 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55682860215EBA9B0099E344 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		55682862215EBA9B0099E344 /* xoxsrc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = xoxsrc.entitlements; sourceTree = "<group>"; };
+		55D98165215F21C40026DE58 /* Xoxeroids.XoX */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Xoxeroids.XoX; sourceTree = BUILT_PRODUCTS_DIR; };
+		55D98167215F21C40026DE58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55EDCEAB215EC2000054C4F3 /* Actor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Actor.h; sourceTree = "<group>"; };
 		55EDCEAC215EC2000054C4F3 /* Actor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Actor.m; sourceTree = "<group>"; };
 		55EDCEAD215EC2000054C4F3 /* ActorMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActorMatrix.h; sourceTree = "<group>"; };
@@ -243,6 +289,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		55D98162215F21C40026DE58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		55EDD027215EC62C0054C4F3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -270,6 +323,7 @@
 			children = (
 				55682854215EBA9A0099E344 /* xoxsrc.app */,
 				55EDD02A215EC62C0054C4F3 /* Boink.XoX */,
+				55D98165215F21C40026DE58 /* Xoxeroids.XoX */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -406,6 +460,7 @@
 		55EDD01F215EC4360054C4F3 /* Xoxeroids */ = {
 			isa = PBXGroup;
 			children = (
+				55D98167215F21C40026DE58 /* Info.plist */,
 				55EDD022215EC5570054C4F3 /* Classes */,
 				55EDD024215EC5870054C4F3 /* Graphics */,
 				55EDD023215EC5780054C4F3 /* Sounds */,
@@ -578,6 +633,23 @@
 			productReference = 55682854215EBA9A0099E344 /* xoxsrc.app */;
 			productType = "com.apple.product-type.application";
 		};
+		55D98164215F21C40026DE58 /* Xoxeroids */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 55D98168215F21C40026DE58 /* Build configuration list for PBXNativeTarget "Xoxeroids" */;
+			buildPhases = (
+				55D98161215F21C40026DE58 /* Sources */,
+				55D98162215F21C40026DE58 /* Frameworks */,
+				55D98163215F21C40026DE58 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Xoxeroids;
+			productName = Xoxeroids;
+			productReference = 55D98165215F21C40026DE58 /* Xoxeroids.XoX */;
+			productType = "com.apple.product-type.bundle";
+		};
 		55EDD029215EC62C0054C4F3 /* Boink */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 55EDD02D215EC62C0054C4F3 /* Build configuration list for PBXNativeTarget "Boink" */;
@@ -607,6 +679,9 @@
 					55682853215EBA9A0099E344 = {
 						CreatedOnToolsVersion = 10.0;
 					};
+					55D98164215F21C40026DE58 = {
+						CreatedOnToolsVersion = 10.0;
+					};
 					55EDD029215EC62C0054C4F3 = {
 						CreatedOnToolsVersion = 10.0;
 					};
@@ -628,6 +703,7 @@
 			targets = (
 				55682853215EBA9A0099E344 /* xoxsrc */,
 				55EDD029215EC62C0054C4F3 /* Boink */,
+				55D98164215F21C40026DE58 /* Xoxeroids */,
 			);
 		};
 /* End PBXProject section */
@@ -646,6 +722,43 @@
 				5568285E215EBA9B0099E344 /* MainMenu.xib in Resources */,
 				55EDCFBD215EC2000054C4F3 /* Xox.nib in Resources */,
 				55EDCFC8215EC2000054C4F3 /* README.rtf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55D98163215F21C40026DE58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55D98174215F222B0026DE58 /* crabneb.tiff in Resources */,
+				55D98172215F222B0026DE58 /* cannonball1.tiff in Resources */,
+				55D9817E215F222B0026DE58 /* jupiterS.tiff in Resources */,
+				55D9816F215F222B0026DE58 /* bigMineArray.tiff in Resources */,
+				55D9816B215F220D0026DE58 /* xoxeroids.nib in Resources */,
+				55D9817B215F222B0026DE58 /* ioS.tiff in Resources */,
+				55D9817F215F222B0026DE58 /* mineFrag.tiff in Resources */,
+				55D9817A215F222B0026DE58 /* ioM.tiff in Resources */,
+				55D9816D215F22240026DE58 /* sndHi.snd in Resources */,
+				55D98184215F222B0026DE58 /* rockS.tiff in Resources */,
+				55D98186215F222B0026DE58 /* rotBox1.tiff in Resources */,
+				55D98185215F222B0026DE58 /* rotBall.tiff in Resources */,
+				55D98188215F222B0026DE58 /* skulls.tiff in Resources */,
+				55D98170215F222B0026DE58 /* bigMineArray2.tiff in Resources */,
+				55D98179215F222B0026DE58 /* ioB.tiff in Resources */,
+				55D98183215F222B0026DE58 /* rockM.tiff in Resources */,
+				55D98178215F222B0026DE58 /* ganymedeS.tiff in Resources */,
+				55D98171215F222B0026DE58 /* cannon1.tiff in Resources */,
+				55D9817D215F222B0026DE58 /* jupiterM.tiff in Resources */,
+				55D98187215F222B0026DE58 /* rotBox2.tiff in Resources */,
+				55D9817C215F222B0026DE58 /* jupiterB.tiff in Resources */,
+				55D98177215F222B0026DE58 /* ganymedeM.tiff in Resources */,
+				55D9816C215F22240026DE58 /* sndEeOo.snd in Resources */,
+				55D98173215F222B0026DE58 /* cave.tiff in Resources */,
+				55D98176215F222B0026DE58 /* ganymedeB.tiff in Resources */,
+				55D98175215F222B0026DE58 /* eye.tiff in Resources */,
+				55D98180215F222B0026DE58 /* rockB.tiff in Resources */,
+				55D98182215F222B0026DE58 /* rocket2.tiff in Resources */,
+				55D9816E215F222B0026DE58 /* base.tiff in Resources */,
+				55D98181215F222B0026DE58 /* rocket1.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -691,6 +804,27 @@
 				55EDCF96215EC2000054C4F3 /* ActorMgr.m in Sources */,
 				55EDCFE3215EC2000054C4F3 /* Thinker.m in Sources */,
 				55EDCFC2215EC2000054C4F3 /* KeyTimer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55D98161215F21C40026DE58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55D9818D215F22380026DE58 /* Cave.m in Sources */,
+				55D98196215F22380026DE58 /* XXShip.m in Sources */,
+				55D98195215F22380026DE58 /* Xoxeroids.m in Sources */,
+				55D98194215F22380026DE58 /* ScoreView.m in Sources */,
+				55D9818F215F22380026DE58 /* Mine.m in Sources */,
+				55D98192215F22380026DE58 /* RocketMatrix.m in Sources */,
+				55D9818B215F22380026DE58 /* Cannon.m in Sources */,
+				55D9818A215F22380026DE58 /* Base.m in Sources */,
+				55D9818E215F22380026DE58 /* Eye.m in Sources */,
+				55D98193215F22380026DE58 /* RotBox.m in Sources */,
+				55D98191215F22380026DE58 /* Rocket.m in Sources */,
+				55D98189215F22380026DE58 /* Asteroid.m in Sources */,
+				55D98190215F22380026DE58 /* MineFragment.m in Sources */,
+				55D9818C215F22380026DE58 /* Cannonball.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -801,7 +935,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -854,7 +988,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -892,6 +1026,34 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.maddthesane.xoxsrc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		55D98169215F21C40026DE58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = xoxsrc/Xoxeroids.bproj/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.maddthesane.Xoxeroids;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = XoX;
+			};
+			name = Debug;
+		};
+		55D9816A215F21C40026DE58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = xoxsrc/Xoxeroids.bproj/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.maddthesane.Xoxeroids;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = XoX;
 			};
 			name = Release;
 		};
@@ -940,6 +1102,15 @@
 			buildConfigurations = (
 				55682866215EBA9B0099E344 /* Debug */,
 				55682867215EBA9B0099E344 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		55D98168215F21C40026DE58 /* Build configuration list for PBXNativeTarget "Xoxeroids" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55D98169215F21C40026DE58 /* Debug */,
+				55D9816A215F21C40026DE58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
