@@ -67,6 +67,8 @@
 		55D98165215F21C40026DE58 /* Xoxeroids.XoX */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Xoxeroids.XoX; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D98167215F21C40026DE58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55D98197215F365C0026DE58 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		55D9819A216035090026DE58 /* dartx1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dartx1.png; sourceTree = "<group>"; };
+		55D9819B216035090026DE58 /* clawx1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clawx1.png; sourceTree = "<group>"; };
 		55EDCEAB215EC2000054C4F3 /* Actor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Actor.h; sourceTree = "<group>"; };
 		55EDCEAC215EC2000054C4F3 /* Actor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Actor.m; sourceTree = "<group>"; };
 		55EDCEAD215EC2000054C4F3 /* ActorMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActorMatrix.h; sourceTree = "<group>"; };
@@ -412,6 +414,8 @@
 		55EDD021215EC50E0054C4F3 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				55D9819B216035090026DE58 /* clawx1.png */,
+				55D9819A216035090026DE58 /* dartx1.png */,
 				55EDCF10215EC2000054C4F3 /* claw0.tiff */,
 				55EDCF11215EC2000054C4F3 /* claw1.tiff */,
 				55EDCF12215EC2000054C4F3 /* claw2.tiff */,

@@ -20,7 +20,7 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window title="Views" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="7" userLabel="Views">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -162,23 +162,23 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <size key="cellSize" width="66" height="15"/>
                                                 <size key="intercellSpacing" width="0.0" height="3"/>
-                                                <buttonCell key="prototype" type="radio" title="Radio" imagePosition="leading" alignment="left" inset="2" id="80">
+                                                <buttonCell key="prototype" type="radio" title="Radio" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="80">
                                                     <behavior key="behavior" pushIn="YES" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                    <font key="font" size="12" name="Helvetica"/>
+                                                    <font key="font" metaFont="smallSystem"/>
                                                 </buttonCell>
                                                 <cells>
                                                     <column>
-                                                        <buttonCell type="radio" title="Slow" imagePosition="leading" alignment="left" inset="2" id="22">
+                                                        <buttonCell type="radio" title="Slow" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="22">
                                                             <behavior key="behavior" pushIn="YES" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                            <font key="font" size="12" name="Helvetica"/>
+                                                            <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
-                                                        <buttonCell type="radio" title="Medium" imagePosition="leading" alignment="left" state="on" tag="1" inset="2" id="18">
+                                                        <buttonCell type="radio" title="Medium" imagePosition="leading" alignment="left" controlSize="small" state="on" tag="1" inset="2" id="18">
                                                             <behavior key="behavior" pushIn="YES" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                            <font key="font" size="12" name="Helvetica"/>
+                                                            <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
-                                                        <buttonCell type="radio" title="Fast" imagePosition="leading" alignment="left" inset="2" id="12">
+                                                        <buttonCell type="radio" title="Fast" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="12">
                                                             <behavior key="behavior" pushIn="YES" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                            <font key="font" size="12" name="Helvetica"/>
+                                                            <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
                                                     </column>
                                                 </cells>
@@ -203,27 +203,27 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <size key="cellSize" width="68" height="15"/>
                                                 <size key="intercellSpacing" width="0.0" height="3"/>
-                                                <buttonCell key="prototype" type="radio" title="Radio" imagePosition="leading" alignment="left" inset="2" id="82">
+                                                <buttonCell key="prototype" type="radio" title="Radio" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="82">
                                                     <behavior key="behavior" pushIn="YES" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                    <font key="font" size="12" name="Helvetica"/>
+                                                    <font key="font" metaFont="smallSystem"/>
                                                 </buttonCell>
                                                 <cells>
                                                     <column>
-                                                        <buttonCell type="radio" title="Reverse" imagePosition="leading" alignment="left" inset="2" id="15">
+                                                        <buttonCell type="radio" title="Reverse" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="15">
                                                             <behavior key="behavior" pushIn="YES" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                            <font key="font" size="12" name="Helvetica"/>
+                                                            <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
-                                                        <buttonCell type="radio" title="None" imagePosition="leading" alignment="left" inset="2" id="3">
+                                                        <buttonCell type="radio" title="None" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="3">
                                                             <behavior key="behavior" pushIn="YES" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                            <font key="font" size="12" name="Helvetica"/>
+                                                            <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
-                                                        <buttonCell type="radio" title="Normal" imagePosition="leading" alignment="left" state="on" tag="1" inset="2" id="45">
+                                                        <buttonCell type="radio" title="Normal" imagePosition="leading" alignment="left" controlSize="small" state="on" tag="1" inset="2" id="45">
                                                             <behavior key="behavior" pushIn="YES" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                            <font key="font" size="12" name="Helvetica"/>
+                                                            <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
-                                                        <buttonCell type="radio" title="Strong" imagePosition="leading" alignment="left" inset="2" id="16">
+                                                        <buttonCell type="radio" title="Strong" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="16">
                                                             <behavior key="behavior" pushIn="YES" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                            <font key="font" size="12" name="Helvetica"/>
+                                                            <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
                                                     </column>
                                                 </cells>
@@ -356,12 +356,12 @@
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <textView editable="NO" importsGraphics="NO" verticallyResizable="YES" baseWritingDirection="leftToRight" usesFontPanel="YES" usesRuler="YES" spellingCorrection="YES" smartInsertDelete="YES" id="84">
-                                    <rect key="frame" x="0.0" y="0.0" width="349" height="330"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="349" height="308"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="349" height="330"/>
-                                    <size key="maxSize" width="349" height="10000000"/>
+                                    <size key="minSize" width="355" height="306"/>
+                                    <size key="maxSize" width="372" height="10000000"/>
                                     <attributedString key="textStorage">
                                         <fragment>
                                             <mutableString key="content">This game is patterned after the arcade classic "Space Wars" (which incidentally was made by Cinematronics which was located about 2 miles from the place I grew up.  I used to ride my bicycle over there as a kid and they would show me the games they were working on.  I digress.)
@@ -436,7 +436,7 @@ The red player's controls (on the keypad) are:
         </window>
     </objects>
     <resources>
-        <image name="clawx1" width="128" height="128"/>
-        <image name="dartx1" width="128" height="128"/>
+        <image name="clawx1" width="27" height="31"/>
+        <image name="dartx1" width="24" height="33"/>
     </resources>
 </document>
