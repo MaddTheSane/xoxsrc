@@ -4,7 +4,8 @@
 @class GameInfo;
 @class EKProgressView;
 @class BackView;
-extern NSMutableArray<GameInfo*> *gameList;
+@class GameList;
+extern GameList *gameList;
 extern int gameIndex;
 
 @interface Thinker: NSObject <NSApplicationDelegate, NSWindowDelegate>

@@ -38,7 +38,7 @@
 
 - init
 {
-	[super init];
+	self=[super init];
 	formation = [[Storage allocFromZone:[self zone]]
 		initCount:8
 		elementSize: sizeof(id)

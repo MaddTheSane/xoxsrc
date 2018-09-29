@@ -27,7 +27,7 @@
 
 @end
 
-typedef struct {
+typedef struct ActorMatrixData {
 	BOOL autofill;
 	id whichClass;
 	ALLIANCE alliance;

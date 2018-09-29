@@ -19,11 +19,11 @@ ActorMgr *actorMgr;
 DisplayManager *displayMgr;
 CacheManager *cacheMgr;
 SoundMgr *soundMgr;
-id scenario;
+__kindof id<Scenario> scenario;
 id mainView;
 BackView *abackView;
 id gcontentView;
-id gameList;
+GameList *gameList;
 int gameIndex;
 id sceneOneStepper;
 
@@ -373,7 +373,7 @@ float randBetween(float a, float b)
 		// update the progress bar
 		progress++;
 		[progressView setProgress:progress];
-		NXPing();
+		//NXPing();
     }
 
 	[imageNames removeAllObjects];

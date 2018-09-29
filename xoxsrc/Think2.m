@@ -18,9 +18,9 @@ extern BOOL obscureMouse;
 
 @implementation Thinker(thinker2)
 
-- setupGameBrowser
+- (void)setupGameBrowser
 {
-	id theMatrix;
+	NSMatrix *theMatrix;
 	char buf[MAXPATHLEN];
 	const char *ptr;
 
@@ -33,16 +33,14 @@ extern BOOL obscureMouse;
 	ptr = NXGetDefaultValue([NSApp appName], "altGamePath");
 	if (ptr) [self loadGamesFrom:ptr];
 	[self loadGamesFrom: [[NSBundle mainBundle] directory]];
-	[self loadGamesFrom: "/LocalLibrary/XoxGames"];
+	[self loadGamesFrom: @"/LocalLibrary/XoxGames"];
 
 	[gameList sort];
 
 	[scenarioBrowser loadColumnZero];
 	theMatrix = [scenarioBrowser matrixInColumn:0];
-	[theMatrix selectCellAt:gameIndex :0];
-	[theMatrix scrollCellToVisible:gameIndex :0];
-
-	return self;
+	[theMatrix selectCellAtRow:gameIndex column:0];
+	[theMatrix scrollCellToVisibleAtRow:gameIndex column:0];
 }
 
 - getSoundSetting
@@ -117,7 +115,7 @@ extern BOOL obscureMouse;
 
 	[self installGameViewsIntoWindow:littleWindow];
 
-	if (i = [[gameList objectAt: gameIndex] level]) [actorMgr requestLevel:i];
+	if (i = [[gameList objectAtIndex: gameIndex] level]) [actorMgr requestLevel:i];
 	else [actorMgr requestLevel:0];
 
 	[self adjustLittleWindowSize];
@@ -152,8 +150,8 @@ extern BOOL obscureMouse;
 	else
 	{
 		NSRect r;
-		[gcontentView getBounds:&r];
-		[abackView setFrame:&r];
+		r = [gcontentView bounds];
+		[abackView setFrame:r];
 		[gcontentView addSubview:abackView];
 		mainView = abackView;
 	}

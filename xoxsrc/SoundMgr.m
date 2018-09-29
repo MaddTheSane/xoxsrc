@@ -32,7 +32,7 @@ typedef struct {
 {
     int k;
 
-    [super init];
+    self=[super init];
 
     device = [[NXSoundOut allocFromZone:[self zone]] init];
     if (device == nil)
@@ -59,7 +59,7 @@ typedef struct {
     return self;
 }	
 
-- (Sound *)_loadSound: (const char *)name bundle:bndl
+- (NSSound *)_loadSound: (const char *)name bundle:(NSBundle*)bndl
 {
 	char path[MAXPATHLEN+1];
 	id theSound;

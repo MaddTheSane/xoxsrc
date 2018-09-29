@@ -10,7 +10,7 @@
 	NSRect r = {{0,0}};
 	NSSize theSize;
 
-	[cache getSize:&theSize];
+	theSize = [cache size];
 	r.size = theSize;
 	if ([cache lockFocusIfCanDraw])
 	{
@@ -38,15 +38,9 @@
 {
 	if (self = [super init]) {
 
-	displayList = [[List allocFromZone:[self zone]] init];
-	drawRectList = [[Storage allocFromZone:[self zone]]
-		initCount:8
-		elementSize: sizeof(NSRect)
-		description: @encode(NSRect)];
-	eraseRectList = [[Storage allocFromZone:[self zone]]
-		initCount:8
-		elementSize: sizeof(NSRect)
-		description: @encode(NSRect)];
+	displayList = [[NSMutableArray alloc] init];
+	drawRectList = [[NSMutableArray alloc] init];
+	eraseRectList = [[NSMutableArray alloc] init];
 	}
 	
 	return self;
@@ -89,10 +83,10 @@ BOOL coalesce(NSRect *p1, NSRect *p2)
 }
 
 
-- oneStep
+- (void)oneStep
 {
 	NSRect *p1, *p2, *rectArray;
-	int i, j, iterations;
+	NSInteger i, j, iterations;
 	BOOL changed;
 	int count;
 	Actor *theActor;
@@ -101,7 +95,7 @@ BOOL coalesce(NSRect *p1, NSRect *p2)
 	{
 
 	// first handle all cache erasures
-	if (eraseRectList->numElements)
+	if (eraseRectList.count)
 	{
 		if (!virgin)
 		{
@@ -114,14 +108,14 @@ BOOL coalesce(NSRect *p1, NSRect *p2)
 			for (i=0; i<eraseRectList->numElements; i++)
 				[virgin composite:NX_COPY fromRect:r+i toPoint:&((r+i)->origin)];
 		}
-		[eraseRectList empty];
+		[eraseRectList removeAllObjects];
 	}
 
 	count = [displayList count];
 	// now construct next frame in the cache
 	for (i=0; i<count; i++)
 	{
-		theActor = (Actor *)[displayList objectAt:i];
+		theActor = (Actor *)[displayList objectAtIndex:i];
 
 		// while I'm here, store all the rects that need flushing
 //		[theActor addFlushRectsTo:drawRectList];
@@ -175,21 +169,19 @@ BOOL coalesce(NSRect *p1, NSRect *p2)
 		}
 	}
 
-	[drawRectList empty];
-	[displayList empty];
-
-	return self;
+	[drawRectList removeAllObjects];
+	[displayList removeAllObjects];
 }
 
-- (void)erase:(NSRect *)r
+- (void)erase:(NSRect)r
 {
-	[eraseRectList addElement:r];
+	[eraseRectList addObject:[NSValue valueWithRect:r]];
 //	[drawRectList addElement:r];
 }
 
-- (void)displayRect:(NSRect *)r
+- (void)displayRect:(NSRect)r
 {
-	[drawRectList addElement:r];
+	[drawRectList addObject:[NSValue valueWithRect:r]];
 }
 
 - (void)draw:(Actor *)sender;
@@ -203,12 +195,11 @@ BOOL coalesce(NSRect *p1, NSRect *p2)
 
 	if (val)
 	{
-		[cache getSize:&theSize];
-		if (!virgin) virgin = [[NSImage allocFromZone:[self zone]] initSize:&theSize];
+		theSize = [cache size];
+		if (!virgin) virgin = [[NSImage alloc] initWithSize:theSize];
 	}
 	else
 	{
-		[virgin free];
 		tile = virgin = nil;
 	}
 }
@@ -218,7 +209,7 @@ BOOL coalesce(NSRect *p1, NSRect *p2)
 	return virgin;
 }
 
-- (void)tileUsing:theTile
+- (void)tileUsing:(NSImage*)theTile
 {
 	NSSize tileSize;
 	NSSize virginSize;
@@ -230,25 +221,23 @@ BOOL coalesce(NSRect *p1, NSRect *p2)
 
 	tile = theTile;
 	
-	[theTile getSize:&tileSize];
-	[virgin getSize:&virginSize];
+	tileSize = [theTile size];
+	virginSize = virgin.size;
 
-	if ([virgin lockFocus])
-	{
+	[virgin lockFocus];
 		for (pt.y = 0.0; pt.y < virginSize.height; pt.y += tileSize.height)
 		{
 			for (pt.x = 0.0; pt.x < virginSize.width; pt.x += tileSize.width)
 			{
-				[theTile composite:NX_SOVER toPoint:&pt];
+				[theTile compositeToPoint:pt operation:NSCompositingOperationSourceOver];
 			}
 		}
 
 		[actorMgr makeActorsPerform:@selector(tile)];
 		[virgin unlockFocus];
-	}
 }
 
-- (void)retileRect:(NSRect *)rp
+- (BOOL)retileRect:(NSRect)rp
 {
 	NSSize tileSize;
 	NSSize virginSize;
@@ -256,25 +245,24 @@ BOOL coalesce(NSRect *p1, NSRect *p2)
 	NSPoint edge;
 	NSRect src;
 	
-	if (!tile) return nil;
+	if (!tile) return NO;
 
-	[tile getSize:&tileSize];
-	[virgin getSize:&virginSize];
+	tileSize = tile.size;
+	virginSize = virgin.size;
 
-	edge.x = rp->origin.x + rp->size.width;
-	edge.y = rp->origin.y + rp->size.height;
-	src.origin.y = (int)rp->origin.y % (int)tileSize.height;
-	src.size.height = MIN((tileSize.height-src.origin.y),rp->size.height);
+	edge.x = rp.origin.x + rp.size.width;
+	edge.y = rp.origin.y + rp.size.height;
+	src.origin.y = (int)rp.origin.y % (int)tileSize.height;
+	src.size.height = MIN((tileSize.height-src.origin.y),rp.size.height);
 
-	if ([virgin lockFocus])
-	{
-		for (pt.y = rp->origin.y; pt.y < edge.y;)
+	[virgin lockFocus];
+		for (pt.y = rp.origin.y; pt.y < edge.y;)
 		{
-			src.origin.x = (int)rp->origin.x % (int)tileSize.width;
-			src.size.width = MIN((tileSize.width-src.origin.x),rp->size.width);
-			for (pt.x = rp->origin.x; pt.x < edge.x;)
+			src.origin.x = (int)rp.origin.x % (int)tileSize.width;
+			src.size.width = MIN((tileSize.width-src.origin.x),rp.size.width);
+			for (pt.x = rp.origin.x; pt.x < edge.x;)
 			{
-				[tile composite:NX_SOVER fromRect:&src toPoint:&pt];
+				[tile drawAtPoint:pt fromRect:src operation:NSCompositingOperationSourceOver fraction:1];
 				pt.x += src.size.width;
 				src.origin.x = 0.0;
 				src.size.width = MIN((tileSize.width),edge.x-pt.x);
@@ -285,13 +273,13 @@ BOOL coalesce(NSRect *p1, NSRect *p2)
 		}
 
 		[virgin unlockFocus];
-	}
+	return YES;
 }
 
 - (void)draw
 {
 	NSPoint p = {0,0};
-	[virgin composite:NX_COPY toPoint:&p];
+	[virgin compositeToPoint:p operation:NSCompositingOperationCopy];
 }
 
 @end

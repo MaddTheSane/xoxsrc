@@ -5,7 +5,7 @@
 #import "CacheManager.h"
 #import "ActorMgr.h"
 
-float xOffset, yOffset;
+CGFloat xOffset, yOffset;
 NSRect screenRect;
 
 @implementation BackView
@@ -29,9 +29,9 @@ NSRect screenRect;
 -(void)drawRect:(NSRect)dirtyRect
 {
 	NSRect t = {0,0,1,1};
-	PSsetrgbcolor(1,0,0);
+	[[NSColor colorWithCalibratedRed:1 green:0 blue:0 alpha:1] set];
 	NSRectFill(t);	//yucky trick for window depth promotion!
-	PSsetgray(NX_BLACK); NSRectFill(rects);
+	[[NSColor blackColor] set]; NSRectFill(dirtyRect);
 	[(CacheManager *)cacheMgr draw];
 	[(ActorMgr *)actorMgr draw];
 }
