@@ -11,7 +11,7 @@
 		5568285B215EBA9B0099E344 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5568285A215EBA9B0099E344 /* Assets.xcassets */; };
 		5568285E215EBA9B0099E344 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5568285C215EBA9B0099E344 /* MainMenu.xib */; };
 		55682861215EBA9B0099E344 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55682860215EBA9B0099E344 /* main.m */; };
-		55D9816B215F220D0026DE58 /* xoxeroids.nib in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF59215EC2000054C4F3 /* xoxeroids.nib */; };
+		55D9816B215F220D0026DE58 /* xoxeroids.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF59215EC2000054C4F3 /* xoxeroids.xib */; };
 		55D9816C215F22240026DE58 /* sndEeOo.snd in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF87215EC2000054C4F3 /* sndEeOo.snd */; };
 		55D9816D215F22240026DE58 /* sndHi.snd in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF88215EC2000054C4F3 /* sndHi.snd */; };
 		55D98189215F22380026DE58 /* Asteroid.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EDCF45215EC2000054C4F3 /* Asteroid.m */; };
@@ -38,7 +38,7 @@
 		55EDCF9D215EC2000054C4F3 /* collisions.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EDCEBE215EC2000054C4F3 /* collisions.m */; };
 		55EDCFBB215EC2000054C4F3 /* DisplayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EDCEF2215EC2000054C4F3 /* DisplayManager.m */; };
 		55EDCFBC215EC2000054C4F3 /* EKProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EDCEF4215EC2000054C4F3 /* EKProgressView.m */; };
-		55EDCFBD215EC2000054C4F3 /* Xox.nib in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCEF5215EC2000054C4F3 /* Xox.nib */; };
+		55EDCFBD215EC2000054C4F3 /* Xox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCEF5215EC2000054C4F3 /* Xox.xib */; };
 		55EDCFC0215EC2000054C4F3 /* GameInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EDCEFA215EC2000054C4F3 /* GameInfo.m */; };
 		55EDCFC2215EC2000054C4F3 /* KeyTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EDCEFD215EC2000054C4F3 /* KeyTimer.m */; };
 		55EDCFC8215EC2000054C4F3 /* README.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF03215EC2000054C4F3 /* README.rtf */; };
@@ -118,7 +118,7 @@
 		55EDCEF2215EC2000054C4F3 /* DisplayManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayManager.m; sourceTree = "<group>"; };
 		55EDCEF3215EC2000054C4F3 /* EKProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EKProgressView.h; sourceTree = "<group>"; };
 		55EDCEF4215EC2000054C4F3 /* EKProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EKProgressView.m; sourceTree = "<group>"; };
-		55EDCEF6215EC2000054C4F3 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/Xox.nib; sourceTree = "<group>"; };
+		55EDCEF6215EC2000054C4F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Xox.xib; sourceTree = "<group>"; };
 		55EDCEF9215EC2000054C4F3 /* GameInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameInfo.h; sourceTree = "<group>"; };
 		55EDCEFA215EC2000054C4F3 /* GameInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameInfo.m; sourceTree = "<group>"; };
 		55EDCEFC215EC2000054C4F3 /* KeyTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyTimer.h; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 		55EDCF52215EC2000054C4F3 /* Cannonball.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cannonball.m; sourceTree = "<group>"; };
 		55EDCF54215EC2000054C4F3 /* Cave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cave.h; sourceTree = "<group>"; };
 		55EDCF55215EC2000054C4F3 /* Cave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cave.m; sourceTree = "<group>"; };
-		55EDCF5A215EC2000054C4F3 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/xoxeroids.nib; sourceTree = "<group>"; };
+		55EDCF5A215EC2000054C4F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/xoxeroids.xib; sourceTree = "<group>"; };
 		55EDCF5C215EC2000054C4F3 /* Eye.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Eye.h; sourceTree = "<group>"; };
 		55EDCF5D215EC2000054C4F3 /* Eye.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Eye.m; sourceTree = "<group>"; };
 		55EDCF6D215EC2000054C4F3 /* Mine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mine.h; sourceTree = "<group>"; };
@@ -273,7 +273,7 @@
 				55EDCEF2215EC2000054C4F3 /* DisplayManager.m */,
 				55EDCEF3215EC2000054C4F3 /* EKProgressView.h */,
 				55EDCEF4215EC2000054C4F3 /* EKProgressView.m */,
-				55EDCEF5215EC2000054C4F3 /* Xox.nib */,
+				55EDCEF5215EC2000054C4F3 /* Xox.xib */,
 				55EDCEF9215EC2000054C4F3 /* GameInfo.h */,
 				55EDCEFA215EC2000054C4F3 /* GameInfo.m */,
 				55EDCEFC215EC2000054C4F3 /* KeyTimer.h */,
@@ -381,7 +381,7 @@
 				55D98167215F21C40026DE58 /* Info.plist */,
 				55EDD022215EC5570054C4F3 /* Classes */,
 				55EDD023215EC5780054C4F3 /* Sounds */,
-				55EDCF59215EC2000054C4F3 /* xoxeroids.nib */,
+				55EDCF59215EC2000054C4F3 /* xoxeroids.xib */,
 				55D98197215F365C0026DE58 /* Media.xcassets */,
 			);
 			name = Xoxeroids;
@@ -592,7 +592,7 @@
 				55EDD018215EC2000054C4F3 /* xoxext.tiff in Resources */,
 				55EDD019215EC2000054C4F3 /* xoxicon.tiff in Resources */,
 				5568285E215EBA9B0099E344 /* MainMenu.xib in Resources */,
-				55EDCFBD215EC2000054C4F3 /* Xox.nib in Resources */,
+				55EDCFBD215EC2000054C4F3 /* Xox.xib in Resources */,
 				55EDCFC8215EC2000054C4F3 /* README.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -601,7 +601,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55D9816B215F220D0026DE58 /* xoxeroids.nib in Resources */,
+				55D9816B215F220D0026DE58 /* xoxeroids.xib in Resources */,
 				55D9816D215F22240026DE58 /* sndHi.snd in Resources */,
 				55D98198215F365C0026DE58 /* Media.xcassets in Resources */,
 				55D9816C215F22240026DE58 /* sndEeOo.snd in Resources */,
@@ -686,12 +686,12 @@
 			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
-		55EDCEF5215EC2000054C4F3 /* Xox.nib */ = {
+		55EDCEF5215EC2000054C4F3 /* Xox.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				55EDCEF6215EC2000054C4F3 /* English */,
+				55EDCEF6215EC2000054C4F3 /* en */,
 			);
-			name = Xox.nib;
+			name = Xox.xib;
 			sourceTree = "<group>";
 		};
 		55EDCF17215EC2000054C4F3 /* spaxewars.nib */ = {
@@ -702,12 +702,12 @@
 			name = spaxewars.nib;
 			sourceTree = "<group>";
 		};
-		55EDCF59215EC2000054C4F3 /* xoxeroids.nib */ = {
+		55EDCF59215EC2000054C4F3 /* xoxeroids.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				55EDCF5A215EC2000054C4F3 /* English */,
+				55EDCF5A215EC2000054C4F3 /* en */,
 			);
-			name = xoxeroids.nib;
+			name = xoxeroids.xib;
 			sourceTree = "<group>";
 		};
 		55EDD044215EC65C0054C4F3 /* boink.nib */ = {
