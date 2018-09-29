@@ -5,43 +5,38 @@
 #define XDEBUG 0
 @implementation CacheManager
 
-- eraseCache
+- (void)eraseCache
 {
 	NSRect r = {{0,0}};
 	NSSize theSize;
 
 	[cache getSize:&theSize];
 	r.size = theSize;
-	if ([cache lockFocus])
+	if ([cache lockFocusIfCanDraw])
 	{
-		PSsetgray(NX_BLACK);
-		NSRectFill(&r);
+		[[NSColor blackColor] set];
+		NSRectFill(r);
 		if (virgin) [self tileUsing:tile];
-		[virgin composite:NX_COPY toPoint:&r.origin];
+		[virgin compositeToPoint:r.origin operation:NSCompositingOperationCopy];
 		[cache unlockFocus];
 	}
-	return self;
 }
 
-- newSize:(NSSize *)sp
+- (void)newSize:(NSSize)sp
 {
 
-	[cache free];
-	cache = [[NSImage allocFromZone:[self zone]] initSize:sp];
+	cache = [[NSImage alloc] initWithSize:sp];
 	if (virgin)
 	{
-		[virgin free];
-		virgin = [[NSImage allocFromZone:[self zone]] initSize:sp];
+		virgin = [[NSImage alloc] initWithSize:sp];
 	}
 	[self eraseCache];
-	[eraseRectList empty];
-
-	return self;
+	[eraseRectList removeAllObjects];
 }
 
 - init
 {
-	[super init];
+	if (self = [super init]) {
 
 	displayList = [[List allocFromZone:[self zone]] init];
 	drawRectList = [[Storage allocFromZone:[self zone]]
@@ -52,7 +47,8 @@
 		initCount:8
 		elementSize: sizeof(NSRect)
 		description: @encode(NSRect)];
-
+	}
+	
 	return self;
 }
 
@@ -101,7 +97,7 @@ BOOL coalesce(NSRect *p1, NSRect *p2)
 	int count;
 	Actor *theActor;
 
-	if ([cache lockFocus])
+	if ([cache lockFocusIfCanDraw])
 	{
 
 	// first handle all cache erasures
@@ -185,26 +181,23 @@ BOOL coalesce(NSRect *p1, NSRect *p2)
 	return self;
 }
 
-- erase:(NSRect *)r
+- (void)erase:(NSRect *)r
 {
 	[eraseRectList addElement:r];
 //	[drawRectList addElement:r];
-	return self;
 }
 
-- displayRect:(NSRect *)r
+- (void)displayRect:(NSRect *)r
 {
 	[drawRectList addElement:r];
-	return self;
 }
 
-- draw:(Actor *)sender;
+- (void)draw:(Actor *)sender;
 {
 	[displayList addObject:sender];
-	return self;
 }
 
-- setBackground:(BOOL)val
+- (void)setBackground:(BOOL)val
 {
 	NSSize theSize;
 
@@ -218,7 +211,6 @@ BOOL coalesce(NSRect *p1, NSRect *p2)
 		[virgin free];
 		tile = virgin = nil;
 	}
-	return self;
 }
 
 - background
@@ -226,7 +218,7 @@ BOOL coalesce(NSRect *p1, NSRect *p2)
 	return virgin;
 }
 
-- tileUsing:theTile
+- (void)tileUsing:theTile
 {
 	NSSize tileSize;
 	NSSize virginSize;
@@ -234,7 +226,7 @@ BOOL coalesce(NSRect *p1, NSRect *p2)
 	
 	[self setBackground:YES];
 
-	if (!theTile) return nil;
+	if (!theTile) return;
 
 	tile = theTile;
 	
@@ -254,10 +246,9 @@ BOOL coalesce(NSRect *p1, NSRect *p2)
 		[actorMgr makeActorsPerform:@selector(tile)];
 		[virgin unlockFocus];
 	}
-	return self;
 }
 
-- retileRect:(NSRect *)rp
+- (void)retileRect:(NSRect *)rp
 {
 	NSSize tileSize;
 	NSSize virginSize;
@@ -295,14 +286,12 @@ BOOL coalesce(NSRect *p1, NSRect *p2)
 
 		[virgin unlockFocus];
 	}
-	return self;
 }
 
-- draw
+- (void)draw
 {
 	NSPoint p = {0,0};
 	[virgin composite:NX_COPY toPoint:&p];
-	return self;
 }
 
 @end

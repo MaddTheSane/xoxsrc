@@ -8,6 +8,7 @@
 #import "GameInfo.h"
 #import "ActorMatrix.h"
 #import "KeyTimer.h"
+#import "Thinker.h"
 
 int level;
 id keyTimerList;
@@ -158,7 +159,7 @@ extern BOOL pauseState;
 
 - (void)oneStep
 {
-	int i, count;
+	NSInteger i, count;
 	Actor *actor1;
 
 	if (requestedLevel >= 0)
@@ -183,13 +184,13 @@ extern BOOL pauseState;
 		if (!actor1->employed)
 			[employedList removeObject:actor1];
 	}
-	[retireList empty];
-	[goodList empty];
-	[badList empty];
-	[destroyAllList empty];
+	[retireList removeAllObjects];
+	[goodList removeAllObjects];
+	[badList removeAllObjects];
+	[destroyAllList removeAllObjects];
 
-	[employedList performInOrder:@selector(scheduleDrawing)];
-	[keyTimerList performInOrder:@selector(postOneStep)];
+	[employedList makeObjectsPerformSelector:@selector(scheduleDrawing)];
+	[keyTimerList makeObjectsPerformSelector:@selector(postOneStep)];
 }
 
 - (void)requestLevel:(int)lev
@@ -201,21 +202,21 @@ extern BOOL pauseState;
 // actors to call it in the midst of the animation cycle.
 - _createLevel:(int)lev
 {
-	[employedList performInOrder:@selector(retire)];
-	[employedList empty];
-	[retireList empty];
+	[employedList makeObjectsPerformSelector:@selector(retire)];
+	[employedList removeAllObjects];
+	[retireList removeAllObjects];
 
 	if (lev == 0)
 	{
 		lev = 1;
-		if ([scenario respondsTo:@selector(newGame)])
+		if ([scenario respondsToSelector:@selector(newGame)])
 				[scenario newGame];
 	}
 	[scenario _createLevel:lev];
 
 	level = lev;
 
-	if ([scenario respondsTo:@selector(collisionDelegate)])
+	if ([scenario respondsToSelector:@selector(collisionDelegate)])
 		collider = [scenario collisionDelegate];
 	else collider = self;
 
@@ -226,7 +227,7 @@ extern BOOL pauseState;
 
 - (Actor *) newActor:(int)actorType for:sender tag:(int)tag
 {
-	List *theList;
+	NSMutableArray *theList;
 	Actor *theActor = nil;
 	int i, count;
 	BOOL found = NO;
@@ -236,7 +237,7 @@ extern BOOL pauseState;
 
 	for (i=0; i<count; i++)
 	{
-		theActor = (Actor *)[theList objectAt:i];
+		theActor = (Actor *)[theList objectAtIndex:i];
 		if (!(theActor->employed))
 		{
 			found = YES;
@@ -247,14 +248,14 @@ extern BOOL pauseState;
 	if (!found)
 	{
 		id myClass = (id)actorType;
-		theActor = [[myClass allocFromZone:[self zone]] init];
+		theActor = [[myClass alloc] init];
 	}
 
 	[theActor activate:sender :tag];
 	[scenario didActivate:theActor];
 
 	if ([sender addToEmployedList:theActor])
-		[employedList addObjectIfAbsent:theActor];
+		[employedList addObject:theActor];
 
 	return theActor;
 }
@@ -270,14 +271,13 @@ extern BOOL pauseState;
 	return self;
 }
 
-- draw
+- (void)draw
 {
-	[employedList performInOrder:@selector(calcDrawRect)];
-	[employedList performInOrder:@selector(draw)];
-	return self;
+	[employedList makeObjectsPerformSelector:@selector(calcDrawRect)];
+	[employedList makeObjectsPerformSelector:@selector(draw)];
 }
 
-- setGameStatus:(GAME_STATUS)gs
+- (void)setGameStatus:(GAME_STATUS)gs
 {
 	id thinker = [NSApp delegate];
 
@@ -297,15 +297,10 @@ extern BOOL pauseState;
 		break;
 	}
 
-	[[gameList objectAt: gameIndex] setStatus:gameStatus];
-
-	return self;
+	[[gameList objectAtIndex: gameIndex] setStatus:gameStatus];
 }
 
-- (GAME_STATUS)gameStatus
-{
-	return gameStatus;
-}
+@synthesize gameStatus;
 
 @end
 

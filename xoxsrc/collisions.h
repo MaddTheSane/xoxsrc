@@ -6,7 +6,7 @@
 #import <AppKit/AppKit.h>
 #import "Actor.h"
 
-extern BOOL intersectsRect(NSRect *r1, NSRect *r2);
+extern BOOL intersectsRect(NSRect *r1, NSRect *r2) API_DEPRECATED_WITH_REPLACEMENT("NSIntersectsRect", macosx(10.0,10.0));
 extern BOOL intersectsCircle(Actor *a1, Actor *a2);
 extern void circleToLines(Actor *a1, NSPoint *pt);
 extern void rectToLines(NSRect *rO, NSPoint *pt, int minSize);

@@ -13,12 +13,12 @@
 	int numFrames;
 	int frame;
 	NSSize frameSize;
-	id image;
+	NSImage *image;
 	BOOL employed;
-	float theta;			// generally the direction of travel
-	float vel;				// used to determine xv & yv
-	float xv, yv;
-	float x, y;				// centroid position in universe
+	CGFloat theta;			// generally the direction of travel
+	CGFloat vel;				// used to determine xv & yv
+	CGFloat xv, yv;
+	CGFloat x, y;				// centroid position in universe
 	unsigned changeTime;
 	int interval;
 	COLLISION_SHAPE collisionShape;
@@ -27,7 +27,7 @@
 	NSRect drawRect;		// position in cache
 	NSRect eraseRect;		// optimization, draw rect likely to overlap erasure
 	NSRect collisionRect;	// position in universe
-	float radius;			// used for circular collisions
+	CGFloat radius;			// used for circular collisions
 	BOOL buffered;
 	NSSize distToCorner;
 	int actorType;
@@ -43,11 +43,11 @@
 	void *collisionThing;			// info about why collision happened.
 }
 
-+ instanceList;
++ (NSArray<__kindof Actor*>*)instanceList;
 
-// this method reinitializes an Actor, it may be called many times
-// typically from within activate
-- reinitWithImage:(const char *)imageName
+//! this method reinitializes an Actor, it may be called many times
+//! typically from within activate
+- (void)reinitWithImage:(const char *)imageName
 	frameSize:(NSSize *) size
 	numFrames:(int)frames
 	shape: (COLLISION_SHAPE)shape
@@ -61,37 +61,54 @@
 	interval: (unsigned) time
 	distToCorner: (NSSize *)d2c;
 
+//! this method reinitializes an Actor, it may be called many times
+//! typically from within activate
+- (void)reinitWithImage:(NSImageName)imageName
+			  frameSize:(NSSize) size
+			  numFrames:(int)frames
+				  shape: (COLLISION_SHAPE)shape
+			   alliance: (ALLIANCE)al
+				 radius: (CGFloat) r
+			   buffered: (BOOL) b
+				  point: (NSPoint) pt
+				  theta: (CGFloat) thta
+					vel: (CGFloat) v
+			   interval: (unsigned) time
+		   distToCorner: (NSSize)d2c;
+
 // only sent by the actor manager, should reintialize the object
 - activate:sender :(int)tag;
 
 // only sent by the actor manager
-- retire;
+- (void)retire;
 
-- erase;
+- (void)erase;
 
 - positionChanged;
-- calcDxDy:(NSPoint *)dp;
-- calcDrawRect;
-- moveBy:(float)dx :(float)dy;
-- moveTo:(float)newx :(float)newy;
-- setXvYv:(float)xvel :(float)yvel sync:(BOOL)sync;
-- setVel:(float)newVel theta:(float)newTheta sync:(BOOL)sync;
-- setVel:(float)newVel;
-- setTheta:(float)newTheta;
-- oneStep;
-- scheduleDrawing;
-- draw;
-- tile;
+- (void)calcDxDy:(inout NSPoint *)dp;
+- (void)calcDrawRect;
+- (void)moveBy:(float)dx :(float)dy;
+- (void)moveTo:(float)newx :(float)newy;
+- (void)moveToPoint:(NSPoint)pt;
+
+- (void)setXvYv:(float)xvel :(float)yvel sync:(BOOL)sync;
+- (void)setVel:(float)newVel theta:(float)newTheta sync:(BOOL)sync;
+@property CGFloat vel;
+@property CGFloat theta;
+- (void)oneStep;
+- (void)scheduleDrawing;
+- (void)draw;
+- (void)tile;
 // - (BOOL) collideWith:(Actor *) dude;
 - (BOOL) doYouHurt:sender;
-- performCollisionWith:(Actor *) dude;
+- (void)performCollisionWith:(Actor *) dude;
 - (BOOL) wrapAtDistance:(float)distx :(float)disty;
 - (BOOL) bounceAtDistance:(float)distx :(float)disty;
 - (int) bounceOff:(Actor *)dude;
 - constructComplexShape;
-- findImageNamed:(const char *)name;
-+ findImageNamed:(const char *)name;
-+ cacheImage:(const char *)name;
+- (NSImage*)findImageNamed:(NSImageName)name;
++ (NSImage*)findImageNamed:(NSImageName)name;
++ (void)cacheImage:(NSImageName)name;
 - addFlushRects;
 - (BOOL) isGroup;
 
@@ -99,7 +116,8 @@
 
 extern BOOL actorsCollide(Actor *a1, Actor *a2);
 
-@interface NSObject (scoreKeepingMethods)
+@protocol ActorScoreKeepingMethods <NSObject>
+
 - (int)setScore:(int)val for:dude;
 - (int)addToScore:(int)val for:dude gen:(int)age;
 - (int)score;

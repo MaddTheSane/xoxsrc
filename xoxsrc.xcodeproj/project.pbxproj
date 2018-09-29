@@ -230,6 +230,7 @@
 		55EDD042215EC65C0054C4F3 /* BOtile05.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = BOtile05.tiff; sourceTree = "<group>"; };
 		55EDD045215EC65C0054C4F3 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/boink.nib; sourceTree = "<group>"; };
 		55EDD046215EC65C0054C4F3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55EDD061215F0BF00054C4F3 /* DrawManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +277,7 @@
 			children = (
 				55EDCEAB215EC2000054C4F3 /* Actor.h */,
 				55EDCEAC215EC2000054C4F3 /* Actor.m */,
+				55EDD061215F0BF00054C4F3 /* DrawManager.h */,
 				55EDCEAD215EC2000054C4F3 /* ActorMatrix.h */,
 				55EDCEAE215EC2000054C4F3 /* ActorMatrix.m */,
 				55EDCEAF215EC2000054C4F3 /* ActorMgr.h */,

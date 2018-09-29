@@ -10,27 +10,21 @@
 
 @implementation EKProgressView
 
-- initFrame:(const NSRect *)f
+- (instancetype)initWithFrame:(NSRect)f
 {
-    [super initFrame:f];
+    if (self = [super initWithFrame:f]) {
 
     // by default, if it's wider than high, then it fills to the right
     // otherwise it fills upwards
-    if (NX_WIDTH(f) > NX_HEIGHT(f))
+    if (NSWidth(f) > NSHeight(f))
     	orientation = HORIZONTAL;
     else
 	orientation = VERTICAL;
     // set the fill color based on the window depth limit
-    switch ([Window defaultDepthLimit]) {
-	case NX_TwentyFourBitRGBDepth:
-	case NX_TwelveBitRGBDepth:
-	    fillColor = NXConvertRGBToColor(0.467,0,0.067);
-	    break;
-	default: // gray scale
-	    fillColor = NXConvertGrayToColor(0.333);
-	    break;
-    }
+		fillColor = [NSColor colorWithCalibratedRed:0.467 green:0 blue:0.067 alpha:1];
+
     min = 0; max = 100; progress = 0;
+	}
     return self;
 }
 
@@ -52,7 +46,7 @@
 {
     if ((progress >= min) && (progress <= max)) {
 	progress = p;
-	[self display];
+	[self setNeedsDisplay:YES];
     }
     return self;
 }
@@ -89,7 +83,7 @@
 	distance = (progress - min) * NX_HEIGHT(&frame) / (tmax - min);
 	NXSetRect(&r,0,0,NX_WIDTH(&frame),distance);
     }
-    NSRectFill(&r);
+    NSRectFill(r);
     return self;
 }
 

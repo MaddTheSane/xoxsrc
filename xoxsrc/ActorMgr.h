@@ -6,9 +6,9 @@
 @interface ActorMgr: NSObject
 {
     NSMutableArray	*employedList;
-    NSArray	*retireList;
+    NSMutableArray	*retireList;
 	int requestedLevel;
-	NSArray	*goodList, *badList, *destroyAllList;
+	NSMutableArray	*goodList, *badList, *destroyAllList;
 	id collider;
 	GAME_STATUS gameStatus;
 }
@@ -20,9 +20,8 @@
 - _createLevel:(int)lev;
 - (Actor *) newActor:(int)actorType for:sender tag:(int)tag;
 - destroyActor:theActor;
-- draw;
-- (void)setGameStatus:(GAME_STATUS)gs;
-- (GAME_STATUS)gameStatus;
+- (void)draw;
+@property (nonatomic) GAME_STATUS gameStatus;
 
 @end
 

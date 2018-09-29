@@ -3,12 +3,12 @@
 
 @interface DisplayManager: NSObject
 {
-	Storage *eraseList;
-	Storage *whiteList;
-	List *drawList;
+	NSMutableArray *eraseList;
+	NSMutableArray *whiteList;
+	NSMutableArray *drawList;
 }
 
-- oneStep;
+- (void)oneStep;
 - erase:(NSRect *)r;
 - displayRect:(NSRect *)r;
 - drawWhiteRect:(NSRect *)r;

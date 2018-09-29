@@ -6,9 +6,7 @@
 #import "ActorMgr.h"
 #import "SoundMgr.h"
 #import "Xoxeroids.h"
-#import "psfuncts.h"
 #import "EKProgressView.h"
-#import <drivers/event_status_driver.h>
 
 @implementation Thinker
 
@@ -16,7 +14,10 @@ unsigned timeInMS, lastTimeInMS, obscureTime;
 float timeScale;
 float maxTimeScale;
 float collisionDistance;
-id actorMgr, displayMgr, cacheMgr, soundMgr;
+id actorMgr;
+DisplayManager *displayMgr;
+CacheManager *cacheMgr;
+id soundMgr;
 id scenario;
 id mainView;
 id abackView;
@@ -30,7 +31,7 @@ BOOL fullScreen;
 BOOL keepLooping;
 BOOL obscureMouse;
 
-NSEventHandle eventhandle;
+NXEventHandle eventhandle;
 double oldKeyThreshold;
 
 int		BULLET1SND, 
@@ -49,23 +50,18 @@ static unsigned currentTimeInMs()
     return (curTime.tv_sec) * 1000 + curTime.tv_usec / 1000;
 }
 
-NXZone *scenarioZone, *bundleZone;
-
 - init
 {
-	[super init];
-	imageNames = [[List alloc] init];
-	imageRequestor = [[List alloc] init];
-	soundsToCache = [[Storage allocFromZone:[self zone]]
-		initCount:8
-		elementSize: sizeof(int)
-		description: @encode(int)];
+	if (self = [super init]) {
+	imageNames = [[NSMutableArray alloc] init];
+	imageRequestor = [[NSMutableArray alloc] init];
+	soundsToCache = [[NSMutableArray alloc] init];
+	}
 	return self;
 }
 
-- appDidInit:sender
+- (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
-	NXZone *actorZone, *displayZone;
 	id commonBundle;
 	char path[1024];
 
@@ -94,9 +90,9 @@ NXZone *scenarioZone, *bundleZone;
 
 	[self setupGameBrowser];
 
-	[[NXBundle mainBundle] getPath:path forResource:"CommonEffects" ofType:"XoXo"];
-	commonBundle = [[NXBundle allocFromZone:bundleZone] initForDirectory:path];
-	[[[commonBundle classNamed:"CommonStuff"] allocFromZone:scenarioZone] init];
+	[[NSBundle mainBundle] getPath:path forResource:"CommonEffects" ofType:"XoXo"];
+	commonBundle = [[NSBundle allocFromZone:bundleZone] initForDirectory:path];
+	[[[commonBundle classNamed:"CommonStuff"] alloc] init];
 
 	[self selectGame:nil];
 
@@ -104,17 +100,15 @@ NXZone *scenarioZone, *bundleZone;
 	[[invisibleInfoBox window] makeKeyAndOrderFront:self];
 
 	[littleWindow makeFirstResponder:mainView];
-	[littleWindow setBackgroundGray:NX_BLACK];
+	[littleWindow setBackgroundColor:[NSColor blackColor]];
 	[littleWindow makeKeyAndOrderFront:self];
 
 	[self newGame:self];
-
-    return self;
 }
 
-void timedEntryFunction (DPSTimedEntry timedEntry, double timeNow, void *theObject)
-{	[(id)theObject doOneStepLoop];
-}
+//void timedEntryFunction (DPSTimedEntry timedEntry, double timeNow, void *theObject)
+//{	[(id)theObject doOneStepLoop];
+//}
 
 - createTimer
 {

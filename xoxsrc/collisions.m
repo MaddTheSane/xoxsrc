@@ -7,13 +7,7 @@
 
 BOOL intersectsRect(NSRect *r1, NSRect *r2)
 {
-	if ((NX_X(r1) > NX_MAXX(r2)) ||
-			(NX_X(r2) > NX_MAXX(r1)) ||
-			(NX_Y(r1) > NX_MAXY(r2)) ||
-			((NX_Y(r2) > NX_MAXY(r1))))
-		return NO;
-
-	return YES;
+	return NSIntersectsRect(*r1, *r2);
 }
 
 BOOL intersectsCircle(Actor *a1, Actor *a2)
@@ -153,7 +147,7 @@ BOOL actorsCollide(Actor *a1, Actor *a2)
 	if (a1 == a2 ||
 			a1->alliance == NEUTRAL || a2->alliance == NEUTRAL ||
 			!a1->employed || !a2->employed ||
-			!intersectsRect(&a1->collisionRect,&a2->collisionRect)) 
+		!NSIntersectsRect(a1->collisionRect,a2->collisionRect))
 		return NO;
 
 	if (a2->collisionShape < a1->collisionShape)
@@ -180,7 +174,7 @@ BOOL actorsCollide(Actor *a1, Actor *a2)
 			if (!a2->complexShapePtr) [a2 constructComplexShape];
 			for (i=0; i<a2->complexShapeCnt; i++)
 			{
-				if (intersectsRect(&a1->collisionRect,a2->complexShapePtr+i))
+				if (NSIntersectsRect(a1->collisionRect,*(a2->complexShapePtr+i)))
 				{
 					a1->collisionReason = XRECT;
 					a1->collisionThing = a2->complexShapePtr+i;
@@ -227,7 +221,7 @@ BOOL actorsCollide(Actor *a1, Actor *a2)
 			if (!a2->complexShapePtr) [a2 constructComplexShape];
 			for (i=0; i<a2->complexShapeCnt; i++)
 			{
-				if (intersectsRect(&a1->collisionRect,a2->complexShapePtr+i))
+				if (NSIntersectsRect(a1->collisionRect,*(a2->complexShapePtr+i)))
 				{
 					a1->collisionReason = XRECT;
 					a1->collisionThing = a2->complexShapePtr+i;
@@ -287,7 +281,7 @@ BOOL actorsCollide(Actor *a1, Actor *a2)
 			{
 				for (j=0; j<a2->complexShapeCnt; j++)
 				{
-					if (intersectsRect(a1->complexShapePtr+i,a2->complexShapePtr+j))
+					if (NSIntersectsRect(*(a1->complexShapePtr+i),*(a2->complexShapePtr+j)))
 					{
 						a1->collisionReason = a2->collisionReason = XRECT;
 						a1->collisionThing = a2->complexShapePtr+j;

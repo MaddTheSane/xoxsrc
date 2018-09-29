@@ -10,11 +10,12 @@ NSRect screenRect;
 
 @implementation BackView
 
-- initFrame:(const NSRect *)frameRect
+- initWithFrame:(NSRect)frameRect
 {
-	[super initFrame:frameRect];
+	if (self = [super initWithFrame:frameRect]) {
 	[self allocateGState];		// For faster lock/unlockFocus
 	[self newSize];
+	}
 	return self;
 }
 
@@ -25,18 +26,17 @@ NSRect screenRect;
 	return self;
 }
 
-- drawSelf:(const NSRect *)rects :(int)rectCount
+-(void)drawRect:(NSRect)dirtyRect
 {
 	NSRect t = {0,0,1,1};
 	PSsetrgbcolor(1,0,0);
-	NSRectFill(&t);	//yucky trick for window depth promotion!
+	NSRectFill(t);	//yucky trick for window depth promotion!
 	PSsetgray(NX_BLACK); NSRectFill(rects);
 	[(CacheManager *)cacheMgr draw];
 	[(ActorMgr *)actorMgr draw];
-	return self;
 }
 
-- keyDown:(NSEvent *)theEvent
+- (void)keyDown:(NSEvent *)theEvent
 {
 //	switch(theEvent->data.key.charCode)
 	{
@@ -44,27 +44,23 @@ NSRect screenRect;
 			[scenario keyDown:theEvent];
 //			break;
 	}
-	return self;
 }
 
-- keyUp:(NSEvent *)theEvent
+- (void)keyUp:(NSEvent *)theEvent
 {
 	[scenario keyUp:theEvent];
-	return self;
 }
 
-- newSize
+- (void)newSize
 {
-	xOffset = bounds.size.width/2;
-	yOffset = bounds.size.height/2;
+	xOffset = self.bounds.size.width/2;
+	yOffset = self.bounds.size.height/2;
 
-	screenRect = bounds;
+	screenRect = self.bounds;
 
-	[cacheMgr newSize:&bounds.size];
-	if ([scenario respondsTo:@selector(newSize:)])
-		[scenario newSize:&bounds.size];
-
-	return self;
+	[cacheMgr newSize:self.bounds.size];
+	if ([scenario respondsToSelector:@selector(newSize:)])
+		[scenario newSize:self.bounds.size];
 }
 
 - (BOOL) acceptsFirstResponder
@@ -74,7 +70,7 @@ NSRect screenRect;
 @end
 
 
-@implementation Window(Sizing)
+@implementation NSWindow(Sizing)
 
 #define CORNER_UPPER_LEFT	0
 #define CORNER_LOWER_LEFT	1
@@ -120,7 +116,7 @@ NSRect screenRect;
 }
 @end
 
-@implementation View(Sizing)
+@implementation NSView(Sizing)
 
 /******************************************************************************
 	This Method resizes the receiving view to the given width and height by resizing the window by the appropriate amount with respect to autosizing. This method is useful for those occasions when you know what size a view should be, but don't know how big to make the window to hold it. If you ask for a new width, it assumes the view is width sizable. The same goes for height. If the hierarchy contains a ClipView (ie, in a ScrollView) it assumes that you want the ClipView's subview to be fully exposed. The window size will not exceed the set maximum.

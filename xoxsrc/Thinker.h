@@ -5,11 +5,11 @@
 extern NSMutableArray<GameInfo*> *gameList;
 extern int gameIndex;
 
-@interface Thinker: NSObject
+@interface Thinker: NSObject <NSApplicationDelegate>
 {
 	BOOL timerValid;
     id	backView;
-	DPSTimedEntry timer;
+	NSTimer *timer;
 	id scenarioBrowser;
 	id invisibleInfoBox;
 	id nullInfoBox;

@@ -6,7 +6,7 @@
 {
 }
 
-- newSize;
+- (void)newSize;
 
 @end
 

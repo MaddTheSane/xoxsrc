@@ -12,16 +12,16 @@
 	NSImage *tile;				// image used to tile virgin background
 }
 
-- eraseCache;
-- newSize:(NSSize *)sp;
-- oneStep;
-- erase:(NSRect *)r;
+- (void)eraseCache;
+- (void)newSize:(NSSize)sp;
+- (void)oneStep;
+- (void)erase:(NSRect)r;
 - displayRect:(NSRect *)r;
-- draw:(Actor *)sender;
+- (void)draw:(Actor *)sender;
 - setBackground:(BOOL)val;
 - background;
-- tileUsing:theTile;
-- retileRect:(NSRect *)rp;
-- draw;
+- (void)tileUsing:theTile;
+- (void)retileRect:(NSRect)rp;
+- (void)draw;
 
 @end

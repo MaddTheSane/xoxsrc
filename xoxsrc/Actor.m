@@ -8,9 +8,11 @@
 
 extern BOOL coalesce(NSRect *p1, NSRect *p2);
 
-float gx, gy;
+CGFloat gx, gy;
 
 @implementation Actor
+@synthesize vel;
+@synthesize theta;
 
 // Hack Alert!  I need 1 class variable for each subclass of Actor.
 // Since objc doesn't support class variables, I just appropriate the
@@ -20,10 +22,9 @@ float gx, gy;
 // allocated struct that contained the version and class variables, and
 // override +setVersion to access it (but you didn't hear it from me!)
 
-+ initialize
++ (void)initialize
 {
     [self setVersion: (int)[[List alloc] init]];	// Ack!
-    return self;
 }
 
 // Each Actor subclass keeps a list of its instances; instances are never freed
@@ -37,9 +38,10 @@ float gx, gy;
 
 - init
 {
-	[super init];
+	if (self = [super init]) {
 	actorType = (int)[self class];
 	[[[self class] instanceList] addObjectIfAbsent:self];
+	}
 	return self;
 }
 
@@ -47,7 +49,7 @@ float gx, gy;
 
 // note that this method is _not_ the object's designated initializer;
 // this method may be called more than once (by activate)
-- reinitWithImage:(const char *)imageName
+- (void)reinitWithImage:(const char *)imageName
 	frameSize:(NSSize *) size
 	numFrames:(int)frames
 	shape: (COLLISION_SHAPE)shape
@@ -61,6 +63,22 @@ float gx, gy;
 	interval: (unsigned) time
 	distToCorner: (NSSize *)d2c
 {
+	[self reinitWithImage:@(imageName) frameSize:*size numFrames:frames shape:shape alliance:al radius:r buffered:b point:NSMakePoint(xp, yp) theta:thta vel:v interval:time distToCorner:*d2c];
+}
+
+- (void)reinitWithImage:(NSImageName)imageName
+			  frameSize:(NSSize) size
+			  numFrames:(int)frames
+				  shape: (COLLISION_SHAPE)shape
+			   alliance: (ALLIANCE)al
+				 radius: (CGFloat) r
+			   buffered: (BOOL) b
+				  point: (NSPoint) pt
+				  theta: (CGFloat) thta
+					vel: (CGFloat) v
+			   interval: (unsigned) time
+		   distToCorner: (NSSize)d2c;
+{
 	image = [self findImageNamed:imageName];
 
 	frame = 0;
@@ -68,7 +86,7 @@ float gx, gy;
 	changeTime = timeInMS+time;
 
 	numFrames = frames;
-	frameSize = *size;
+	frameSize = size;
 	theta = thta;
 	vel = v;
 	xv = vel * -sin(theta);
@@ -78,15 +96,13 @@ float gx, gy;
 	radius = r;
 	buffered = b;
 
-	drawRect.size = *size;
-	collisionRect.size = *size;
-	distToCorner = *d2c;
-	[self moveTo:xp :yp];
+	drawRect.size = size;
+	collisionRect.size = size;
+	distToCorner = d2c;
+	[self moveToPoint:pt];
 
 	complexShapePtr = NULL;
 	eraseRect.size.width = 0;
-
-    return self;
 }
 
 // The ActorManager means objects don't necessarily get created and freed;
@@ -107,39 +123,35 @@ float gx, gy;
 	return self;
 }
 
-- erase
+- (void)erase
 {
 	id mgr = (buffered ? cacheMgr : displayMgr);
 	[mgr erase:&eraseRect];
 	if (!buffered) eraseRect.size.width = 0;
-	return self;
 }
 
-- positionChanged
+- (void)positionChanged
 {
 	if (timeInMS > changeTime)
 	{
 		changeTime = timeInMS + interval;
 		if (++frame >= numFrames) frame = 0;
 	}
-	return self;
 }
 
-- calcDxDy:(NSPoint *)dp
+- (void)calcDxDy:(inout NSPoint *)dp
 {
 	dp->x = timeScale * xv;
 	dp->y = timeScale * yv;
-	return self;
 }
 
-- calcDrawRect
+- (void)calcDrawRect
 {
 	drawRect.origin.x = floor(x - gx - distToCorner.width + xOffset);
 	drawRect.origin.y = floor(y - gy - distToCorner.height + yOffset);
-	return self;
 }
 
-- moveBy:(float)dx :(float)dy
+- (void)moveBy:(float)dx :(float)dy
 {
 	x += dx;
 	collisionRect.origin.x += dx;
@@ -148,20 +160,21 @@ float gx, gy;
 
 	// calculate offset into view
 	[self calcDrawRect];
-	return self;
 }
 
-- moveTo:(float)newx :(float)newy
+- (void)moveTo:(float)newx :(float)newy
 {
-	x = newx;
-	y = newy;
+}
+- (void)moveToPoint:(NSPoint)pt
+{
+	x = pt.x;
+	y = pt.y;
 	collisionRect.origin.x = x - distToCorner.width;
 	collisionRect.origin.y = y - distToCorner.height;
 	[self calcDrawRect];
-	return self;
 }
 
-- setXvYv:(float)xvel :(float)yvel sync:(BOOL)sync
+- (void)setXvYv:(float)xvel :(float)yvel sync:(BOOL)sync
 {
 	xv = xvel;
 	yv = yvel;
@@ -170,7 +183,6 @@ float gx, gy;
 		theta = atan2(yvel, xvel);
 		vel = sqrt(xv*xv + yv*yv);
 	}
-	return self;
 }
 
 - setVel:(float)newVel theta:(float)newTheta sync:(BOOL)sync
@@ -185,23 +197,21 @@ float gx, gy;
 	return self;
 }
 
-- setVel:(float)newVel
+- (void)setVel:(float)newVel
 {
 	vel = newVel;
-	return self;
 }
 
-- setTheta:(float)newTheta
+- (void)setTheta:(float)newTheta
 {
 	theta = newTheta;
-	return self;
 }
 
-- oneStep
+- (void)oneStep
 {
 	NSPoint dXdY;
 
-	if (intersectsRect(&screenRect, &eraseRect))
+	if (NSIntersectsRect(screenRect, eraseRect))
 	{
 		[self erase];
 	}
@@ -213,14 +223,12 @@ float gx, gy;
 	complexShapePtr = NULL;
 
 	[self positionChanged];
-
-	return self;
 }
 
-- scheduleDrawing
+- (void)scheduleDrawing
 {
 	id mgr = (buffered ? cacheMgr : displayMgr);
-	if (employed && intersectsRect(&screenRect, &drawRect))
+	if (employed && NSIntersectsRect(screenRect, drawRect))
 	{
 		[mgr draw:self];
 		if (buffered)
@@ -235,18 +243,16 @@ float gx, gy;
 		[cacheMgr displayRect:&eraseRect];
 		eraseRect.size.width = 0;
 	}
-
-	return self;
 }
 
-- draw
+- (void)draw
 {
 	NSRect src;
 	src.origin.x = (frame & 3) * frameSize.width;
 	src.origin.y = (frame >> 2) * frameSize.height;
 	src.size = drawRect.size = frameSize;
 	
-	[image composite:NX_SOVER fromRect:&src toPoint:&drawRect.origin];
+	[image drawAtPoint:drawRect.origin fromRect:src operation:NSCompositingOperationSourceOver fraction:1];
 	eraseRect = drawRect;
 
 #if S_DEBUG
@@ -264,17 +270,15 @@ float gx, gy;
 		PSstroke();
 	}
 #endif
-
-	return self;
 }
 
 // an actor will be sent a tile message when it is time to draw something
 // in the virgin buffered background.  This is good for static images so you
 // only draw them once.  Most actors move and thus shouldn't draw anything here.
 // focus is locked on the virgin buffer when this is called
-- tile
+- (void)tile
 {
-	return self;
+	
 }
 
 // both actors that have collided will be sent a doYouHurt: message to determine if the 
@@ -285,11 +289,10 @@ float gx, gy;
 {	return YES;
 }
 
-- performCollisionWith:(Actor *) dude
+- (void)performCollisionWith:(Actor *) dude
 {
 	if (pointValue) [dude addToScore:pointValue for:self gen:0];
 	[actorMgr destroyActor:self];
-	return nil;
 }
 
 - (BOOL) wrapAtDistance:(float)distx :(float)disty
@@ -473,36 +476,39 @@ extern XXLine *gln2;
 	return self;
 }
 
-+ findImageNamed:(const char *)name
++ (NSImage*)findImageNamed:(NSImageName)name
 {
-	NSImage *ret_image = [NSImage findImageNamed:name];
+	NSImage *ret_image = [NSImage imageNamed:name];
 	if (!ret_image)
 	{
-		char path[256];
-		if ([[NXBundle bundleForClass:[self class]]
-			getPath:path
-			forResource:name
-			ofType:"tiff"])
+		ret_image = [[NSBundle bundleForClass:[self class]] imageForResource:name];
+	}
+	if (!ret_image)
+	{
+		NSString *path = [[NSBundle bundleForClass:[self class]] pathForImageResource:name];
+		if (!path) {
+			path = [[NSBundle bundleForClass:[self class]] pathForResource:name ofType:@"tiff"];
+		}
+		if (path)
 		{
-			ret_image = [[NSImage allocFromZone:[self zone]] 
-				initFromFile:path];
+			ret_image = [[NSImage alloc]
+				initWithContentsOfFile:path];
 			[ret_image setName:name];
 		}
 	}
 	return ret_image;
 }
 
-- findImageNamed:(const char *)name
+- findImageNamed:(NSString *)name
 {
 	return [[self class] findImageNamed:name];
 }
 
-+ cacheImage:(const char *)name
++ (void)cacheImage:(NSImageName)name
 {
 	NSImage *timage;
 	timage = [self findImageNamed:name];
-	if ([timage lockFocus]) [timage unlockFocus];
-	return self;
+	[timage lockFocus]; [timage unlockFocus];
 }
 
 - (int)addToScore:(int)val for:dude gen:(int)age
@@ -530,7 +536,7 @@ extern XXLine *gln2;
 
 @end
 
-@implementation Object (scoreKeepingMethods)
+@implementation NSObject (scoreKeepingMethods)
 - (int)setScore:(int)val for:dude
 {
 	return 0;

@@ -1,19 +1,26 @@
 
+#include <CoreGraphics/CGBase.h>
+
 @class BackView;
+@class CacheManager;
+@class DisplayManager;
 
 extern float randBetween(float a, float b);
 
 extern unsigned timeInMS, lastTimeInMS;
-extern float timeScale;
-extern float maxTimeScale;
-extern float collisionDistance;
-extern float gx, gy;
-extern id scenario, actorMgr, cacheMgr, displayMgr, soundMgr;
-extern id mainView;		// whatever the windows main view is
-extern BackView *abackView;	// an available BackView; use but don't reassign
+extern NSTimeInterval timeScale;
+extern CGFloat maxTimeScale;
+extern CGFloat collisionDistance;
+extern CGFloat gx, gy;
+extern id scenario, actorMgr;
+extern CacheManager *cacheMgr;
+extern DisplayManager *displayMgr;
+extern id soundMgr;
+extern id mainView;		//!< whatever the windows main view is
+extern BackView *abackView;	//!< an available BackView; use but don't reassign
 extern id gcontentView;
 extern id keyTimerList;
-extern float xOffset, yOffset;
+extern CGFloat xOffset, yOffset;
 extern int level;
 extern NSRect screenRect;
 
@@ -60,7 +67,7 @@ typedef enum {LEFT= 1, STRAIGHT=0, RIGHT= -1} ROTATION;
 #define PI (3.141592653589)
 
 typedef struct {
-    float x1,y1,x2,y2;
+    CGFloat x1,y1,x2,y2;
 } XXLine;
 
 typedef enum {
