@@ -1,7 +1,8 @@
 
 #import <AppKit/AppKit.h>
+#import "DrawManager.h"
 
-@interface DisplayManager: NSObject
+@interface DisplayManager: NSObject <DrawManager>
 {
 	NSMutableArray *eraseList;
 	NSMutableArray *whiteList;
@@ -9,9 +10,9 @@
 }
 
 - (void)oneStep;
-- erase:(NSRect *)r;
-- displayRect:(NSRect *)r;
-- drawWhiteRect:(NSRect *)r;
-- draw:sender;
+- (void)erase:(NSRect)r;
+- (void)displayRect:(NSRect)r;
+- (void)drawWhiteRect:(NSRect)r;
+- (void)draw:sender;
 
 @end

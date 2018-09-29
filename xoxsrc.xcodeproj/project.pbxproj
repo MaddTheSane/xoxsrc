@@ -277,7 +277,6 @@
 			children = (
 				55EDCEAB215EC2000054C4F3 /* Actor.h */,
 				55EDCEAC215EC2000054C4F3 /* Actor.m */,
-				55EDD061215F0BF00054C4F3 /* DrawManager.h */,
 				55EDCEAD215EC2000054C4F3 /* ActorMatrix.h */,
 				55EDCEAE215EC2000054C4F3 /* ActorMatrix.m */,
 				55EDCEAF215EC2000054C4F3 /* ActorMgr.h */,
@@ -287,6 +286,7 @@
 				55EDCEB6215EC2000054C4F3 /* BackView.m */,
 				55EDCEB7215EC2000054C4F3 /* BackWindow.h */,
 				55EDCEB8215EC2000054C4F3 /* BackWindow.m */,
+				55EDD061215F0BF00054C4F3 /* DrawManager.h */,
 				55EDCEBB215EC2000054C4F3 /* CacheManager.h */,
 				55EDCEBC215EC2000054C4F3 /* CacheManager.m */,
 				55EDCEBD215EC2000054C4F3 /* collisions.h */,

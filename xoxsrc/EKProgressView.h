@@ -13,21 +13,25 @@
 
 @interface EKProgressView: NSView
 {
-    int min, max, progress, orientation;
+	NSInteger min, max, progress;
+	int orientation;
     NSColor* fillColor;
 }
 
 // set the range of the bar
+@property NSInteger minimum;
+@property NSInteger maximum;
+
 - setMin:(int)min;
 - setMax:(int)max;
 
-// set how far along it is
-- setProgress:(int)p;
+//! set how far along it is
+@property (nonatomic) NSInteger progress;
 
 // set the orientation of the bar (does it upwards, or right?)
 - setOrientation:(int)val;
 
-// set the color that the grow bar is being drawn in
-- setFillColor:(NSColor*)color;
+//! set the color that the grow bar is being drawn in
+@property (retain) NSColor *fillColor;
 
 @end

@@ -14,33 +14,28 @@ CGFloat gx, gy;
 @synthesize vel;
 @synthesize theta;
 
-// Hack Alert!  I need 1 class variable for each subclass of Actor.
-// Since objc doesn't support class variables, I just appropriate the
-// use of the version to store a List...  This is really gross and has no
-// place in production code; it could break archiving (which I don't do...)
-// If you just _had_ to do this, you could make the version point to an
-// allocated struct that contained the version and class variables, and
-// override +setVersion to access it (but you didn't hear it from me!)
-
-+ (void)initialize
-{
-    [self setVersion: (int)[[List alloc] init]];	// Ack!
-}
-
 // Each Actor subclass keeps a list of its instances; instances are never freed
 // since they come and go frequently and allocating them is too expensive.
 // Instead, the actor manager walks this list and reuses available actors.
 // Plus, since they're never killed, they can wait tables on the side.
 + instanceList
 {
-	return (id)[self version];						// Ack!
+	static NSMutableDictionary<NSString*,NSMutableArray*> *mos;
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		mos = [[NSMutableDictionary alloc] init];
+	});
+	if (mos[NSStringFromClass(self.class)] == nil) {
+		mos[NSStringFromClass(self.class)] = [[NSMutableArray alloc] init];
+	}
+	return mos;						// Ack!
 }
 
 - init
 {
 	if (self = [super init]) {
-	actorType = (int)[self class];
-	[[[self class] instanceList] addObjectIfAbsent:self];
+	actorType = (uintptr_t)[self class];
+	[(NSMutableArray*)[[self class] instanceList] addObject:self];
 	}
 	return self;
 }
@@ -118,15 +113,15 @@ CGFloat gx, gy;
 {
 //	[self erase];
 	if (buffered && (eraseRect.size.width > 0))
-		[cacheMgr displayRect:&eraseRect];
+		[cacheMgr displayRect:eraseRect];
 	employed = NO;
 	return self;
 }
 
 - (void)erase
 {
-	id mgr = (buffered ? cacheMgr : displayMgr);
-	[mgr erase:&eraseRect];
+	id<DrawManager> mgr = (buffered ? cacheMgr : displayMgr);
+	[mgr erase:eraseRect];
 	if (!buffered) eraseRect.size.width = 0;
 }
 
@@ -147,15 +142,15 @@ CGFloat gx, gy;
 
 - (void)calcDrawRect
 {
-	drawRect.origin.x = floor(x - gx - distToCorner.width + xOffset);
-	drawRect.origin.y = floor(y - gy - distToCorner.height + yOffset);
+	drawRect.origin.x = floor(point.x - gx - distToCorner.width + xOffset);
+	drawRect.origin.y = floor(point.y - gy - distToCorner.height + yOffset);
 }
 
 - (void)moveBy:(float)dx :(float)dy
 {
-	x += dx;
+	point.x += dx;
 	collisionRect.origin.x += dx;
-	y += dy;
+	point.y += dy;
 	collisionRect.origin.y += dy;
 
 	// calculate offset into view
@@ -164,13 +159,13 @@ CGFloat gx, gy;
 
 - (void)moveTo:(float)newx :(float)newy
 {
+	[self moveToPoint:NSMakePoint(newx, newy)];
 }
 - (void)moveToPoint:(NSPoint)pt
 {
-	x = pt.x;
-	y = pt.y;
-	collisionRect.origin.x = x - distToCorner.width;
-	collisionRect.origin.y = y - distToCorner.height;
+	point = pt;
+	collisionRect.origin.x = point.x - distToCorner.width;
+	collisionRect.origin.y = point.y - distToCorner.height;
 	[self calcDrawRect];
 }
 
@@ -240,7 +235,7 @@ CGFloat gx, gy;
 	else if ((eraseRect.size.width > 0) && buffered)
 	{
 		// we have an erasure region to flush to the screen
-		[cacheMgr displayRect:&eraseRect];
+		[cacheMgr displayRect:eraseRect];
 		eraseRect.size.width = 0;
 	}
 }
@@ -301,23 +296,23 @@ CGFloat gx, gy;
 	BOOL didWrap = NO;
 
 	// warp things around as necessary...
-	if (x > gx + distx)
+	if (point.x > gx + distx)
 	{
 		dx = -2*distx;
 		didWrap = YES;
 	}
-	else if (x < gx - distx)
+	else if (point.x < gx - distx)
 	{
 		dx = 2*distx;
 		didWrap = YES;
 	}
 
-	if (y > gy + disty)
+	if (point.y > gy + disty)
 	{
 		dy = -2*disty;
 		didWrap = YES;
 	}
-	else if (y < gy - disty)
+	else if (point.y < gy - disty)
 	{
 		dy = 2*disty;
 		didWrap = YES;
@@ -329,31 +324,31 @@ CGFloat gx, gy;
 
 - (BOOL) bounceAtDistance:(float)distx :(float)disty
 {
-	float dx=0,dy=0;
+	CGFloat dx=0,dy=0;
 	BOOL didBounce = NO;
 
-	if (x > gx + distx)
+	if (point.x > gx + distx)
 	{
-		dx = (gx + distx) - x;
+		dx = (gx + distx) - point.x;
 		if (xv > 0) xv = 0 - xv;
 		didBounce = YES;
 	}
-	else if (x < gx - distx)
+	else if (point.x < gx - distx)
 	{
-		dx = (gx - distx) - x;
+		dx = (gx - distx) - point.x;
 		if (xv < 0) xv = 0 - xv;
 		didBounce = YES;
 	}
 
-	if (y > gy + disty)
+	if (point.y > gy + disty)
 	{
-		dy = (gy + disty) - y;
+		dy = (gy + disty) - point.y;
 		if (yv > 0) yv = 0 - yv;
 		didBounce = YES;
 	}
-	else if (y < gy - disty)
+	else if (point.y < gy - disty)
 	{
-		dy = (gy - disty) - y;
+		dy = (gy - disty) - point.y;
 		if (yv < 0) yv = 0 - yv;
 		didBounce = YES;
 	}
@@ -411,19 +406,19 @@ extern XXLine *gln2;
 
 	dx = xv * 1024.;
 	dy = yv * 1024.;
-	pts[0].x = x;
-	pts[0].y = y;
-	pts[1].x = x - distToCorner.width;
-	pts[2].x = x + distToCorner.width;
+	pts[0].x = point.x;
+	pts[0].y = point.y;
+	pts[1].x = point.x - distToCorner.width;
+	pts[2].x = point.x + distToCorner.width;
 	if ((xv*yv) > 0.0)
 	{
-		pts[1].y = y + distToCorner.height;
-		pts[2].y = y - distToCorner.height;
+		pts[1].y = point.y + distToCorner.height;
+		pts[2].y = point.y - distToCorner.height;
 	}
 	else
 	{
-		pts[1].y = y - distToCorner.height;
-		pts[2].y = y + distToCorner.height;
+		pts[1].y = point.y - distToCorner.height;
+		pts[2].y = point.y + distToCorner.height;
 	}
 
 	for (i=0; i<3; i++)
@@ -438,13 +433,13 @@ extern XXLine *gln2;
 	{
 		if (yv > 0)	// bounce off bottom
 		{
-			[self moveTo:x :horozLn->y1-distToCorner.height];
+			[self moveTo:point.x :horozLn->y1-distToCorner.height];
 			[self setXvYv:xv :-yv sync:NO];
 			ret = 1;
 		}
 		else		// bounce off top
 		{
-			[self moveTo:x :horozLn->y1+distToCorner.height];
+			[self moveTo:point.x :horozLn->y1+distToCorner.height];
 			[self setXvYv:xv :-yv sync:NO];
 			ret = 2;
 		}
@@ -453,13 +448,13 @@ extern XXLine *gln2;
 	{
 		if (xv > 0)	// bounce off left
 		{
-			[self moveTo:horozLn->x1-distToCorner.width :y];
+			[self moveTo:horozLn->x1-distToCorner.width :point.y];
 			[self setXvYv:-xv :yv sync:NO];
 			ret = 3;
 		}
 		else		// bounce off top
 		{
-			[self moveTo:horozLn->x2+distToCorner.width :y];
+			[self moveTo:horozLn->x2+distToCorner.width :point.y];
 			[self setXvYv:-xv :yv sync:NO];
 			ret = 4;
 		}
@@ -518,16 +513,14 @@ extern XXLine *gln2;
 	else return 0;
 }
 
-- addFlushRects
+- (void)addFlushRects
 {
 	if (!coalesce(&eraseRect, &drawRect))
 	{
-		[cacheMgr displayRect:&drawRect];
+		[cacheMgr displayRect:drawRect];
 	}
 	if (eraseRect.size.width > 0)
-		[cacheMgr displayRect:&eraseRect];
-
-	return self;
+		[cacheMgr displayRect:eraseRect];
 }
 
 - (BOOL) isGroup

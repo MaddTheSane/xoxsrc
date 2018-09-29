@@ -1,8 +1,9 @@
 
 #import <AppKit/AppKit.h>
 #import "Actor.h"
+#import "DrawManager.h"
 
-@interface CacheManager: NSObject
+@interface CacheManager: NSObject <DrawManager>
 {
 	id cache;
 	NSMutableArray *displayList;			// everything needed to construct the cache
@@ -16,7 +17,7 @@
 - (void)newSize:(NSSize)sp;
 - (void)oneStep;
 - (void)erase:(NSRect)r;
-- displayRect:(NSRect *)r;
+- (void)displayRect:(NSRect)r;
 - (void)draw:(Actor *)sender;
 - setBackground:(BOOL)val;
 - background;

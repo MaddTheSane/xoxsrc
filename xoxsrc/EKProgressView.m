@@ -28,6 +28,8 @@
     return self;
 }
 
+@synthesize minimum=min;
+@synthesize maximum=max;
 // set the range
 - setMin:(int)m
 {
@@ -42,13 +44,13 @@
 }
 
 // set how far the progress bar is
-- setProgress:(int)p
+@synthesize progress;
+- (void)setProgress:(NSInteger)p
 {
     if ((progress >= min) && (progress <= max)) {
 	progress = p;
 	[self setNeedsDisplay:YES];
     }
-    return self;
 }
 
 // manually set the direction of the fill
@@ -59,32 +61,26 @@
     return self;
 }
 
-// set the fill color
-- setFillColor:(NSColor*)color
-{
-    fillColor = color;
-    return self;
-}
+@synthesize fillColor;
 
-- drawSelf:(const NSRect *)rects :(int)c
+- (void)drawRect:(NSRect)dirtyRect
 {
     NSRect r;
-    int distance;
-	int tmax = max;
+    NSInteger distance;
+	NSInteger tmax = max;
 	if (tmax == min) tmax++;
-    
-    PSsetgray(0.667);
-    NSRectFill(&frame);
-    NXSetColor(fillColor);
+	
+	[[NSColor darkGrayColor] set];
+    NSRectFill(self.frame);
+	[fillColor set];
     if (orientation == HORIZONTAL) {
-	distance = (progress - min) * NX_WIDTH(&frame) / (tmax - min);
-	NXSetRect(&r,0,0,distance,NX_HEIGHT(&frame));
+	distance = (progress - min) * NSWidth(self.frame) / (tmax - min);
+		r = NSMakeRect(0, 0, distance, NSHeight(self.frame));
     } else {
-	distance = (progress - min) * NX_HEIGHT(&frame) / (tmax - min);
-	NXSetRect(&r,0,0,NX_WIDTH(&frame),distance);
+	distance = (progress - min) * NSHeight(self.frame) / (tmax - min);
+		r = NSMakeRect(0, 0, NSWidth(self.frame), distance);
     }
     NSRectFill(r);
-    return self;
 }
 
 @end

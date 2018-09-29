@@ -18,7 +18,7 @@
 	CGFloat theta;			// generally the direction of travel
 	CGFloat vel;				// used to determine xv & yv
 	CGFloat xv, yv;
-	CGFloat x, y;				// centroid position in universe
+	CGPoint point;				//!< centroid position in universe
 	unsigned changeTime;
 	int interval;
 	COLLISION_SHAPE collisionShape;
@@ -30,7 +30,7 @@
 	CGFloat radius;			// used for circular collisions
 	BOOL buffered;
 	NSSize distToCorner;
-	int actorType;
+	NSInteger actorType;
 
 	NSRect *complexShapePtr;	// a pointer to rect list or lines, as necessary
 	int complexShapeCnt;
@@ -84,7 +84,7 @@
 
 - (void)erase;
 
-- positionChanged;
+- (void)positionChanged;
 - (void)calcDxDy:(inout NSPoint *)dp;
 - (void)calcDrawRect;
 - (void)moveBy:(float)dx :(float)dy;
@@ -109,7 +109,7 @@
 - (NSImage*)findImageNamed:(NSImageName)name;
 + (NSImage*)findImageNamed:(NSImageName)name;
 + (void)cacheImage:(NSImageName)name;
-- addFlushRects;
+- (void)addFlushRects;
 - (BOOL) isGroup;
 
 @end

@@ -11,6 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol DrawManager <NSObject>
+- (void)oneStep;
+- (void)erase:(NSRect)r;
+- (void)displayRect:(NSRect)r;
 
 @end
 
