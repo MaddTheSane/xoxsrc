@@ -1,13 +1,2 @@
-FirstResponder = {
-    ACTIONS = {
-    };
-    SUPERCLASS = Object;
-};
-Boink = {
-    ACTIONS = {
-    };
-    OUTLETS = {
-	infoView;
-    };
-    SUPERCLASS = Object;
-};
+"Boink" = {ACTIONS = {}; OUTLETS = {infoView = id; }; SUPERCLASS = Object; };
+"FirstResponder" = {ACTIONS = {}; OUTLETS = {}; SUPERCLASS = NSObject; };
