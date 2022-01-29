@@ -52,14 +52,14 @@
 	return level;
 }
 
-- (GAME_STATUS) setStatus:(GAME_STATUS)newStatus
+- (XoXGameStatus) setStatus:(XoXGameStatus)newStatus
 {
-	GAME_STATUS oldStatus = gameStatus;
+	XoXGameStatus oldStatus = gameStatus;
 	gameStatus = newStatus;
 	return oldStatus;
 }
 
-- (GAME_STATUS)status
+- (XoXGameStatus)status
 {
 	return gameStatus;
 }

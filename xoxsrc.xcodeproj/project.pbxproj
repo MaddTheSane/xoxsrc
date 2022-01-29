@@ -11,6 +11,22 @@
 		5568285B215EBA9B0099E344 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5568285A215EBA9B0099E344 /* Assets.xcassets */; };
 		5568285E215EBA9B0099E344 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5568285C215EBA9B0099E344 /* MainMenu.xib */; };
 		55682861215EBA9B0099E344 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55682860215EBA9B0099E344 /* main.m */; };
+		557E3D1721603C6800BE9BAD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 557E3D1921603C6800BE9BAD /* Localizable.strings */; };
+		5591D77E27A4CCB90073E97D /* explosionM.png in Resources */ = {isa = PBXBuildFile; fileRef = 5591D77627A4CCB90073E97D /* explosionM.png */; };
+		5591D77F27A4CCB90073E97D /* shield.png in Resources */ = {isa = PBXBuildFile; fileRef = 5591D77727A4CCB90073E97D /* shield.png */; };
+		5591D78027A4CCB90073E97D /* ship.png in Resources */ = {isa = PBXBuildFile; fileRef = 5591D77827A4CCB90073E97D /* ship.png */; };
+		5591D78127A4CCB90073E97D /* bullets1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5591D77927A4CCB90073E97D /* bullets1.png */; };
+		5591D78227A4CCB90073E97D /* GameOver.png in Resources */ = {isa = PBXBuildFile; fileRef = 5591D77A27A4CCB90073E97D /* GameOver.png */; };
+		5591D78327A4CCB90073E97D /* flame1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5591D77B27A4CCB90073E97D /* flame1.png */; };
+		5591D78427A4CCB90073E97D /* explosionS.png in Resources */ = {isa = PBXBuildFile; fileRef = 5591D77C27A4CCB90073E97D /* explosionS.png */; };
+		5591D78527A4CCB90073E97D /* flame2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5591D77D27A4CCB90073E97D /* flame2.png */; };
+		5591D79427A4CD370073E97D /* XoXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5591D78C27A4CD370073E97D /* XoXKit.framework */; };
+		5591D79B27A4CD370073E97D /* XoXKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5591D79A27A4CD370073E97D /* XoXKitTests.m */; };
+		5591D79C27A4CD370073E97D /* XoXKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5591D78E27A4CD370073E97D /* XoXKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5591D79F27A4CD370073E97D /* XoXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5591D78C27A4CD370073E97D /* XoXKit.framework */; };
+		5591D7A027A4CD370073E97D /* XoXKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5591D78C27A4CD370073E97D /* XoXKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5591D7A827A4D0C00073E97D /* xoxDefs.h in Headers */ = {isa = PBXBuildFile; fileRef = 55EDCF3F215EC2000054C4F3 /* xoxDefs.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5591D7AA27A4D2280073E97D /* Graphics.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5591D7A927A4D2280073E97D /* Graphics.xcassets */; };
 		55D9816B215F220D0026DE58 /* xoxeroids.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF59215EC2000054C4F3 /* xoxeroids.xib */; };
 		55D9816C215F22240026DE58 /* sndEeOo.snd in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF87215EC2000054C4F3 /* sndEeOo.snd */; };
 		55D9816D215F22240026DE58 /* sndHi.snd in Resources */ = {isa = PBXBuildFile; fileRef = 55EDCF88215EC2000054C4F3 /* sndHi.snd */; };
@@ -55,6 +71,44 @@
 		55EDD063215F145A0054C4F3 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55EDD062215F145A0054C4F3 /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5591D79527A4CD370073E97D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5568284C215EBA9A0099E344 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5591D78B27A4CD370073E97D;
+			remoteInfo = XoXKit;
+		};
+		5591D79727A4CD370073E97D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5568284C215EBA9A0099E344 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 55682853215EBA9A0099E344;
+			remoteInfo = XoX;
+		};
+		5591D79D27A4CD370073E97D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5568284C215EBA9A0099E344 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5591D78B27A4CD370073E97D;
+			remoteInfo = XoXKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5591D7A427A4CD370073E97D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5591D7A027A4CD370073E97D /* XoXKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		55682854215EBA9A0099E344 /* XoX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XoX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55682857215EBA9A0099E344 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -64,11 +118,23 @@
 		5568285F215EBA9B0099E344 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55682860215EBA9B0099E344 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		55682862215EBA9B0099E344 /* xoxsrc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = xoxsrc.entitlements; sourceTree = "<group>"; };
+		557E3D1821603C6800BE9BAD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5591D77627A4CCB90073E97D /* explosionM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = explosionM.png; sourceTree = "<group>"; };
+		5591D77727A4CCB90073E97D /* shield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shield.png; sourceTree = "<group>"; };
+		5591D77827A4CCB90073E97D /* ship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship.png; sourceTree = "<group>"; };
+		5591D77927A4CCB90073E97D /* bullets1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullets1.png; sourceTree = "<group>"; };
+		5591D77A27A4CCB90073E97D /* GameOver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameOver.png; sourceTree = "<group>"; };
+		5591D77B27A4CCB90073E97D /* flame1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flame1.png; sourceTree = "<group>"; };
+		5591D77C27A4CCB90073E97D /* explosionS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = explosionS.png; sourceTree = "<group>"; };
+		5591D77D27A4CCB90073E97D /* flame2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flame2.png; sourceTree = "<group>"; };
+		5591D78C27A4CD370073E97D /* XoXKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XoXKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5591D78E27A4CD370073E97D /* XoXKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XoXKit.h; sourceTree = "<group>"; };
+		5591D79327A4CD370073E97D /* XoXKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XoXKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5591D79A27A4CD370073E97D /* XoXKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XoXKitTests.m; sourceTree = "<group>"; };
+		5591D7A927A4D2280073E97D /* Graphics.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Graphics.xcassets; sourceTree = "<group>"; };
 		55D98165215F21C40026DE58 /* Xoxeroids.XoX */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Xoxeroids.XoX; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D98167215F21C40026DE58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55D98197215F365C0026DE58 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		55D9819A216035090026DE58 /* dartx1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dartx1.png; sourceTree = "<group>"; };
-		55D9819B216035090026DE58 /* clawx1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clawx1.png; sourceTree = "<group>"; };
 		55EDCEAB215EC2000054C4F3 /* Actor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Actor.h; sourceTree = "<group>"; };
 		55EDCEAC215EC2000054C4F3 /* Actor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Actor.m; sourceTree = "<group>"; };
 		55EDCEAD215EC2000054C4F3 /* ActorMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActorMatrix.h; sourceTree = "<group>"; };
@@ -86,24 +152,16 @@
 		55EDCEBE215EC2000054C4F3 /* collisions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = collisions.m; sourceTree = "<group>"; };
 		55EDCEC2215EC2000054C4F3 /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
 		55EDCEC3215EC2000054C4F3 /* Bullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bullet.m; sourceTree = "<group>"; };
-		55EDCEC4215EC2000054C4F3 /* bullets1.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = bullets1.tiff; sourceTree = "<group>"; };
 		55EDCEC6215EC2000054C4F3 /* CommonStuff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonStuff.h; sourceTree = "<group>"; };
 		55EDCEC7215EC2000054C4F3 /* CommonStuff.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonStuff.m; sourceTree = "<group>"; };
 		55EDCEC9215EC2000054C4F3 /* Explosion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Explosion.h; sourceTree = "<group>"; };
 		55EDCECA215EC2000054C4F3 /* Explosion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Explosion.m; sourceTree = "<group>"; };
-		55EDCECB215EC2000054C4F3 /* explosionM.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = explosionM.tiff; sourceTree = "<group>"; };
-		55EDCECC215EC2000054C4F3 /* explosionS.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = explosionS.tiff; sourceTree = "<group>"; };
-		55EDCECD215EC2000054C4F3 /* flame1.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = flame1.tiff; sourceTree = "<group>"; };
-		55EDCECE215EC2000054C4F3 /* flame2.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = flame2.tiff; sourceTree = "<group>"; };
-		55EDCECF215EC2000054C4F3 /* GameOver.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = GameOver.tiff; sourceTree = "<group>"; };
 		55EDCED0215EC2000054C4F3 /* GOLetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GOLetter.h; sourceTree = "<group>"; };
 		55EDCED1215EC2000054C4F3 /* GOLetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GOLetter.m; sourceTree = "<group>"; };
 		55EDCED8215EC2000054C4F3 /* Shield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shield.h; sourceTree = "<group>"; };
 		55EDCED9215EC2000054C4F3 /* Shield.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shield.m; sourceTree = "<group>"; };
-		55EDCEDA215EC2000054C4F3 /* shield.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = shield.tiff; sourceTree = "<group>"; };
 		55EDCEDB215EC2000054C4F3 /* Ship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ship.h; sourceTree = "<group>"; };
 		55EDCEDC215EC2000054C4F3 /* Ship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ship.m; sourceTree = "<group>"; };
-		55EDCEDD215EC2000054C4F3 /* ship.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = ship.tiff; sourceTree = "<group>"; };
 		55EDCEDE215EC2000054C4F3 /* sndBullet1.snd */ = {isa = PBXFileReference; lastKnownFileType = file; path = sndBullet1.snd; sourceTree = "<group>"; };
 		55EDCEDF215EC2000054C4F3 /* sndBullet2.snd */ = {isa = PBXFileReference; lastKnownFileType = file; path = sndBullet2.snd; sourceTree = "<group>"; };
 		55EDCEE0215EC2000054C4F3 /* sndExplosion1.snd */ = {isa = PBXFileReference; lastKnownFileType = file; path = sndExplosion1.snd; sourceTree = "<group>"; };
@@ -210,6 +268,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5591D79F27A4CD370073E97D /* XoXKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5591D78927A4CD370073E97D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5591D79027A4CD370073E97D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5591D79427A4CD370073E97D /* XoXKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +312,8 @@
 				55EDD030215EC65C0054C4F3 /* Boink */,
 				55EDD01E215EC3CA0054C4F3 /* Spaxe Wars */,
 				55EDD01F215EC4360054C4F3 /* Xoxeroids */,
+				5591D78D27A4CD370073E97D /* XoXKit */,
+				5591D79927A4CD370073E97D /* XoXKitTests */,
 				55682855215EBA9A0099E344 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -248,6 +324,8 @@
 				55682854215EBA9A0099E344 /* XoX.app */,
 				55EDD02A215EC62C0054C4F3 /* Boink.XoX */,
 				55D98165215F21C40026DE58 /* Xoxeroids.XoX */,
+				5591D78C27A4CD370073E97D /* XoXKit.framework */,
+				5591D79327A4CD370073E97D /* XoXKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -298,8 +376,48 @@
 				5568285F215EBA9B0099E344 /* Info.plist */,
 				55682860215EBA9B0099E344 /* main.m */,
 				55682862215EBA9B0099E344 /* xoxsrc.entitlements */,
+				557E3D1921603C6800BE9BAD /* Localizable.strings */,
 			);
 			path = xoxsrc;
+			sourceTree = "<group>";
+		};
+		5591D77527A4CCB90073E97D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5591D78627A4CD040073E97D /* Graphics */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5591D78627A4CD040073E97D /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				5591D77927A4CCB90073E97D /* bullets1.png */,
+				5591D77627A4CCB90073E97D /* explosionM.png */,
+				5591D77C27A4CCB90073E97D /* explosionS.png */,
+				5591D77B27A4CCB90073E97D /* flame1.png */,
+				5591D77D27A4CCB90073E97D /* flame2.png */,
+				5591D77A27A4CCB90073E97D /* GameOver.png */,
+				5591D77727A4CCB90073E97D /* shield.png */,
+				5591D77827A4CCB90073E97D /* ship.png */,
+			);
+			name = Graphics;
+			sourceTree = "<group>";
+		};
+		5591D78D27A4CD370073E97D /* XoXKit */ = {
+			isa = PBXGroup;
+			children = (
+				5591D78E27A4CD370073E97D /* XoXKit.h */,
+			);
+			path = XoXKit;
+			sourceTree = "<group>";
+		};
+		5591D79927A4CD370073E97D /* XoXKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				5591D79A27A4CD370073E97D /* XoXKitTests.m */,
+			);
+			path = XoXKitTests;
 			sourceTree = "<group>";
 		};
 		55EDD01A215EC2670054C4F3 /* Sounds */ = {
@@ -315,21 +433,6 @@
 				55EDCEE5215EC2000054C4F3 /* sndWarp.snd */,
 			);
 			name = Sounds;
-			sourceTree = "<group>";
-		};
-		55EDD01B215EC2740054C4F3 /* Graphics */ = {
-			isa = PBXGroup;
-			children = (
-				55EDCEC4215EC2000054C4F3 /* bullets1.tiff */,
-				55EDCECB215EC2000054C4F3 /* explosionM.tiff */,
-				55EDCECC215EC2000054C4F3 /* explosionS.tiff */,
-				55EDCECD215EC2000054C4F3 /* flame1.tiff */,
-				55EDCECE215EC2000054C4F3 /* flame2.tiff */,
-				55EDCECF215EC2000054C4F3 /* GameOver.tiff */,
-				55EDCEDA215EC2000054C4F3 /* shield.tiff */,
-				55EDCEDD215EC2000054C4F3 /* ship.tiff */,
-			);
-			name = Graphics;
 			sourceTree = "<group>";
 		};
 		55EDD01C215EC27C0054C4F3 /* Classes */ = {
@@ -358,8 +461,8 @@
 		55EDD01D215EC3900054C4F3 /* Common Effects */ = {
 			isa = PBXGroup;
 			children = (
+				5591D77527A4CCB90073E97D /* Resources */,
 				55EDD01C215EC27C0054C4F3 /* Classes */,
-				55EDD01B215EC2740054C4F3 /* Graphics */,
 				55EDD01A215EC2670054C4F3 /* Sounds */,
 			);
 			name = "Common Effects";
@@ -369,6 +472,7 @@
 		55EDD01E215EC3CA0054C4F3 /* Spaxe Wars */ = {
 			isa = PBXGroup;
 			children = (
+				5591D7A927A4D2280073E97D /* Graphics.xcassets */,
 				55EDD021215EC50E0054C4F3 /* Graphics */,
 				55EDD020215EC4FC0054C4F3 /* Classes */,
 				55EDCF17215EC2000054C4F3 /* spaxewars.xib */,
@@ -414,8 +518,6 @@
 		55EDD021215EC50E0054C4F3 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
-				55D9819B216035090026DE58 /* clawx1.png */,
-				55D9819A216035090026DE58 /* dartx1.png */,
 				55EDCF10215EC2000054C4F3 /* claw0.tiff */,
 				55EDCF11215EC2000054C4F3 /* claw1.tiff */,
 				55EDCF12215EC2000054C4F3 /* claw2.tiff */,
@@ -493,6 +595,18 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		5591D78727A4CD370073E97D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5591D7A827A4D0C00073E97D /* xoxDefs.h in Headers */,
+				5591D79C27A4CD370073E97D /* XoXKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		55682853215EBA9A0099E344 /* XoX */ = {
 			isa = PBXNativeTarget;
@@ -501,15 +615,54 @@
 				55682850215EBA9A0099E344 /* Sources */,
 				55682851215EBA9A0099E344 /* Frameworks */,
 				55682852215EBA9A0099E344 /* Resources */,
+				5591D7A427A4CD370073E97D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5591D79E27A4CD370073E97D /* PBXTargetDependency */,
 			);
 			name = XoX;
 			productName = xoxsrc;
 			productReference = 55682854215EBA9A0099E344 /* XoX.app */;
 			productType = "com.apple.product-type.application";
+		};
+		5591D78B27A4CD370073E97D /* XoXKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5591D7A127A4CD370073E97D /* Build configuration list for PBXNativeTarget "XoXKit" */;
+			buildPhases = (
+				5591D78727A4CD370073E97D /* Headers */,
+				5591D78827A4CD370073E97D /* Sources */,
+				5591D78927A4CD370073E97D /* Frameworks */,
+				5591D78A27A4CD370073E97D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XoXKit;
+			productName = XoXKit;
+			productReference = 5591D78C27A4CD370073E97D /* XoXKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5591D79227A4CD370073E97D /* XoXKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5591D7A527A4CD370073E97D /* Build configuration list for PBXNativeTarget "XoXKitTests" */;
+			buildPhases = (
+				5591D78F27A4CD370073E97D /* Sources */,
+				5591D79027A4CD370073E97D /* Frameworks */,
+				5591D79127A4CD370073E97D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5591D79627A4CD370073E97D /* PBXTargetDependency */,
+				5591D79827A4CD370073E97D /* PBXTargetDependency */,
+			);
+			name = XoXKitTests;
+			productName = XoXKitTests;
+			productReference = 5591D79327A4CD370073E97D /* XoXKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		55D98164215F21C40026DE58 /* Xoxeroids */ = {
 			isa = PBXNativeTarget;
@@ -558,6 +711,13 @@
 					55682853215EBA9A0099E344 = {
 						CreatedOnToolsVersion = 10.0;
 					};
+					5591D78B27A4CD370073E97D = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					5591D79227A4CD370073E97D = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 55682853215EBA9A0099E344;
+					};
 					55D98164215F21C40026DE58 = {
 						CreatedOnToolsVersion = 10.0;
 					};
@@ -573,7 +733,6 @@
 			knownRegions = (
 				en,
 				Base,
-				English,
 			);
 			mainGroup = 5568284B215EBA9A0099E344;
 			productRefGroup = 55682855215EBA9A0099E344 /* Products */;
@@ -583,6 +742,8 @@
 				55682853215EBA9A0099E344 /* XoX */,
 				55EDD029215EC62C0054C4F3 /* Boink */,
 				55D98164215F21C40026DE58 /* Xoxeroids */,
+				5591D78B27A4CD370073E97D /* XoXKit */,
+				5591D79227A4CD370073E97D /* XoXKitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -592,12 +753,36 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5591D78327A4CCB90073E97D /* flame1.png in Resources */,
+				5591D77F27A4CCB90073E97D /* shield.png in Resources */,
+				5591D78227A4CCB90073E97D /* GameOver.png in Resources */,
+				5591D78027A4CCB90073E97D /* ship.png in Resources */,
 				5568285B215EBA9B0099E344 /* Assets.xcassets in Resources */,
 				55EDD018215EC2000054C4F3 /* xoxext.tiff in Resources */,
 				55EDD019215EC2000054C4F3 /* xoxicon.tiff in Resources */,
+				557E3D1721603C6800BE9BAD /* Localizable.strings in Resources */,
 				5568285E215EBA9B0099E344 /* MainMenu.xib in Resources */,
+				5591D78427A4CCB90073E97D /* explosionS.png in Resources */,
 				55EDCFBD215EC2000054C4F3 /* Xox.xib in Resources */,
 				55EDCFC8215EC2000054C4F3 /* README.rtf in Resources */,
+				5591D78127A4CCB90073E97D /* bullets1.png in Resources */,
+				5591D77E27A4CCB90073E97D /* explosionM.png in Resources */,
+				5591D7AA27A4D2280073E97D /* Graphics.xcassets in Resources */,
+				5591D78527A4CCB90073E97D /* flame2.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5591D78A27A4CD370073E97D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5591D79127A4CD370073E97D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,6 +833,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5591D78827A4CD370073E97D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5591D78F27A4CD370073E97D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5591D79B27A4CD370073E97D /* XoXKitTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		55D98161215F21C40026DE58 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -681,6 +881,24 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		5591D79627A4CD370073E97D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5591D78B27A4CD370073E97D /* XoXKit */;
+			targetProxy = 5591D79527A4CD370073E97D /* PBXContainerItemProxy */;
+		};
+		5591D79827A4CD370073E97D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 55682853215EBA9A0099E344 /* XoX */;
+			targetProxy = 5591D79727A4CD370073E97D /* PBXContainerItemProxy */;
+		};
+		5591D79E27A4CD370073E97D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5591D78B27A4CD370073E97D /* XoXKit */;
+			targetProxy = 5591D79D27A4CD370073E97D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		5568285C215EBA9B0099E344 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
@@ -688,6 +906,14 @@
 				5568285D215EBA9B0099E344 /* Base */,
 			);
 			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		557E3D1921603C6800BE9BAD /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				557E3D1821603C6800BE9BAD /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		55EDCEF5215EC2000054C4F3 /* Xox.xib */ = {
@@ -870,6 +1096,102 @@
 			};
 			name = Release;
 		};
+		5591D7A227A4CD370073E97D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 C.W. Betts. All rights reserved.";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.github.maddthesane.XoXKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5591D7A327A4CD370073E97D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 C.W. Betts. All rights reserved.";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.github.maddthesane.XoXKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5591D7A627A4CD370073E97D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.github.maddthesane.XoXKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/XoX.app/Contents/MacOS/XoX";
+			};
+			name = Debug;
+		};
+		5591D7A727A4CD370073E97D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.github.maddthesane.XoXKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/XoX.app/Contents/MacOS/XoX";
+			};
+			name = Release;
+		};
 		55D98169215F21C40026DE58 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -945,6 +1267,24 @@
 			buildConfigurations = (
 				55682866215EBA9B0099E344 /* Debug */,
 				55682867215EBA9B0099E344 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5591D7A127A4CD370073E97D /* Build configuration list for PBXNativeTarget "XoXKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5591D7A227A4CD370073E97D /* Debug */,
+				5591D7A327A4CD370073E97D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5591D7A527A4CD370073E97D /* Build configuration list for PBXNativeTarget "XoXKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5591D7A627A4CD370073E97D /* Debug */,
+				5591D7A727A4CD370073E97D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -22,7 +22,7 @@
 	unsigned changeTime;
 	int interval;
 	COLLISION_SHAPE collisionShape;
-	ALLIANCE alliance;
+	XoXAlliance alliance;
 	TIER tier;
 	NSRect drawRect;		// position in cache
 	NSRect eraseRect;		// optimization, draw rect likely to overlap erasure
@@ -51,7 +51,7 @@
 	frameSize:(NSSize *) size
 	numFrames:(int)frames
 	shape: (COLLISION_SHAPE)shape
-	alliance: (ALLIANCE)al
+	alliance: (XoXAlliance)al
 	radius: (float) r
 	buffered: (BOOL) b
 	x: (float)xp
@@ -67,7 +67,7 @@
 			  frameSize:(NSSize) size
 			  numFrames:(int)frames
 				  shape: (COLLISION_SHAPE)shape
-			   alliance: (ALLIANCE)al
+			   alliance: (XoXAlliance)al
 				 radius: (CGFloat) r
 			   buffered: (BOOL) b
 				  point: (NSPoint) pt

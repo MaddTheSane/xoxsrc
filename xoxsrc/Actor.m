@@ -48,7 +48,7 @@ CGFloat gx, gy;
 	frameSize:(NSSize *) size
 	numFrames:(int)frames
 	shape: (COLLISION_SHAPE)shape
-	alliance: (ALLIANCE)al
+	alliance: (XoXAlliance)al
 	radius: (float) r
 	buffered: (BOOL) b
 	x: (float)xp
@@ -65,7 +65,7 @@ CGFloat gx, gy;
 			  frameSize:(NSSize) size
 			  numFrames:(int)frames
 				  shape: (COLLISION_SHAPE)shape
-			   alliance: (ALLIANCE)al
+			   alliance: (XoXAlliance)al
 				 radius: (CGFloat) r
 			   buffered: (BOOL) b
 				  point: (NSPoint) pt

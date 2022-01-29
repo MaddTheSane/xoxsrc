@@ -92,7 +92,7 @@ static XXLine myShape[] = {
 		dude->xv = -dude->xv;
 		dude->yv = -dude->yv;
 		dude->theta += PI;
-		dude->alliance = DESTROYALL;
+		dude->alliance = XoXDestroyAll;
 		return NO;
 	}
 	return YES;

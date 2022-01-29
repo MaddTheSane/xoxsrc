@@ -137,12 +137,12 @@ int xx_mine, xx_minefragment, xx_rocket, xx_ship;
 		if (--lives <= 0)
 		{
 			[GOLetter gameOver:self];
-			[actorMgr setGameStatus: GAME_DYING];
+			[actorMgr setGameStatus: XoXGameDying];
 		}
 		shipCount--;
 	}
 	else if((theActor->actorType == xx_spacespin) && 
-			([actorMgr gameStatus] != GAME_DYING))
+			([actorMgr gameStatus] != XoXGameDying))
 		[actorMgr requestLevel: level+1];
 	else if(theActor->actorType == xx_explosion)
 	{
@@ -150,7 +150,7 @@ int xx_mine, xx_minefragment, xx_rocket, xx_ship;
 		{
 			if (shipCount <= 0)
 			{
-				if ([actorMgr gameStatus] != GAME_DYING)
+				if ([actorMgr gameStatus] != XoXGameDying)
 					[actorMgr requestLevel: level];
 			}
 //			else if (badGuyCount <= 0)
@@ -241,9 +241,9 @@ int xx_mine, xx_minefragment, xx_rocket, xx_ship;
 	return self;
 }
 
-- (COLLISION_PARADIGM)collisionParadigm
+- (XoXCollisionParadigm)collisionParadigm
 {
-	return GOOD_V_EVIL;
+	return XoXCollisionGoodVersusEvil;
 }
 
 - init

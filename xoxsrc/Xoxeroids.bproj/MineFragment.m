@@ -32,7 +32,7 @@ static int lastMineFragSound;
 		frameSize:&tsize
 		numFrames:6
 		shape: CIRCLE
-		alliance: DESTROYALL
+		alliance: XoXDestroyAll
 		radius: tsize2.width
 		buffered: NO
 		x: dude->x

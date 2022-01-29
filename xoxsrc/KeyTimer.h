@@ -10,8 +10,8 @@
 	int tag;
 	BOOL keyDown;
 	BOOL beganThisFrame;
-	float keyVal;			// how long key down, scaled to 10 fps
-	long keyVbl;			// how many vertical blanks key was down
+	float keyVal;			//!< how long key down, scaled to 10 fps
+	long keyVbl;			//!< how many vertical blanks key was down
 	BOOL downEntireFrame;
 	id delegate;
 }
@@ -26,10 +26,3 @@
 - cancelAt:(long)time from:sender;
 
 @end
-
-
-
-
-
-
-

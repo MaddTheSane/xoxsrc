@@ -1,4 +1,5 @@
 
+#import <Foundation/Foundation.h>
 #include <CoreGraphics/CGBase.h>
 
 @class BackView;
@@ -6,6 +7,7 @@
 @class DisplayManager;
 @class ActorMgr;
 @class SoundMgr;
+@protocol Scenario;
 
 extern float randBetween(float a, float b);
 
@@ -14,7 +16,7 @@ extern NSTimeInterval timeScale;
 extern CGFloat maxTimeScale;
 extern CGFloat collisionDistance;
 extern CGFloat gx, gy;
-extern id scenario;
+extern id<Scenario> scenario;
 extern ActorMgr *actorMgr;
 extern CacheManager *cacheMgr;
 extern DisplayManager *displayMgr;
@@ -36,24 +38,30 @@ typedef enum {
 	LINEARRAY,
 	} COLLISION_SHAPE;
 
-typedef enum {
-	ALL_V_ALL,
-	GOOD_V_EVIL,
-	COLL_OTHER,
-	} COLLISION_PARADIGM;
+typedef NS_ENUM(int, XoXCollisionParadigm) {
+    XoXCollisionAllVersusAll,
+	XoXCollisionGoodVersusEvil,
+	XoXCollisionOther,
+};
 
-typedef enum {GOOD, EVIL, DESTROYALL, NEUTRAL, GOODNBAD} ALLIANCE;
-// with the GOOD_V_EVIL paradigm, 
-// DESTROYALL is collided against GOOD and EVIL but not other DESTROYALL
-// GOODNBAD goes both in GOOD and EVIL lists; it will collide twice with
-//		DESTROYALL...
+typedef NS_ENUM(int, XoXAlliance) {
+    XoXGood,
+    XoXEvil,
+    XoXDestroyAll,
+    XoXNeutral,
+    XoXGoodAndBad
+};
+// with the XoXCollisionGoodVersusEvil paradigm, 
+// XoXDestroyAll is collided against XoXGood and XoXEvil but not other XoXDestroyAll
+// XoXGoodAndBad goes both in XoXGood and XoXEvil lists; it will collide twice with
+//		XoXDestroyAll...
 
-typedef enum {
-	GAME_RUNNING = 0,
-	GAME_PAUSED,
-	GAME_DYING,
-	GAME_DEAD,
-	} GAME_STATUS;
+typedef NS_ENUM(int, XoXGameStatus) {
+	XoXGameRunning = 0,
+	XoXGamePaused,
+	XoXGameDying,
+	XoXGameDead,
+};
 
 // tiers could be used to determine which objects go in front of others;
 // I currently don't do this since proper sorting is expensive and/or tricky
@@ -63,13 +71,13 @@ typedef enum {
 	NORMALT= 0,
 	SHIPT= 10,
 	TOPT= 20
-	} TIER;
+} TIER;
 
 typedef enum {LEFT= 1, STRAIGHT=0, RIGHT= -1} ROTATION;
 
 #define PI (3.141592653589)
 
-typedef struct {
+typedef struct XXLine {
     CGFloat x1,y1,x2,y2;
 } XXLine;
 

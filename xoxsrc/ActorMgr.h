@@ -10,7 +10,7 @@
 	int requestedLevel;
 	NSMutableArray	*goodList, *badList, *destroyAllList;
 	id collider;
-	GAME_STATUS gameStatus;
+	XoXGameStatus gameStatus;
 }
 
 - createCollisionLists;
@@ -21,7 +21,7 @@
 - (Actor *) newActor:(int)actorType for:sender tag:(int)tag;
 - destroyActor:theActor;
 - (void)draw;
-@property (nonatomic) GAME_STATUS gameStatus;
+@property (nonatomic) XoXGameStatus gameStatus;
 
 @end
 

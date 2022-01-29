@@ -84,9 +84,9 @@ static int whichImage;
 	return self;
 }
 
-- (COLLISION_PARADIGM)collisionParadigm
+- (XoXCollisionParadigm)collisionParadigm
 {
-	return GOOD_V_EVIL;
+	return XoXCollisionGoodVersusEvil;
 }
 
 

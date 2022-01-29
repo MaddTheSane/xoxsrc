@@ -51,7 +51,7 @@
 		[self fire];
 	}
 	if ((timeInMS >= fireTime2) && 
-			([actorMgr gameStatus] != GAME_DYING))
+			([actorMgr gameStatus] != XoXGameDying))
 	{
 		[self fire2];
 	}

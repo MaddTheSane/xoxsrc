@@ -13,7 +13,7 @@
 	NSString *path;
 	NSMutableArray<NSString*> *altPaths;
 	int level;
-	GAME_STATUS gameStatus;
+	XoXGameStatus gameStatus;
 }
 
 - (id)init;
@@ -27,8 +27,8 @@
 - (void)discardAltPaths;
 - (int) setLevel:(int)newLevel;
 - (int) level;
-- (GAME_STATUS) setStatus:(GAME_STATUS)newStatus;
-- (GAME_STATUS)status;
+- (XoXGameStatus) setStatus:(XoXGameStatus)newStatus;
+- (XoXGameStatus)status;
 
 @end
 

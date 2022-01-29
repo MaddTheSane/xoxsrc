@@ -81,11 +81,11 @@ extern BOOL pauseState;
 	NSInteger i, j, count, count2;
 	Actor *actor1, *actor2;
 	NSArray *list1=nil, *list2=nil;
-	COLLISION_PARADIGM how2collide;
+	XoXCollisionParadigm how2collide;
 
 	how2collide = [scenario collisionParadigm];
 
-	if (how2collide == GOOD_V_EVIL)
+	if (how2collide == XoXCollisionGoodVersusEvil)
 	{	int k;
 
 		[self createCollisionLists];
@@ -125,7 +125,7 @@ extern BOOL pauseState;
 			}
 		}
 	}
-	else if (how2collide == ALL_V_ALL)
+	else if (how2collide ==     XoXCollisionAllVersusAll)
 	{	// unoptimized, collide all objects against each other
 		count = [employedList count];
 		for (i=0; i<count-1; i++)
@@ -173,7 +173,7 @@ extern BOOL pauseState;
 
 	[employedList makeObjectsPerformSelector:@selector(oneStep)];
 
-	if (gameStatus == GAME_RUNNING)
+	if (gameStatus == XoXGameRunning)
 		[collider doCollisions];
 
 	// retire actors as necessary
@@ -276,22 +276,22 @@ extern BOOL pauseState;
 	[employedList makeObjectsPerformSelector:@selector(draw)];
 }
 
-- (void)setGameStatus:(GAME_STATUS)gs
+- (void)setGameStatus:(XoXGameStatus)gs
 {
 	id thinker = [NSApp delegate];
 
 	gameStatus = gs;
 	switch (gameStatus)
 	{
-	case GAME_RUNNING:
+	case XoXGameRunning:
 		[thinker setPauseState:(pauseState & ~(16 | 32))];
 		break;
-	case GAME_PAUSED:
+	case XoXGamePaused:
 		[thinker setPauseState:(pauseState | 16)];
 		break;
-	case GAME_DYING:
+	case XoXGameDying:
 		break;
-	case GAME_DEAD:
+	case XoXGameDead:
 		[thinker setPauseState:(pauseState | 32)];
 		break;
 	}

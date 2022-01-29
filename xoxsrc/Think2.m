@@ -32,7 +32,7 @@ extern BOOL obscureMouse;
 	[self loadGamesFrom:buf];
 	ptr = NXGetDefaultValue([NSApp appName], "altGamePath");
 	if (ptr) [self loadGamesFrom:ptr];
-	[self loadGamesFrom: [[NSBundle mainBundle] directory]];
+	[self loadGamesFrom: [[[NSBundle mainBundle] bundlePath] stringByDeletingLastPathComponent]];
 	[self loadGamesFrom: @"/LocalLibrary/XoxGames"];
 
 	[gameList sort];
@@ -76,10 +76,10 @@ extern BOOL obscureMouse;
 {
 	// sender is the game browser, or nil if sent from within the app
 	int i;
-	int index = [[scenarioBrowser matrixInColumn:0] selectedRow];
+	NSInteger index = [[scenarioBrowser matrixInColumn:0] selectedRow];
 	NSRect f1;
 	id inspector;
-	GAME_STATUS gs;
+	XoXGameStatus gs;
 	
 	if (sender && (index == gameIndex)) return;
 
@@ -91,7 +91,7 @@ extern BOOL obscureMouse;
 
 	scenario = [self getScenario];
 
-	if (sender) NXWriteDefault([NSApp appName], "whichGame", [gameList nameAt: index]);
+	if (sender) [NSUserDefaults.standardUserDefaults setObject:[gameList nameAtIndex: index] forKey:@"whichGame"];
 
 	gx = gy = 0;
 	maxTimeScale = 1.5;
@@ -109,7 +109,7 @@ extern BOOL obscureMouse;
 	[invisibleInfoBox setContentView: nullInfoBox];
 	[nullInfoBox sizeTo:f1.size.width :f1.size.height byWindowCorner:3];
 
-	[inspector setFrame:&f1];
+	[inspector setFrame:f1];
 	[invisibleInfoBox setContentView: inspector];
 	[[invisibleInfoBox window] display];
 
@@ -123,7 +123,7 @@ extern BOOL obscureMouse;
 
 	[self setPauseState: (pauseState & ~1)];
 	gs = [(GameInfo *)[gameList objectAtIndex: gameIndex] status];
-	if (gs == GAME_DYING || gs == GAME_DEAD)
+	if (gs == XoXGameDying || gs == XoXGameDead)
 		[self newGame:self];
 	else [actorMgr setGameStatus:gs];
 
@@ -136,7 +136,7 @@ extern BOOL obscureMouse;
 
 - installGameViewsIntoWindow:w
 {
-	int i;
+	NSInteger i;
 
 	for (i=([[gcontentView subviews] count]-1); i>=0; i--)
 	{	[[[gcontentView subviews] objectAtIndex:i] removeFromSuperview];
@@ -146,7 +146,7 @@ extern BOOL obscureMouse;
 	gcontentView = [w contentView];
 
 	if ([scenario respondsToSelector:@selector(tile)])
-		mainView = [scenario tile];
+		mainView = [(id<Scenario>)scenario tile];
 	else
 	{
 		NSRect r;
@@ -178,31 +178,30 @@ extern BOOL obscureMouse;
 	[theCell setLeaf:YES];
 }
 
-- (int)browser:sender createRowsForColumn:(int)column inMatrix:(NSMatrix*)matrix
+- (NSInteger)browser:(NSBrowser *)sender createRowsForColumn:(NSInteger)column inMatrix:(NSMatrix*)matrix
 {
-	const char *ptr;
+	NSString *ptr;
 	int i;
 	
 	// this shouldn't happen...
-	if (browserValid) return [matrix cellCount];
+	if (browserValid) return [matrix cells].count;
 
 	for (i = 0; i < [gameList count]; i++)
 		[self addCellWithString:NXLocalString([gameList nameAt: i], 0, 0)
 			at:(i) toMatrix:matrix];
 			
-	ptr = NXGetDefaultValue([NSApp appName], "whichGame");
-	if (ptr)
-	{
-	    for (i = 0; i < [gameList count]; i++)
-		if (strcmp(ptr, [gameList nameAt: i]) == 0)
-		{
-		    gameIndex = i;
-		    break;
+	ptr = [NSUserDefaults.standardUserDefaults stringForKey:@"whichGame"];
+	if (ptr) {
+		for (i = 0; i < [gameList count]; i++) {
+			if ([ptr isEqualToString:[gameList nameAtIndex: i]]) {
+				gameIndex = i;
+				break;
+			}
 		}
 	}
 	
 	browserValid = YES;
-	return [matrix cellCount];
+	return [matrix cells].count;
 }
 
 //  Dynamically load all object files found in the specified directory
@@ -213,8 +212,8 @@ extern BOOL obscureMouse;
 {
     DIR *dir;
     struct direct *de;
-    char path[MAXPATHLEN];
-    char name[60];
+    NSString *path;
+    NSString *name;
 	char *iptr;
 	GameInfo *m;
 	BOOL validName;
@@ -246,7 +245,7 @@ extern BOOL obscureMouse;
 
 		// check if the name matches a module already loaded
 		numstrings = [gameList count];
-		strcpy(name, de->d_name);
+		name = @(de->d_name);
 
 		// Smash out the '.' in "Foo.XoX"
 		if (iptr = rindex(name, '.'))
@@ -254,7 +253,7 @@ extern BOOL obscureMouse;
 
 		for (i=0; i< numstrings; i++)
 		{
-			if (!strcmp(name, [gameList nameAt:i]))
+			if (!strcmp(name, [gameList nameAtIndex:i]))
 			{
 				// we already have a module with this name, but will save the path anyway
 				validName = NO;
@@ -279,39 +278,39 @@ extern BOOL obscureMouse;
 {
 	id progressWin = [progressView window];
 
-	if (![gameList scenarioAt:gameIndex])
+	if (![gameList scenarioAtIndex:gameIndex])
 	{
 		id theClass = nil;
 		GameInfo *gi;
 		id theScenario = nil;
 
-		gi = [gameList objectAt: gameIndex];
+		gi = [gameList objectAtIndex: gameIndex];
 
 		if ([gi path])	// we have path but no instance, must load class
 		{
-			char str[80];
+			NSString *str;
 			[progressView setProgress:0];
 			// fixme - these strings should be localizable...
-			sprintf(str,"Loading %s",[gi scenarioName]);
+			str = [NSString stringWithFormat:@"Loading %@", [gi scenarioName]];
 			[[progressView window] setTitle:str];
-			[[statusText setStringValue:"loading code"] display];
+			[statusText setStringValue:@"loading code"];
 			[progressWin makeKeyAndOrderFront:self];
-			NXPing();
+			//NXPing();
 
 			do
 			{
-				NXBundle *myBundle = [[NXBundle allocFromZone:bundleZone]
-					initForDirectory:[gi path]];
+				NSBundle *myBundle = [[NSBundle alloc]
+					initWithPath:[gi path]];
 
 				theClass = [myBundle classNamed:[gi scenarioName]];
 
 				if (theClass)
 				{
-					theScenario = [[theClass allocFromZone:scenarioZone] init];
+					theScenario = [[theClass alloc] init];
 				}
 				else
 				{
-					[myBundle free];
+					myBundle = nil;
 				}
 
 			} while ((!theClass) && [gi useNextPath]);
@@ -333,7 +332,7 @@ extern BOOL obscureMouse;
 		[gi setScenario:theScenario];
 	}
 
-	return [gameList scenarioAt:gameIndex];
+	return [gameList scenarioAtIndex:gameIndex];
 }
 
 - (void)createBigWindowIfNecessary
@@ -353,7 +352,7 @@ extern BOOL obscureMouse;
 }
 
 // delegate method invoked by window
-- windowWillResize:sender toSize:(NSSize *)frameSize
+- (NSSize)windowWillResize:(NSWindow *)sender toSize:(NSSize)frameSize
 {
 	NSRect frm = {0,0,0,0};
 	NSRect cnt = {0,0,0,0};
@@ -361,14 +360,14 @@ extern BOOL obscureMouse;
 	if (![scenario respondsTo:@selector(newWindowContentSize:)])
 		return self;
 
-	frm.size = *frameSize;
+	frm.size = frameSize;
 	[Window getContentRect:&cnt forFrameRect:&frm style:[sender style]];
 	if ([scenario newWindowContentSize:&(cnt.size)])
 	{
 		[Window getFrameRect:&frm forContentRect:&cnt style:[sender style]];
-		*frameSize = frm.size;
+		frameSize = frm.size;
 	}
-	return self;
+	return frameSize;
 }
 
 - (void)adjustLittleWindowSize

@@ -30,7 +30,7 @@
 typedef struct ActorMatrixData {
 	BOOL autofill;
 	id whichClass;
-	ALLIANCE alliance;
+	XoXAlliance alliance;
 	float x;
 	float y;
 	float theta;

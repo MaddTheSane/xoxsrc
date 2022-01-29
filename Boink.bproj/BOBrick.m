@@ -56,7 +56,7 @@
 		if (alliance == EVIL)
 		{
 			changeTime = timeInMS+1500;
-			alliance = NEUTRAL;
+			alliance = XoXNeutral;
 			[cacheMgr retileRect:&drawRect];
 		}
 		else

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment version="1040" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -25,19 +25,19 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="131" y="512" width="555" height="290"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1055"/>
             <view key="contentView" id="8">
                 <rect key="frame" x="0.0" y="0.0" width="555" height="290"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <box title="Box" titlePosition="noTitle" id="28">
+                    <box fixedFrame="YES" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="28">
                         <rect key="frame" x="34" y="15" width="232" height="255"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <view key="contentView" id="6e3-Lm-i4X">
-                            <rect key="frame" x="2" y="2" width="228" height="251"/>
+                            <rect key="frame" x="3" y="3" width="226" height="249"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <button verticalHuggingPriority="750" imageHugsTitle="YES" id="47">
+                                <button verticalHuggingPriority="750" fixedFrame="YES" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="47">
                                     <rect key="frame" x="133" y="152" width="47" height="20"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <buttonCell key="cell" type="push" title="Info" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="79">
@@ -48,14 +48,14 @@
                                         <action selector="makeKeyAndOrderFront:" target="43" id="52"/>
                                     </connections>
                                 </button>
-                                <box borderType="none" title="Title" titlePosition="noTitle" id="31">
+                                <box fixedFrame="YES" borderType="none" title="Title" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="31">
                                     <rect key="frame" x="-3" y="204" width="226" height="47"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <view key="contentView" id="qLY-9s-oF0">
                                         <rect key="frame" x="0.0" y="0.0" width="226" height="47"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <textField verticalHuggingPriority="750" id="32">
+                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="32">
                                                 <rect key="frame" x="5" y="3" width="213" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <textFieldCell key="cell" alignment="center" title="Spaxe Wars" id="76">
@@ -64,7 +64,7 @@
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <textField verticalHuggingPriority="750" id="37">
+                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="37">
                                                 <rect key="frame" x="8" y="0.0" width="213" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <textFieldCell key="cell" alignment="center" title="Spaxe Wars" id="77">
@@ -73,7 +73,7 @@
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <textField verticalHuggingPriority="750" id="19">
+                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="19">
                                                 <rect key="frame" x="6" y="2" width="213" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <textFieldCell key="cell" alignment="center" title="Spaxe Wars" id="75">
@@ -86,14 +86,14 @@
                                     </view>
                                     <font key="titleFont" size="12" name="Helvetica"/>
                                 </box>
-                                <box borderType="none" title="Title" titlePosition="noTitle" id="4">
+                                <box fixedFrame="YES" borderType="none" title="Title" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="4">
                                     <rect key="frame" x="69" y="188" width="80" height="23"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <view key="contentView" id="6bn-ym-Kb8">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="23"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <textField verticalHuggingPriority="750" id="10">
+                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="10">
                                                 <rect key="frame" x="5" y="1" width="69" height="22"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <textFieldCell key="cell" alignment="center" title="by sam" id="73">
@@ -102,7 +102,7 @@
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <textField verticalHuggingPriority="750" id="39">
+                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="39">
                                                 <rect key="frame" x="6" y="0.0" width="69" height="22"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <textFieldCell key="cell" alignment="center" title="by sam" id="74">
@@ -115,8 +115,8 @@
                                     </view>
                                     <font key="titleFont" size="12" name="Helvetica"/>
                                 </box>
-                                <matrix verticalHuggingPriority="750" mode="highlight" allowsEmptySelection="NO" autosizesCells="NO" id="33">
-                                    <rect key="frame" x="133" y="5" width="88" height="72"/>
+                                <matrix verticalHuggingPriority="750" fixedFrame="YES" mode="highlight" allowsEmptySelection="NO" autosizesCells="NO" translatesAutoresizingMaskIntoConstraints="NO" id="33">
+                                    <rect key="frame" x="101" y="5" width="88" height="72"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <size key="cellSize" width="88" height="15"/>
@@ -149,14 +149,14 @@
                                         <action selector="adjustSettings:" target="-2" id="59"/>
                                     </connections>
                                 </matrix>
-                                <box title="Bullets" id="20">
+                                <box fixedFrame="YES" title="Bullets" translatesAutoresizingMaskIntoConstraints="NO" id="20">
                                     <rect key="frame" x="5" y="5" width="80" height="74"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <view key="contentView" id="FRv-kD-GGC">
-                                        <rect key="frame" x="2" y="2" width="76" height="56"/>
+                                        <rect key="frame" x="3" y="3" width="74" height="56"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <matrix verticalHuggingPriority="750" allowsEmptySelection="NO" autosizesCells="NO" id="14">
+                                            <matrix verticalHuggingPriority="750" fixedFrame="YES" allowsEmptySelection="NO" autosizesCells="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14">
                                                 <rect key="frame" x="5" y="5" width="66" height="51"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -190,14 +190,14 @@
                                     </view>
                                     <font key="titleFont" size="12" name="Helvetica"/>
                                 </box>
-                                <box title="Gravity" id="41">
+                                <box fixedFrame="YES" title="Gravity" translatesAutoresizingMaskIntoConstraints="NO" id="41">
                                     <rect key="frame" x="5" y="87" width="82" height="92"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <view key="contentView" id="Jnk-dm-ccB">
-                                        <rect key="frame" x="2" y="2" width="78" height="74"/>
+                                        <rect key="frame" x="3" y="3" width="76" height="74"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <matrix verticalHuggingPriority="750" allowsEmptySelection="NO" autosizesCells="NO" id="34">
+                                            <matrix verticalHuggingPriority="750" fixedFrame="YES" allowsEmptySelection="NO" autosizesCells="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34">
                                                 <rect key="frame" x="5" y="5" width="68" height="69"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -235,19 +235,17 @@
                                     </view>
                                     <font key="titleFont" size="12" name="Helvetica"/>
                                 </box>
-                                <box title="Meteors" id="38">
+                                <box fixedFrame="YES" title="Meteors" translatesAutoresizingMaskIntoConstraints="NO" id="38">
                                     <rect key="frame" x="98" y="106" width="120" height="39"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <view key="contentView" id="Cp1-vK-QvU">
-                                        <rect key="frame" x="2" y="2" width="116" height="21"/>
+                                        <rect key="frame" x="3" y="3" width="114" height="21"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <slider verticalHuggingPriority="750" id="42">
+                                            <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="42">
                                                 <rect key="frame" x="5" y="5" width="106" height="16"/>
                                                 <autoresizingMask key="autoresizingMask"/>
-                                                <sliderCell key="cell" alignment="left" maxValue="6.4000000000000004" tickMarkPosition="below" sliderType="linear" id="78">
-                                                    <font key="font" size="12" name="Helvetica"/>
-                                                </sliderCell>
+                                                <sliderCell key="cell" controlSize="small" alignment="left" maxValue="6.4000000000000004" tickMarkPosition="below" sliderType="linear" id="78"/>
                                                 <connections>
                                                     <action selector="adjustSettings:" target="-2" id="60"/>
                                                 </connections>
@@ -260,18 +258,18 @@
                         </view>
                         <font key="titleFont" size="12" name="Helvetica"/>
                     </box>
-                    <customView id="17" customClass="SWScoreView">
+                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="17" customClass="SWScoreView">
                         <rect key="frame" x="411" y="39" width="60" height="229"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
                     </customView>
-                    <box borderType="none" title="Title" titlePosition="noTitle" id="9">
+                    <box fixedFrame="YES" borderType="none" title="Title" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="9">
                         <rect key="frame" x="301" y="40" width="60" height="229"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
                         <view key="contentView" id="mY6-sl-z2y">
                             <rect key="frame" x="0.0" y="0.0" width="60" height="229"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textField verticalHuggingPriority="750" id="21">
+                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="21">
                                     <rect key="frame" x="4" y="139" width="56" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" state="on" alignment="center" title="0" drawsBackground="YES" id="67">
@@ -280,7 +278,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </textFieldCell>
                                 </textField>
-                                <textField verticalHuggingPriority="750" id="26">
+                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="26">
                                     <rect key="frame" x="4" y="29" width="56" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     <textFieldCell key="cell" state="on" alignment="center" title="0" drawsBackground="YES" id="69">
@@ -289,7 +287,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </textFieldCell>
                                 </textField>
-                                <textField verticalHuggingPriority="750" id="35">
+                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="35">
                                     <rect key="frame" x="15" y="124" width="32" height="15"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" alignment="center" title="Kills" drawsBackground="YES" id="71">
@@ -298,7 +296,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </textFieldCell>
                                 </textField>
-                                <textField verticalHuggingPriority="750" id="51">
+                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="51">
                                     <rect key="frame" x="15" y="14" width="32" height="15"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     <textFieldCell key="cell" alignment="center" title="Kills" drawsBackground="YES" id="72">
@@ -307,16 +305,16 @@
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </textFieldCell>
                                 </textField>
-                                <box title="Box" titlePosition="noTitle" id="23">
+                                <box fixedFrame="YES" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="23">
                                     <rect key="frame" x="-2" y="0.0" width="6" height="229"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                     <view key="contentView" id="S9p-8P-xzd">
-                                        <rect key="frame" x="2" y="2" width="2" height="225"/>
+                                        <rect key="frame" x="3" y="3" width="0.0" height="223"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </view>
                                     <font key="titleFont" size="12" name="Helvetica"/>
                                 </box>
-                                <button imageHugsTitle="YES" id="27">
+                                <button fixedFrame="YES" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="27">
                                     <rect key="frame" x="19" y="162" width="24" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="bevel" title="Cell" image="dartx1" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="70">
@@ -324,7 +322,7 @@
                                         <font key="font" metaFont="cellTitle"/>
                                     </buttonCell>
                                 </button>
-                                <button imageHugsTitle="YES" id="25">
+                                <button fixedFrame="YES" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="25">
                                     <rect key="frame" x="18" y="52" width="27" height="31"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     <buttonCell key="cell" type="bevel" title="Cell" image="clawx1" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="68">
@@ -344,12 +342,12 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="268" y="474" width="387" height="320"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1055"/>
             <view key="contentView" id="36">
                 <rect key="frame" x="0.0" y="0.0" width="387" height="320"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="24">
+                    <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24">
                         <rect key="frame" x="-1" y="-1" width="389" height="322"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <clipView key="contentView" id="tIV-vm-pcj">
@@ -361,8 +359,8 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="372" height="320"/>
-                                    <size key="maxSize" width="372" height="10000000"/>
+                                    <size key="minSize" width="349" height="320"/>
+                                    <size key="maxSize" width="389" height="10000000"/>
                                     <attributedString key="textStorage">
                                         <fragment>
                                             <mutableString key="content">This game is patterned after the arcade classic "Space Wars" (which incidentally was made by Cinematronics which was located about 2 miles from the place I grew up.  I used to ride my bicycle over there as a kid and they would show me the games they were working on.  I digress.)
@@ -427,6 +425,10 @@ The red player's controls (on the keypad) are:
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="G14-2i-gb0">
+                            <rect key="frame" x="-100" y="-100" width="372" height="15"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
                         <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="83">
                             <rect key="frame" x="373" y="1" width="15" height="320"/>
                             <autoresizingMask key="autoresizingMask"/>

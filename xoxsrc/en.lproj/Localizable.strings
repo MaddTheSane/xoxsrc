@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  xoxsrc
+
+  Created by C.W. Betts on 9/29/18.
+  Copyright © 2018 C.W. Betts. All rights reserved.
+*/
+
+"Could not load class: %@" = "Could not load class: %@";
