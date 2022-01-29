@@ -145,7 +145,7 @@ BOOL actorsCollide(Actor *a1, Actor *a2)
 
 //	if (a1->alliance == a2->alliance ||
 	if (a1 == a2 ||
-			a1->alliance == NEUTRAL || a2->alliance == NEUTRAL ||
+			a1->alliance == XoXNeutral || a2->alliance == XoXNeutral ||
 			!a1->employed || !a2->employed ||
 		!NSIntersectsRect(a1->collisionRect,a2->collisionRect))
 		return NO;

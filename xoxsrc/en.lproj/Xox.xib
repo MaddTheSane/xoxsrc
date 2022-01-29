@@ -162,6 +162,31 @@
                         </items>
                     </menu>
                 </menuItem>
+                <menuItem title="Window" id="CTI-6I-lEC">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Window" systemMenu="window" id="Rgm-5Q-KXu">
+                        <items>
+                            <menuItem title="Minimize" keyEquivalent="m" id="Njc-0u-aZK">
+                                <connections>
+                                    <action selector="performMiniaturize:" target="-1" id="Kh8-V2-2JF"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Zoom" id="Kl8-qD-pWo">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="performZoom:" target="-1" id="ZKT-tH-jAa"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="8Lg-Rr-oae"/>
+                            <menuItem title="Bring All to Front" id="UGf-gj-Qyn">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="arrangeInFront:" target="-1" id="BuN-LJ-qkG"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
                 <menuItem title="Help" id="kXl-Op-uHb">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Help" systemMenu="help" id="VcO-1R-v1h">
@@ -175,6 +200,7 @@
                     </menu>
                 </menuItem>
             </items>
+            <point key="canvasLocation" x="-238" y="324"/>
         </menu>
         <customObject id="38" userLabel="Thinker" customClass="Thinker">
             <connections>

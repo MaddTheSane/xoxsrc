@@ -5,7 +5,7 @@
 extern float sw_gravity;
 extern int sw_bulletSpeed, sw_bounce;
 
-@interface SpaxeWars:Object <Scenario>
+@interface SpaxeWars:NSObject <Scenario>
 {
 	id goodShip;
 	id badShip;

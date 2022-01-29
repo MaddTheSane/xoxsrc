@@ -10,7 +10,7 @@
 	return [super activate:sender :tag];
 }
 
-- oneStep
+- (void)oneStep
 {
 	float oldgx = gx, oldgy = gy;
 	gx = (myGx += xrate * timeScale);
@@ -18,6 +18,5 @@
 	[super oneStep];
 	gx = oldgx;
 	gy = oldgy;
-	return self;
 }
 @end

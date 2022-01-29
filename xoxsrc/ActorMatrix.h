@@ -43,6 +43,4 @@ typedef struct ActorMatrixData {
 	float actHeight;
 	unsigned interval;
 	BOOL modifyThetas;
-	} MatrixData;
-
-
+} MatrixData;

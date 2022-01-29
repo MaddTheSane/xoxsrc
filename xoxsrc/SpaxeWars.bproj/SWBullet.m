@@ -1,6 +1,7 @@
 
 #import "SWBullet.h"
 #import "SpaxeWars.h"
+#include <tgmath.h>
 
 extern int sw_nastyShots;
 extern int sw_bulletMass;
@@ -46,14 +47,13 @@ extern int sw_bulletMass;
 	return self;
 }
 
-- positionChanged
+- (void)positionChanged
 {
 	if (sw_bounce)
 		[self bounceAtDistance: (xOffset) :(yOffset)];
 	else
 		[self wrapAtDistance: (xOffset+10) :(yOffset+10)];
 	[super positionChanged];
-	return self;
 }
 
 #define MAXV 105

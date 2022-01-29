@@ -15,7 +15,7 @@
 		frameSize:&tsize
 		numFrames:6
 		shape: CIRCLE
-		alliance: DESTROYALL
+		alliance: XoXDestroyAll
 		radius: 8
 		buffered: YES
 		x: 0

@@ -5,6 +5,7 @@
 #import "ActorMgr.h"
 #import "Thinker.h"
 #import <math.h>
+#import <tgmath.h>
 
 #define ROT_SPEED (37.0)
 #define ACCEL (3.0)

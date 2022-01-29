@@ -3,18 +3,18 @@
 
 @implementation SWScoreView
 
-- initFrame:(const NSRect *)frameRect
+- (instancetype)initWithFrame:(NSRect)frameRect
 {
-	[super initFrame:frameRect];
-	[self setAutoresizeSubviews:YES];
+	if (self = [super initWithFrame:frameRect]) {
+		self.autoresizesSubviews = YES;
+	}
 	return self;
 }
 
-- drawSelf:(const NSRect *)rects :(int)rectCount
+- (void)drawRect:(NSRect)rects
 {
-	PSsetrgbcolor(0,0,0);
+	[NSColor.blackColor set];
 	NSRectFill(rects);
-	return self;
 }
 
 

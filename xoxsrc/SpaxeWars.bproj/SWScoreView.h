@@ -1,7 +1,7 @@
 
 #import <AppKit/AppKit.h>
 
-@interface SWScoreView:View
+@interface SWScoreView:NSView
 {
 }
 

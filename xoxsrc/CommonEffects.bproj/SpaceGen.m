@@ -33,7 +33,7 @@ extern BOOL pauseState;
 	return self;
 }
 
-- oneStep
+- (void)oneStep
 {
 	int i;
 	NSRect *t;
@@ -76,14 +76,12 @@ extern BOOL pauseState;
 		w[i] = p->display;
 	}
 
-	PSsetgray(NX_BLACK);
+	[NSColor.blackColor set];
 	NSRectFillList(b, NSTARS);
-	PSsetgray(NX_WHITE);
+	[NSColor.whiteColor set];
 	NSRectFillList(w, NSTARS);
 
 	t=b; b=w; w=t;
-
-	return self;
 }
 
 - activate:sender :(int)tag
@@ -96,7 +94,7 @@ extern BOOL pauseState;
 		frameSize:&tsize
 		numFrames:1
 		shape: NOSHAPE
-		alliance: NEUTRAL
+		alliance: XoXNeutral
 		radius: 1
 		buffered: NO
 		x: -1000000
@@ -112,18 +110,17 @@ extern BOOL pauseState;
 	return self;
 }
 
-- scheduleDrawing
+- (void)scheduleDrawing
 {
-	return self;
+
 }
 
-- draw
+- (void)draw
 {
-	if (pauseState == 0) return self;
+	if (pauseState == 0) return;
 
-	PSsetgray(NX_WHITE);
+	[NSColor.whiteColor set];
 	NSRectFillList(w, NSTARS);
-	return self;
 }
 
 @end
